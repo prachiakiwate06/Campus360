@@ -1,0 +1,2434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Campus360 - Navigate Smart. Connect Better. Explore campus navigator, event hub, student collaboration, lost & found, and academic quick help.">
+  <title>Campus360 | Navigate Smart. Connect Better.</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <!-- Modern Google Typography: Poppins & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ================= TOP NAVIGATION BAR ================= -->
+  <header class="navbar" id="main-navbar">
+    <div class="nav-container">
+      <div class="brand-group">
+        <a href="#dashboard" class="brand-logo" id="brand-home-link" title="Campus360 - Navigate Smart. Connect Better.">
+          <img src="logo.png" alt="Campus360 - Navigate Smart. Connect Better." class="navbar-brand-img">
+        </a>
+      </div>
+
+      <!-- Navigation Links (8 Core Pillars) -->
+      <nav class="nav-menu" id="nav-menu">
+        <button class="nav-link active" data-tab="dashboard" id="nav-btn-dashboard" title="Campus Dashboard">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/>
+            <rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>
+          </svg>
+          <span>Dashboard</span>
+        </button>
+
+        <button class="nav-link" data-tab="navigator" id="nav-btn-navigator" title="Smart Campus Navigator">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+          </svg>
+          <span>Navigator</span>
+          <span class="badge-dot" style="background-color: var(--secondary);"></span>
+        </button>
+
+        <button class="nav-link" data-tab="events" id="nav-btn-events" title="Campus Events & Hackathons">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+            <line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
+          </svg>
+          <span>Events</span>
+          <span class="badge-dot" style="background-color: var(--accent-amber);"></span>
+        </button>
+
+        <button class="nav-link" data-tab="campus-connect" id="nav-btn-campus-connect" title="Campus Connect - Aspirant & Senior Community">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+          <span>Campus Connect</span>
+          <span class="sparkle-badge sparkle-badge-teal" style="font-size: 0.65rem; padding: 0.1rem 0.45rem;">New</span>
+        </button>
+
+        <button class="nav-link" data-tab="teammates" id="nav-btn-teammates" title="Student Collaboration & Teammate Finder">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <span>Collab</span>
+        </button>
+
+        <button class="nav-link" data-tab="help-hub" id="nav-btn-help-hub" title="Student Help Hub & Study Notes">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+          </svg>
+          <span>Help Hub</span>
+          <span class="badge-counter" id="help-badge">24</span>
+        </button>
+
+        <button class="nav-link" data-tab="lost-found" id="nav-btn-lost-found" title="Campus Lost & Found">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
+          <span>Lost & Found</span>
+        </button>
+
+        <button class="nav-link" data-tab="campus-help" id="nav-btn-campus-help" title="Campus Quick Help & Academic Forms">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          <span>Quick Help</span>
+        </button>
+      </nav>
+
+      <!-- Right Controls: Theme Toggle, DB Status, Quick Action Button & Profile Chip -->
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle-btn" id="btn-theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle theme">
+          🌙
+        </button>
+
+        <!-- Database Status Button -->
+        <button class="db-status-pill" id="btn-db-status" title="Database Configuration: Local Storage Active (Ready for Firebase)">
+          <span class="db-pulse-dot"></span>
+          <span id="nav-db-label">Local DB</span>
+        </button>
+
+        <button class="btn btn-primary btn-sm" id="btn-quick-post">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>New Post</span>
+        </button>
+
+        <div class="user-chip" id="user-profile-chip" title="Active Campus Student Profile">
+          <div class="user-avatar">
+            <span>DY</span>
+          </div>
+          <div class="user-info">
+            <span class="user-name">Alex Chen</span>
+            <span class="user-role">DYP CS '26</span>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= SECTION 1: WELCOME HERO ================= -->
+  <section class="hero-section">
+    <div class="hero-backdrop"></div>
+    <div class="hero-content">
+      <div class="hero-tag" style="margin-bottom: 14px;">
+        <span class="hero-tag-pulse"></span>
+        <span>DYP CAMPUS 360 • SMART CAMPUS PLATFORM</span>
+        <span style="color: var(--accent-amber);">✦</span>
+      </div>
+
+      <div class="tagline-highlight-wrapper" style="margin-bottom: 16px;">
+        <span class="sparkle-accent left" style="color: var(--primary); font-size: 1.25rem;">✦</span>
+        <span class="tagline-highlight" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: #ffffff; font-size: 1.15rem; font-weight: 700; padding: 6px 24px; border-radius: 9999px; box-shadow: 0 4px 16px var(--primary-glow); display: inline-block;">
+          Your Campus. Your Community. Your Compass.
+        </span>
+        <span class="sparkle-accent right" style="color: var(--primary); font-size: 1.25rem;">✦</span>
+      </div>
+
+      <h1 class="hero-title">
+        DYP CAMPUS<span class="text-gradient">360</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Discover your campus, explore opportunities, connect with students, and take the next step towards your future.
+      </p>
+
+      <!-- Welcome Hero 3 Action Buttons -->
+      <div class="hero-action-buttons">
+        <button class="btn-hero-explore" data-goto-tab="navigator" id="hero-btn-explore">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+          <span>Explore Campus</span>
+        </button>
+        <button class="btn-hero-events" data-goto-tab="events" id="hero-btn-events">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          <span>Discover Events</span>
+        </button>
+        <button class="btn-hero-connect" data-goto-tab="campus-connect" id="hero-btn-connect">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          <span>Connect with Seniors</span>
+        </button>
+      </div>
+
+      <!-- SECTION 2: GLOBAL UNIFIED SEARCH -->
+      <div class="hero-search-wrapper">
+        <div class="hero-search-box">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="global-search-input" placeholder="Search classrooms, labs, events, seniors, hackathons, lost items, or academic forms..." autocomplete="off">
+          <button class="btn btn-search" id="btn-global-search">Search</button>
+        </div>
+
+        <!-- Unified Live Search Dropdown -->
+        <div class="unified-search-dropdown" id="unified-search-dropdown">
+          <!-- Populated dynamically by app.js as user types -->
+        </div>
+      </div>
+
+      <!-- Quick Action Badges -->
+      <div class="hero-quick-actions">
+        <span class="quick-label">Trending Now:</span>
+        <button class="quick-pill" data-query="FindClass">#FindMyNextClass</button>
+        <button class="quick-pill" data-query="CampusConnect">#CampusConnect</button>
+        <button class="quick-pill" data-query="Hackathon">#Hackathons</button>
+        <button class="quick-pill" data-query="Lab 304">#Lab304</button>
+        <button class="quick-pill" data-query="Lost & Found">#LostItems</button>
+        <button class="quick-pill" data-query="Bonafide">#BonafideForm</button>
+        <button class="quick-pill" data-query="Python">#PythonTeammates</button>
+      </div>
+
+      <!-- SECTION 3: QUICK ACCESS HUBS (6 Campus Pillars) -->
+      <div class="quick-hub-wrapper">
+        <div class="quick-hub-title">
+          <span>⚡ Direct Access Hubs</span>
+        </div>
+        <div class="quick-hub-grid">
+          <!-- Card 1: Navigator -->
+          <div class="quick-hub-card" data-goto-tab="navigator">
+            <div class="quick-hub-icon-box icon-box-sky">🧭</div>
+            <h4 class="quick-hub-name">Smart Navigator</h4>
+            <p class="quick-hub-desc">Classrooms, labs, auditorium & floor-by-floor walking routes</p>
+            <span class="quick-hub-action">Open Navigator →</span>
+          </div>
+
+          <!-- Card 2: Events Hub -->
+          <div class="quick-hub-card" data-goto-tab="events">
+            <div class="quick-hub-icon-box icon-box-amber">📅</div>
+            <h4 class="quick-hub-name">Events Hub</h4>
+            <p class="quick-hub-desc">Hackathons, tech workshops, coding duels & registration tickets</p>
+            <span class="quick-hub-action">Explore Events →</span>
+          </div>
+
+          <!-- Card 3: Teammates -->
+          <div class="quick-hub-card" data-goto-tab="teammates">
+            <div class="quick-hub-icon-box icon-box-indigo">👥</div>
+            <h4 class="quick-hub-name">Student Collab</h4>
+            <p class="quick-hub-desc">Find hackathon squads, capstone partners & skill exchange</p>
+            <span class="quick-hub-action">Find Teammates →</span>
+          </div>
+
+          <!-- Card 4: Lost & Found -->
+          <div class="quick-hub-card" data-goto-tab="lost-found">
+            <div class="quick-hub-icon-box icon-box-emerald">🔍</div>
+            <h4 class="quick-hub-name">Lost & Found</h4>
+            <p class="quick-hub-desc">Report missing IDs, calculators, keys & claim recovered belongings</p>
+            <span class="quick-hub-action">View Listings →</span>
+          </div>
+
+          <!-- Card 5: Campus Quick Help -->
+          <div class="quick-hub-card" data-goto-tab="campus-help">
+            <div class="quick-hub-icon-box icon-box-purple">📄</div>
+            <h4 class="quick-hub-name">Campus Help</h4>
+            <p class="quick-hub-desc">Academic forms, counter timings, syllabus & official portals</p>
+            <span class="quick-hub-action">View Services →</span>
+          </div>
+
+          <!-- Card 6: Campus Connect -->
+          <div class="quick-hub-card" data-goto-tab="campus-connect">
+            <div class="quick-hub-icon-box icon-box-connect">🎓</div>
+            <h4 class="quick-hub-name">Campus Connect</h4>
+            <p class="quick-hub-desc">Connect with DYP seniors, ask admission queries & read student advice</p>
+            <span class="quick-hub-action" style="color: var(--secondary);">Connect with Seniors →</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= MAIN CONTENT CONTAINER ================= -->
+  <main class="main-container">
+
+    <!-- ================= TAB 1: CAMPUS DASHBOARD ================= -->
+    <section class="tab-section active" id="section-dashboard">
+      
+      <!-- Metrics Overview Header -->
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Campus Community Pulse</h2>
+          <p class="section-desc">Real-time overview of peer collaboration, active requests, and upcoming campus activities.</p>
+        </div>
+        <div class="status-live-indicator">
+          <span class="pulse-dot"></span>
+          <span>Live Campus Feed</span>
+        </div>
+      </div>
+
+      <!-- KPI Summary Stat Cards -->
+      <div class="metrics-grid">
+        <!-- Metric 1: Help Hub Requests -->
+        <div class="stat-card" data-target-tab="help-hub">
+          <div class="stat-icon stat-icon-indigo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <div class="stat-details">
+            <span class="stat-label">Active Help Requests</span>
+            <h3 class="stat-value" id="kpi-help-count">24</h3>
+            <span class="stat-meta text-emerald">↑ 6 resolved today</span>
+          </div>
+        </div>
+
+        <!-- Metric 2: Upcoming Events -->
+        <div class="stat-card" data-target-tab="events">
+          <div class="stat-icon stat-icon-amber">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <div class="stat-details">
+            <span class="stat-label">Upcoming Events</span>
+            <h3 class="stat-value" id="kpi-event-count">8</h3>
+            <span class="stat-meta text-blue">3 hackathons scheduled</span>
+          </div>
+        </div>
+
+        <!-- Metric 3: Collaboration Opportunities -->
+        <div class="stat-card" data-target-tab="teammates">
+          <div class="stat-icon stat-icon-cyan">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div class="stat-details">
+            <span class="stat-label">Open Collaboration Spots</span>
+            <h3 class="stat-value" id="kpi-teammate-count">15</h3>
+            <span class="stat-meta text-purple">12 projects recruiting</span>
+          </div>
+        </div>
+
+        <!-- Metric 4: Peer Knowledge Shared -->
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-emerald">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <div class="stat-details">
+            <span class="stat-label">Study Notes & Guides</span>
+            <h3 class="stat-value" id="kpi-notes-count">42</h3>
+            <span class="stat-meta text-muted">Across 14 departments</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard Two-Column Layout -->
+      <div class="dashboard-grid">
+        
+        <!-- Left Main Area: Recent Activity & Previews -->
+        <div class="dashboard-main-col">
+          
+          <!-- Recent Help Requests Preview Widget -->
+          <div class="content-panel">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <div class="panel-icon-circle icon-indigo">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="panel-title">Recent Help Requests</h3>
+                  <span class="panel-subtitle">Students seeking academic, code, or project guidance</span>
+                </div>
+              </div>
+              <button class="btn btn-ghost btn-sm" data-goto-tab="help-hub">View All →</button>
+            </div>
+            
+            <div class="card-list" id="dashboard-help-list">
+              <!-- Dynamically populated by app.js -->
+            </div>
+          </div>
+
+          <!-- Featured Campus Events Widget -->
+          <div class="content-panel">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <div class="panel-icon-circle icon-amber">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="panel-title">Featured Campus Events & Hackathons</h3>
+                  <span class="panel-subtitle">Upcoming tech workshops, competitions, and seminars</span>
+                </div>
+              </div>
+              <button class="btn btn-ghost btn-sm" data-goto-tab="events">View All →</button>
+            </div>
+
+            <div class="card-list" id="dashboard-events-list">
+              <!-- Dynamically populated by app.js -->
+            </div>
+          </div>
+
+          <!-- SECTION 4: CAMPUS CONNECT HIGHLIGHT -->
+          <div class="content-panel dashboard-connect-highlight" style="border-left: 4px solid var(--secondary);">
+            <div class="highlight-header">
+              <div>
+                <span class="sparkle-badge sparkle-badge-teal" style="margin-bottom: 0.4rem;">New Pillar</span>
+                <h3 class="panel-title" style="font-size: 1.35rem; margin-top: 0.35rem; color: var(--text-main);">
+                  Your College Journey Starts with a Conversation.
+                </h3>
+                <span class="panel-subtitle" style="font-size: 0.88rem;">
+                  Have questions about college? Connect with current students and learn from their real experiences.
+                </span>
+              </div>
+              <button class="btn btn-primary btn-sm" data-goto-tab="campus-connect" id="btn-explore-connect-dash">
+                Explore Campus Connect →
+              </button>
+            </div>
+
+            <!-- Mentor Profiles Preview Grid -->
+            <div class="highlight-mentors-preview" id="dash-mentors-preview">
+              <!-- Dynamically populated by app.js -->
+            </div>
+
+            <!-- Popular Aspirant Questions Quick Preview -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.15rem; margin-top: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <strong style="font-size: 0.86rem; color: var(--text-main); display: flex; align-items: center; gap: 0.4rem;">
+                  <span>💬</span> Trending Aspirant Questions
+                </strong>
+                <button class="btn btn-ghost btn-sm" data-goto-tab="campus-connect" style="font-size: 0.78rem;">View All Q&As →</button>
+              </div>
+              <div id="dash-questions-preview" style="display: flex; flex-direction: column; gap: 0.65rem;">
+                <!-- Dynamically populated by app.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 6: STUDENT STORIES WIDGET -->
+          <div class="content-panel">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <div class="panel-icon-circle icon-indigo">
+                  <span style="font-size: 1.1rem;">📖</span>
+                </div>
+                <div>
+                  <h3 class="panel-title">Student Experience Stories</h3>
+                  <span class="panel-subtitle">Real experiences, advice, and tips written by DYP seniors</span>
+                </div>
+              </div>
+              <button class="btn btn-ghost btn-sm" data-goto-tab="campus-connect">Read All Stories →</button>
+            </div>
+            <div class="card-list" id="dashboard-stories-list">
+              <!-- Dynamically populated by app.js -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Side Area: Campus Announcements, Mentors & Guidelines -->
+        <aside class="dashboard-side-col">
+          
+          <!-- Campus Announcements Panel -->
+          <div class="content-panel panel-highlight">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <span class="alert-bell">🔔</span>
+                <h3 class="panel-title">Campus Announcements</h3>
+              </div>
+            </div>
+            <div class="announcements-list" id="announcements-container">
+              <!-- Populated by app.js -->
+            </div>
+          </div>
+
+          <!-- Top Student Mentors / Contributors -->
+          <div class="content-panel">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <span class="panel-emoji">⭐</span>
+                <h3 class="panel-title">Top Peer Helpers</h3>
+              </div>
+              <span class="pill-label">This Week</span>
+            </div>
+            <div class="mentors-list" id="mentors-container">
+              <!-- Populated by app.js -->
+            </div>
+          </div>
+
+          <!-- Quick Campus Resources -->
+          <div class="content-panel">
+            <div class="panel-header">
+              <h3 class="panel-title">Quick Campus Resources</h3>
+            </div>
+            <div class="resource-links">
+              <a href="#help-hub" class="resource-item" data-goto-tab="help-hub">
+                <div class="resource-icon">📚</div>
+                <div>
+                  <strong>Academic Study Repositories</strong>
+                  <p>Course notes, past exams & cheatsheets</p>
+                </div>
+              </a>
+              <a href="#events" class="resource-item" data-goto-tab="events">
+                <div class="resource-icon">💻</div>
+                <div>
+                  <strong>Innovation Lab Bookings</strong>
+                  <p>Reserve 3D printers & cloud workstations</p>
+                </div>
+              </a>
+              <a href="#teammates" class="resource-item" data-goto-tab="teammates">
+                <div class="resource-icon">🏆</div>
+                <div>
+                  <strong>Hackathon Team Matcher</strong>
+                  <p>Form multidisciplinary project squads</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ================= TAB: CAMPUS CONNECT ================= -->
+    <section class="tab-section hidden" id="section-campus-connect">
+      <!-- Section Header -->
+      <div class="section-header">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+            <span class="sparkle-badge sparkle-badge-teal">Community Portal</span>
+            <span style="font-size: 0.82rem; color: var(--secondary); font-weight: 700;">★ Aspirant & Senior Network</span>
+          </div>
+          <h2 class="section-title">Campus Connect</h2>
+          <p class="section-desc" style="font-size: 1rem; font-weight: 500; color: var(--primary);">
+            "Your Questions. Their Experience. Your Future."
+          </p>
+          <p class="section-desc" style="max-width: 780px; margin-top: 0.25rem;">
+            Help 12th-pass students and college aspirants connect with current DYP students to understand college life, academics, branches, activities, and campus experiences before making admission decisions.
+          </p>
+        </div>
+        <div class="header-action-group" style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+          <button class="btn btn-primary" id="btn-open-ask-senior">
+            <span>❓</span>
+            <span>Ask a Senior</span>
+          </button>
+          <button class="btn btn-teal" id="btn-open-request-convo">
+            <span>💬</span>
+            <span>Request Conversation</span>
+          </button>
+          <button class="btn btn-outline" id="btn-open-become-mentor">
+            <span>🎓</span>
+            <span>Become a Mentor</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Banner with Illustration -->
+      <div class="campus-connect-hero-card">
+        <div class="connect-hero-content">
+          <div class="connect-hero-badge">
+            <span>✦</span>
+            <span>Official Student-Led Aspirant Initiative</span>
+          </div>
+          <h3 class="connect-hero-title">
+            Your College Journey Starts with a Conversation.
+          </h3>
+          <p class="connect-hero-tagline">
+            "Your Questions. Their Experience. Your Future."
+          </p>
+          <p class="connect-hero-desc">
+            No marketing brochures — just authentic, respectful, and helpful guidance from seniors who walked the exact same path. Learn about branches, coding cultures, hostels, exams, and real college experiences.
+          </p>
+          <div class="connect-hero-actions">
+            <button class="btn btn-hero-explore" id="btn-banner-browse-mentors">
+              <span>👥 Browse Senior Mentors</span>
+            </button>
+            <button class="btn btn-hero-events" id="btn-banner-browse-qa">
+              <span>❓ View Answered Questions</span>
+            </button>
+            <button class="btn-white" id="btn-banner-become-mentor">
+              <span>🎓 Volunteer as Mentor</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="connect-hero-media">
+          <img src="assets/campus-connect-hero.jpg" alt="Campus Connect Students Collaborating" loading="lazy">
+          <span class="connect-media-badge">🎓 DYP Student Network</span>
+        </div>
+      </div>
+
+      <!-- Safe & Respectful Community Guidelines Card -->
+      <div class="community-safe-card">
+        <div style="font-size: 1.75rem; flex-shrink: 0;">🛡️</div>
+        <div class="safe-content-text">
+          <strong>Safe, Respectful, and Private Community:</strong>
+          All participating mentors are voluntarily registered DYP student peers. Personal phone numbers and private email addresses are never publicly visible. Answers represent personal student experiences and insights — for binding official college policies, please refer to college administrative offices.
+        </div>
+        <button class="btn btn-outline btn-sm" id="btn-trigger-report-guidelines" style="flex-shrink: 0;">
+          <span>🚩</span>
+          <span>Report Content</span>
+        </button>
+      </div>
+
+      <!-- Campus Connect Navigation Sub-Tabs -->
+      <div class="connect-tabs-bar">
+        <button class="connect-tab-btn active" data-connect-tab="mentors" id="connect-tab-btn-mentors">
+          <span>👥</span>
+          <span>Current Student Mentors</span>
+          <span class="badge-counter" id="mentors-badge-count">6</span>
+        </button>
+        <button class="connect-tab-btn" data-connect-tab="qa" id="connect-tab-btn-qa">
+          <span>❓</span>
+          <span>Ask a Senior (Q&A)</span>
+          <span class="badge-counter" id="qa-badge-count">9</span>
+        </button>
+        <button class="connect-tab-btn" data-connect-tab="stories" id="connect-tab-btn-stories">
+          <span>📖</span>
+          <span>Student Stories</span>
+          <span class="badge-counter" id="stories-badge-count">6</span>
+        </button>
+        <button class="connect-tab-btn" data-connect-tab="requests" id="connect-tab-btn-requests">
+          <span>💬</span>
+          <span>Conversation Requests</span>
+          <span class="sparkle-badge sparkle-badge-yellow" style="font-size: 0.65rem; padding: 0.1rem 0.4rem;">Tracker</span>
+        </button>
+      </div>
+
+      <!-- SUB-PANEL 1: STUDENT MENTORS DIRECTORY -->
+      <div class="connect-sub-panel" id="panel-connect-mentors">
+        <!-- Mentors Search and Filter Bar -->
+        <div class="connect-filter-bar">
+          <div class="connect-filter-group">
+            <span style="font-size: 0.84rem; font-weight: 700; color: var(--text-muted); display: flex; align-items: center; gap: 0.35rem;">
+              <span>🔍</span> Filter Mentors:
+            </span>
+
+            <select id="mentor-filter-branch" class="filter-select">
+              <option value="all">All Branches</option>
+              <option value="CSE">Computer Science (CSE)</option>
+              <option value="IT">Information Technology (IT)</option>
+              <option value="AI/DS">AI & Data Science (AI/DS)</option>
+              <option value="E&TC">Electronics & Telecommunication</option>
+              <option value="Mechanical">Mechanical Engineering</option>
+              <option value="Civil">Civil Engineering</option>
+            </select>
+
+            <select id="mentor-filter-year" class="filter-select">
+              <option value="all">All Study Years</option>
+              <option value="1st Year">1st Year (Freshman)</option>
+              <option value="2nd Year">2nd Year (Sophomore)</option>
+              <option value="3rd Year">3rd Year (Junior)</option>
+              <option value="4th Year">4th Year (Senior)</option>
+            </select>
+
+            <select id="mentor-filter-language" class="filter-select">
+              <option value="all">All Languages</option>
+              <option value="English">English</option>
+              <option value="Hindi">Hindi</option>
+              <option value="Marathi">Marathi</option>
+            </select>
+
+            <select id="mentor-filter-topic" class="filter-select">
+              <option value="all">All Help Topics</option>
+              <option value="Academics">Academics & Study</option>
+              <option value="Branch Selection">Branch Selection</option>
+              <option value="Placements">Placements & Internships</option>
+              <option value="Hackathons">Hackathons & Coding</option>
+              <option value="Hostel Life">Hostel & Accommodation</option>
+              <option value="Clubs">Campus Clubs & Fests</option>
+            </select>
+          </div>
+
+          <div style="position: relative; min-width: 240px;">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); pointer-events: none;">
+              <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="mentor-search-input" class="connect-search-input" placeholder="Search by name, skills or bio...">
+          </div>
+        </div>
+
+        <!-- Mentors Directory Grid -->
+        <div class="mentors-grid" id="mentors-directory-grid">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+
+      <!-- SUB-PANEL 2: ASK A SENIOR (Q&A) -->
+      <div class="connect-sub-panel hidden" id="panel-connect-qa">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main);">Ask a Senior Questions & Answers</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Explore real questions asked by aspirants with genuine answers from current DYP students.</p>
+          </div>
+          <button class="btn btn-primary" id="btn-ask-senior-inside-tab">
+            <span>➕</span>
+            <span>Ask a New Question</span>
+          </button>
+        </div>
+
+        <!-- 9 Category Filter Pills -->
+        <div class="qa-categories-pills" id="qa-category-pills-bar">
+          <button class="qa-pill-btn active" data-qa-cat="all">All Questions</button>
+          <button class="qa-pill-btn" data-qa-cat="Academics and Teaching">📚 Academics & Teaching</button>
+          <button class="qa-pill-btn" data-qa-cat="Branch Selection">🎯 Branch Selection</button>
+          <button class="qa-pill-btn" data-qa-cat="College Life">🏫 College Life</button>
+          <button class="qa-pill-btn" data-qa-cat="Campus Facilities">🔬 Campus Facilities</button>
+          <button class="qa-pill-btn" data-qa-cat="Clubs and Hackathons">💻 Clubs & Hackathons</button>
+          <button class="qa-pill-btn" data-qa-cat="Admission Guidance">📝 Admission Guidance</button>
+          <button class="qa-pill-btn" data-qa-cat="Hostel and Accommodation">🛏️ Hostel & Accommodation</button>
+          <button class="qa-pill-btn" data-qa-cat="Fees and Expenses">💳 Fees & Expenses</button>
+          <button class="qa-pill-btn" data-qa-cat="Placements and Career Opportunities">🚀 Placements & Careers</button>
+        </div>
+
+        <!-- Questions List Container -->
+        <div class="qa-questions-container" id="qa-questions-list">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+
+      <!-- SUB-PANEL 3: STUDENT EXPERIENCE STORIES -->
+      <div class="connect-sub-panel hidden" id="panel-connect-stories">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main);">Student Experience Stories & Advice</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">In-depth firsthand insights on transitions, hackathons, exams, branches, and student life.</p>
+          </div>
+          <button class="btn btn-primary" id="btn-open-submit-story">
+            <span>✍️</span>
+            <span>Share Your Story</span>
+          </button>
+        </div>
+
+        <!-- Stories Grid -->
+        <div class="stories-grid" id="stories-directory-grid">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+
+      <!-- SUB-PANEL 4: CONVERSATION REQUESTS TRACKER -->
+      <div class="connect-sub-panel hidden" id="panel-connect-requests">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main);">Conversation Requests Tracking</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Track your requested mentor conversations and their review statuses (Pending, Accepted, Declined).</p>
+          </div>
+          <button class="btn btn-teal" id="btn-request-convo-inside-tab">
+            <span>➕</span>
+            <span>New Conversation Request</span>
+          </button>
+        </div>
+
+        <div style="background: var(--bg-surface-alt); border-radius: var(--radius-md); padding: 1rem 1.25rem; margin-bottom: 1.5rem; font-size: 0.84rem; color: var(--text-muted); border-left: 4px solid var(--primary);">
+          <strong>Note on Communication Privacy:</strong> Initial requests establish contact intent with volunteer student mentors. Volunteer students can review and accept requests without publicly disclosing private mobile numbers or personal credentials.
+        </div>
+
+        <!-- Requests List -->
+        <div class="convo-requests-list" id="convo-requests-list">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+
+      <!-- Callout Banner: Become a Student Mentor -->
+      <div class="become-mentor-banner">
+        <div class="become-mentor-text">
+          <h3>Are You a Current DYP Student? Volunteer as a Mentor!</h3>
+          <p>
+            Help prospective juniors make informed decisions about their academic future. Share your genuine experiences, guide branch choices, and welcome future classmates. Profiles are reviewed by the community.
+          </p>
+        </div>
+        <button class="btn-white" id="btn-callout-become-mentor">
+          <span>🎓</span>
+          <span>Become a Campus Mentor</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= TAB: SMART CAMPUS NAVIGATOR ================= -->
+    <section class="tab-section hidden" id="section-navigator">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Smart Campus Navigator</h2>
+          <p class="section-desc">Searchable campus directory for classrooms, laboratories, departments, offices, library, canteen, and auditorium.</p>
+        </div>
+        <div class="header-action-group">
+          <button class="btn btn-outline" id="btn-jump-find-class">
+            🧭 Find My Next Class
+          </button>
+        </div>
+      </div>
+
+      <!-- Campus Disclaimer Banner -->
+      <div class="disclaimer-banner">
+        <span>📍</span>
+        <div>
+          <strong>Campus Demonstration Directory:</strong> Verified room allocations for DYP Campus Academic Blocks. Room allocations reflect the current semester timetable.
+        </div>
+      </div>
+
+      <!-- "Find My Next Class" Assistant Widget -->
+      <div class="find-class-widget" id="find-class-anchor">
+        <div class="find-class-header">
+          <div class="find-class-title-group">
+            <span style="font-size: 1.5rem;">🧭</span>
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 800;">Find My Next Class Assistant</h3>
+              <p style="font-size: 0.8rem; color: #cbd5e1;">Select your department and timetable slot to locate your room and walking route</p>
+            </div>
+          </div>
+          <span class="find-class-badge">Smart Timetable Sync</span>
+        </div>
+
+        <div class="find-class-form">
+          <div>
+            <label style="display:block; font-size:0.75rem; font-weight:700; margin-bottom:0.35rem; color:#e0e7ff;">Department</label>
+            <select id="find-class-dept" class="find-class-select" style="width:100%;">
+              <option value="CS">Computer Engineering (CS)</option>
+              <option value="IT">Information Technology (IT)</option>
+              <option value="MECH">Mechanical Engineering</option>
+              <option value="ENTC">Electronics & Telecom (E&TC)</option>
+              <option value="AIDS">AI & Data Science (AI-DS)</option>
+              <option value="CIVIL">Civil Engineering</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display:block; font-size:0.75rem; font-weight:700; margin-bottom:0.35rem; color:#e0e7ff;">Year / Semester</label>
+            <select id="find-class-year" class="find-class-select" style="width:100%;">
+              <option value="SE">Second Year (SE - 2nd Yr)</option>
+              <option value="TE" selected>Third Year (TE - 3rd Yr)</option>
+              <option value="BE">Final Year (BE - 4th Yr)</option>
+              <option value="FE">First Year (FE - 1st Yr)</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display:block; font-size:0.75rem; font-weight:700; margin-bottom:0.35rem; color:#e0e7ff;">Current Time Slot</label>
+            <select id="find-class-slot" class="find-class-select" style="width:100%;">
+              <option value="current">⚡ Current Active Period (Live)</option>
+              <option value="morning">Morning Lecture (9:30 AM - 11:30 AM)</option>
+              <option value="afternoon">Afternoon Practical Lab (1:15 PM - 3:15 PM)</option>
+              <option value="evening">Elective / Seminar Slot (3:30 PM - 5:00 PM)</option>
+            </select>
+          </div>
+
+          <div style="align-self: flex-end;">
+            <button class="find-class-btn" id="btn-run-find-class">
+              Locate Class →
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Result Box -->
+        <div id="find-class-result" class="find-class-result-card" style="display: none;">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+
+      <!-- Navigator Filter Toolbar -->
+      <div class="hub-filter-wrapper">
+        <!-- Facility Category Tabs -->
+        <div class="category-tabs" id="navigator-category-tabs">
+          <button class="cat-pill active" data-nav-type="all">
+            <span>All Facilities</span>
+            <span class="cat-count" id="count-nav-all">0</span>
+          </button>
+          <button class="cat-pill" data-nav-type="classroom">
+            <span>🏛️ Classrooms</span>
+            <span class="cat-count" id="count-nav-classrooms">0</span>
+          </button>
+          <button class="cat-pill" data-nav-type="lab">
+            <span>💻 Laboratories</span>
+            <span class="cat-count" id="count-nav-labs">0</span>
+          </button>
+          <button class="cat-pill" data-nav-type="office">
+            <span>🏢 Departments & Offices</span>
+            <span class="cat-count" id="count-nav-offices">0</span>
+          </button>
+          <button class="cat-pill" data-nav-type="amenity">
+            <span>☕ Library, Canteen & Audi</span>
+            <span class="cat-count" id="count-nav-amenities">0</span>
+          </button>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="hub-subcontrols">
+          <div class="search-input-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="navigator-search-input" placeholder="Search by room # (e.g. 304, 102), building, lab name, or landmark...">
+            <button class="search-clear-btn hidden" id="btn-clear-navigator-search">&times;</button>
+          </div>
+
+          <div class="filter-dropdown-group">
+            <select id="navigator-building-filter" class="custom-select" aria-label="Filter by Building Block">
+              <option value="all">All Campus Buildings</option>
+              <option value="Engineering Block A">Engineering Block A</option>
+              <option value="Tech Innovation Wing B">Tech Innovation Wing B</option>
+              <option value="Administrative Wing C">Administrative Wing C</option>
+              <option value="Central Amenities Complex">Central Amenities Complex</option>
+            </select>
+
+            <select id="navigator-floor-filter" class="custom-select" aria-label="Filter by Floor">
+              <option value="all">All Floors</option>
+              <option value="Ground Floor">Ground Floor</option>
+              <option value="1st Floor">1st Floor</option>
+              <option value="2nd Floor">2nd Floor</option>
+              <option value="3rd Floor">3rd Floor</option>
+              <option value="4th Floor">4th Floor</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Filter Status Bar -->
+      <div class="filter-results-bar">
+        <span id="navigator-results-text">Showing all campus facilities</span>
+        <button class="btn-text-link hidden" id="btn-reset-navigator-filters">Reset filters</button>
+      </div>
+
+      <!-- Navigator Cards Grid -->
+      <div class="navigator-cards-grid" id="navigator-cards-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Empty State View -->
+      <div class="empty-state-card hidden" id="navigator-empty-state">
+        <div class="empty-state-icon">🧭</div>
+        <h3>No matching location found</h3>
+        <p>Try searching by room number (e.g. 304), department name, or clear building filter.</p>
+        <button class="btn btn-outline btn-sm" id="btn-navigator-empty-clear">Clear all filters</button>
+      </div>
+    </section>
+
+    <!-- ================= TAB: STUDENT HELP HUB ================= -->
+    <section class="tab-section hidden" id="section-help-hub">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Student Help Hub</h2>
+          <p class="section-desc">Need a hand with coursework, debugging, or hackathons? Post a request or offer your skills to fellow students.</p>
+        </div>
+        <div class="header-action-group">
+          <button class="btn btn-outline" id="btn-offer-skills-top">
+            🤝 Offer Your Skills
+          </button>
+          <button class="btn btn-primary" id="btn-create-help-request">
+            + Post Help Request
+          </button>
+        </div>
+      </div>
+
+      <!-- Help Hub Filter Toolbar -->
+      <div class="hub-filter-wrapper">
+        <!-- Category Filter Pills -->
+        <div class="category-tabs" id="help-category-tabs">
+          <button class="cat-pill active" data-category="all">
+            <span>All Posts</span>
+            <span class="cat-count" id="count-all">0</span>
+          </button>
+          <button class="cat-pill" data-category="coding">
+            <span>💻 Coding Help</span>
+            <span class="cat-count" id="count-coding">0</span>
+          </button>
+          <button class="cat-pill" data-category="academic">
+            <span>📚 Academics</span>
+            <span class="cat-count" id="count-academic">0</span>
+          </button>
+          <button class="cat-pill" data-category="hackathon">
+            <span>🏆 Hackathon Teammates</span>
+            <span class="cat-count" id="count-hackathon">0</span>
+          </button>
+          <button class="cat-pill" data-category="notes">
+            <span>📝 Study Notes</span>
+            <span class="cat-count" id="count-notes">0</span>
+          </button>
+          <button class="cat-pill" data-category="general">
+            <span>🤝 General Assistance</span>
+            <span class="cat-count" id="count-general">0</span>
+          </button>
+        </div>
+
+        <!-- Search & Type Controls Row -->
+        <div class="hub-subcontrols">
+          <div class="search-input-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="help-search-input" placeholder="Search by course code (CS201), topic, or keyword...">
+            <button class="search-clear-btn hidden" id="btn-clear-help-search">&times;</button>
+          </div>
+
+          <div class="filter-dropdown-group">
+            <select id="help-type-filter" class="custom-select" aria-label="Filter by post type">
+              <option value="all">All Post Types</option>
+              <option value="request">🆘 Help Requests Only</option>
+              <option value="offer">💡 Skills & Notes Offered</option>
+            </select>
+
+            <select id="help-sort-filter" class="custom-select" aria-label="Sort help requests">
+              <option value="newest">Newest First</option>
+              <option value="urgent">🔥 Urgent Requests</option>
+              <option value="responses">Most Responses</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Filter Status Bar -->
+      <div class="filter-results-bar">
+        <span id="help-results-text">Showing all help requests</span>
+        <button class="btn-text-link hidden" id="btn-reset-filters">Reset filters</button>
+      </div>
+
+      <!-- Help Cards Grid -->
+      <div class="help-cards-grid" id="help-cards-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Empty State View -->
+      <div class="empty-state-card hidden" id="help-empty-state">
+        <div class="empty-state-icon">🔍</div>
+        <h3>No matching requests found</h3>
+        <p>Try searching with another keyword or change your category filter.</p>
+        <button class="btn btn-outline btn-sm" id="btn-empty-clear">Clear all filters</button>
+      </div>
+    </section>
+
+    <!-- ================= TAB 3: CAMPUS EVENTS (Step 3 Implementation) ================= -->
+    <section class="tab-section hidden" id="section-events">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Campus Event Discovery</h2>
+          <p class="section-desc">Discover campus hackathons, hands-on developer workshops, career mixers, and tech symposiums.</p>
+        </div>
+        <div class="header-action-group">
+          <button class="btn btn-outline" id="btn-show-registered-events">
+            🎟️ My Registered Events (<span id="btn-reg-count">1</span>)
+          </button>
+          <button class="btn btn-primary" id="btn-create-event">
+            + Submit Event
+          </button>
+        </div>
+      </div>
+
+      <!-- Events Filter Toolbar -->
+      <div class="hub-filter-wrapper">
+        <!-- Event Category Tabs -->
+        <div class="category-tabs" id="events-category-tabs">
+          <button class="cat-pill active" data-event-category="all">
+            <span>All Events</span>
+            <span class="cat-count" id="count-events-all">0</span>
+          </button>
+          <button class="cat-pill" data-event-category="hackathon">
+            <span>🏆 Hackathons</span>
+            <span class="cat-count" id="count-events-hackathon">0</span>
+          </button>
+          <button class="cat-pill" data-event-category="workshop">
+            <span>💻 Tech Workshops</span>
+            <span class="cat-count" id="count-events-workshop">0</span>
+          </button>
+          <button class="cat-pill" data-event-category="competition">
+            <span>⚡ Coding Competitions</span>
+            <span class="cat-count" id="count-events-competition">0</span>
+          </button>
+          <button class="cat-pill" data-event-category="cultural">
+            <span>🎭 Cultural Events</span>
+            <span class="cat-count" id="count-events-cultural">0</span>
+          </button>
+          <button class="cat-pill" data-event-category="seminar">
+            <span>🎤 Seminars & Talks</span>
+            <span class="cat-count" id="count-events-seminar">0</span>
+          </button>
+          <button class="cat-pill" data-event-category="club">
+            <span>🤝 Club Activities</span>
+            <span class="cat-count" id="count-events-club">0</span>
+          </button>
+          <button class="cat-pill cat-pill-registered" data-event-category="registered">
+            <span>🎟️ My Registered</span>
+            <span class="cat-count" id="count-events-registered">0</span>
+          </button>
+        </div>
+
+        <!-- Search & Dropdown Controls -->
+        <div class="hub-subcontrols">
+          <div class="search-input-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="events-search-input" placeholder="Search events by name, topic, or venue...">
+            <button class="search-clear-btn hidden" id="btn-clear-events-search">&times;</button>
+          </div>
+
+          <div class="filter-dropdown-group">
+            <select id="events-venue-filter" class="custom-select" aria-label="Filter events by venue type">
+              <option value="all">All Locations</option>
+              <option value="in-person">🏛️ In-Person On Campus</option>
+              <option value="virtual">🌐 Virtual / Zoom</option>
+            </select>
+
+            <select id="events-sort-filter" class="custom-select" aria-label="Sort events">
+              <option value="soonest">Chronological (Soonest)</option>
+              <option value="popular">Most Popular</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Filter Status Bar -->
+      <div class="filter-results-bar">
+        <span id="events-results-text">Showing all upcoming events</span>
+        <button class="btn-text-link hidden" id="btn-reset-events-filters">Reset filters</button>
+      </div>
+
+      <!-- Events Cards Grid -->
+      <div class="events-cards-grid" id="events-cards-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Empty State View -->
+      <div class="empty-state-card hidden" id="events-empty-state">
+        <div class="empty-state-icon">📅</div>
+        <h3 id="events-empty-title">No matching events found</h3>
+        <p id="events-empty-desc">Try clearing your filters or search keywords.</p>
+        <button class="btn btn-outline btn-sm" id="btn-events-empty-clear">Clear all filters</button>
+      </div>
+    </section>
+
+    <!-- ================= TAB 4: TEAMMATE FINDER (Step 4 Implementation) ================= -->
+    <section class="tab-section hidden" id="section-teammates">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Student Collaboration & Teammate Finder</h2>
+          <p class="section-desc">Connect with students across disciplines to form winning hackathon squads, capstone teams, and coding cohorts.</p>
+        </div>
+        <div class="header-action-group">
+          <button class="btn btn-outline" id="btn-quick-filter-hackathon">
+            🏆 Looking for Hackathon Team
+          </button>
+          <button class="btn btn-primary" id="btn-create-profile">
+            + Create / Edit My Profile
+          </button>
+        </div>
+      </div>
+
+      <!-- Student Privacy Shield Banner -->
+      <div class="disclaimer-banner" style="background-color: var(--accent-emerald-light); border-color:#a7f3d0; color:#047857; margin-bottom: 1.25rem;">
+        <span>🛡️</span>
+        <div>
+          <strong>Student Privacy Shield:</strong> Institutional roll numbers and private contact numbers are protected. Only verified campus handles or emails are shared.
+        </div>
+      </div>
+
+      <!-- Teammates Filter Toolbar -->
+      <div class="hub-filter-wrapper">
+        <!-- Skill Tag Pills -->
+        <div class="category-tabs" id="teammates-skill-tabs">
+          <button class="cat-pill active" data-skill="all">
+            <span>All Talents</span>
+            <span class="cat-count" id="count-skill-all">0</span>
+          </button>
+          <button class="cat-pill" data-skill="Web Development">
+            <span>🌐 Web Development</span>
+            <span class="cat-count" id="count-skill-web">0</span>
+          </button>
+          <button class="cat-pill" data-skill="Python">
+            <span>🐍 Python</span>
+            <span class="cat-count" id="count-skill-python">0</span>
+          </button>
+          <button class="cat-pill" data-skill="UI/UX Design">
+            <span>🎨 UI/UX Design</span>
+            <span class="cat-count" id="count-skill-uiux">0</span>
+          </button>
+          <button class="cat-pill" data-skill="Data Science">
+            <span>📊 Data Science</span>
+            <span class="cat-count" id="count-skill-data">0</span>
+          </button>
+          <button class="cat-pill" data-skill="Public Speaking">
+            <span>🗣️ Public Speaking & Pitch</span>
+            <span class="cat-count" id="count-skill-speaking">0</span>
+          </button>
+          <button class="cat-pill" data-skill="Cloud & DevOps">
+            <span>☁️ Cloud & DevOps</span>
+            <span class="cat-count" id="count-skill-cloud">0</span>
+          </button>
+        </div>
+
+        <!-- Search & Dropdown Controls -->
+        <div class="hub-subcontrols">
+          <div class="search-input-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="teammates-search-input" placeholder="Search by student name, skill (React, Figma, AI), or major...">
+            <button class="search-clear-btn hidden" id="btn-clear-teammates-search">&times;</button>
+          </div>
+
+          <div class="filter-dropdown-group">
+            <select id="teammates-status-filter" class="custom-select" aria-label="Filter by availability status">
+              <option value="all">All Availability Statuses</option>
+              <option value="hackathon">🚀 Looking for Hackathon Team</option>
+              <option value="capstone">🎓 Capstone & Projects</option>
+              <option value="mentor">💡 Peer Mentoring</option>
+            </select>
+
+            <select id="teammates-sort-filter" class="custom-select" aria-label="Sort students">
+              <option value="active">Recently Active</option>
+              <option value="alpha">Name (A-Z)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Filter Status Bar -->
+      <div class="filter-results-bar">
+        <span id="teammates-results-text">Showing all student profiles</span>
+        <button class="btn-text-link hidden" id="btn-reset-teammates-filters">Reset filters</button>
+      </div>
+
+      <!-- Teammates Cards Grid -->
+      <div class="teammates-cards-grid" id="teammates-cards-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Empty State View -->
+      <div class="empty-state-card hidden" id="teammates-empty-state">
+        <div class="empty-state-icon">👥</div>
+        <h3 id="teammates-empty-title">No teammates matching this skill found</h3>
+        <p id="teammates-empty-desc">Try selecting "All Talents" or searching with a different technology keyword.</p>
+        <button class="btn btn-outline btn-sm" id="btn-teammates-empty-clear">Clear all filters</button>
+      </div>
+    </section>
+
+    <!-- ================= TAB: LOST & FOUND PORTAL ================= -->
+    <section class="tab-section hidden" id="section-lost-found">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Campus Lost & Found Portal</h2>
+          <p class="section-desc">Report lost belongings, register found campus items, and help fellow students recover their property.</p>
+        </div>
+        <div class="header-action-group">
+          <button class="btn btn-outline" id="btn-report-found-top">
+            🎒 I Found an Item
+          </button>
+          <button class="btn btn-primary" id="btn-report-lost-top">
+            + Report Lost Item
+          </button>
+        </div>
+      </div>
+
+      <!-- Privacy Safeguard Banner -->
+      <div class="disclaimer-banner" style="background-color: var(--accent-emerald-light); border-color:#a7f3d0; color:#047857;">
+        <span>🛡️</span>
+        <div>
+          <strong>Privacy Safeguard:</strong> Official college ID numbers, banking cards, and personal contact numbers are masked for security. Claims must be verified in person at Campus Security or with the reporter.
+        </div>
+      </div>
+
+      <!-- Lost & Found Filter Toolbar -->
+      <div class="hub-filter-wrapper">
+        <!-- Status & Category Tabs -->
+        <div class="category-tabs" id="lost-category-tabs">
+          <button class="cat-pill active" data-lost-status="all">
+            <span>All Listings</span>
+            <span class="cat-count" id="count-lost-all">0</span>
+          </button>
+          <button class="cat-pill" data-lost-status="lost">
+            <span>🔍 Lost Items</span>
+            <span class="cat-count" id="count-lost-items">0</span>
+          </button>
+          <button class="cat-pill" data-lost-status="found">
+            <span>🎒 Found Items</span>
+            <span class="cat-count" id="count-found-items">0</span>
+          </button>
+          <button class="cat-pill" data-lost-status="claimed">
+            <span>✅ Claimed / Resolved</span>
+            <span class="cat-count" id="count-claimed-items">0</span>
+          </button>
+        </div>
+
+        <!-- Search Controls -->
+        <div class="hub-subcontrols">
+          <div class="search-input-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="lost-search-input" placeholder="Search by item name (calculator, keys, ID card), location, or description...">
+            <button class="search-clear-btn hidden" id="btn-clear-lost-search">&times;</button>
+          </div>
+
+          <div class="filter-dropdown-group">
+            <select id="lost-category-filter" class="custom-select" aria-label="Filter by item category">
+              <option value="all">All Item Categories</option>
+              <option value="electronics">📱 Electronics & Accessories</option>
+              <option value="cards">💳 ID Cards & Wallets</option>
+              <option value="books">📚 Books & Cheatsheets</option>
+              <option value="keys">🔑 Keys & Badges</option>
+              <option value="other">🎒 Other Personal Gear</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Filter Status Bar -->
+      <div class="filter-results-bar">
+        <span id="lost-results-text">Showing all lost and found listings</span>
+        <button class="btn-text-link hidden" id="btn-reset-lost-filters">Reset filters</button>
+      </div>
+
+      <!-- Listings Grid -->
+      <div class="lost-found-grid" id="lost-cards-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Empty State View -->
+      <div class="empty-state-card hidden" id="lost-empty-state">
+        <div class="empty-state-icon">🔍</div>
+        <h3>No matching listings found</h3>
+        <p>Try searching with another keyword or change your filter selection.</p>
+        <button class="btn btn-outline btn-sm" id="btn-lost-empty-clear">Clear all filters</button>
+      </div>
+    </section>
+
+    <!-- ================= TAB: CAMPUS QUICK HELP & SERVICES ================= -->
+    <section class="tab-section hidden" id="section-campus-help">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Campus Quick Help & Student Services</h2>
+          <p class="section-desc">Access academic certificate forms, department HOD offices, administrative counter timings, and official university portals.</p>
+        </div>
+      </div>
+
+      <!-- Unverified / Demo Info Notice -->
+      <div class="disclaimer-banner disclaimer-banner-amber">
+        <span>ℹ️</span>
+        <div>
+          <strong>Verified Campus Resources:</strong> Administrative counter timings and academic procedures are updated for the current academic semester. Forms are simulated downloadable templates for student reference.
+        </div>
+      </div>
+
+      <div class="campus-help-sections">
+        
+        <!-- Subsection 1: Downloadable Academic Forms -->
+        <div>
+          <h3 class="help-subheading">📄 Official Academic Applications & Forms</h3>
+          <div class="forms-grid" id="forms-grid-container">
+            <!-- Populated dynamically by app.js -->
+          </div>
+        </div>
+
+        <!-- Subsection 2: Administrative Office Timings -->
+        <div>
+          <h3 class="help-subheading">⏰ Campus Office & Counter Timings</h3>
+          <div class="timings-grid" id="timings-grid-container">
+            <!-- Populated dynamically by app.js -->
+          </div>
+        </div>
+
+        <!-- Subsection 3: Department Information & HOD Offices -->
+        <div>
+          <h3 class="help-subheading">🏢 Academic Departments & Leadership</h3>
+          <div class="timings-grid" id="depts-grid-container">
+            <!-- Populated dynamically by app.js -->
+          </div>
+        </div>
+
+        <!-- Subsection 4: Useful University Portals -->
+        <div>
+          <h3 class="help-subheading">🌐 Official Student Links & Portals</h3>
+          <div class="portals-grid" id="portals-grid-container">
+            <!-- Populated dynamically by app.js -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= GENERIC MODAL FOR QUICK ACTIONS ================= -->
+  <div class="modal-overlay" id="quick-modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">DYP CAMPUS 360 Quick Action</h3>
+        <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <p>What would you like to create or report today?</p>
+        <div class="quick-choice-grid">
+          <button class="choice-card" data-action="new-help">
+            <span class="choice-icon">🆘</span>
+            <strong>Ask for Help</strong>
+            <span>Academic doubts, coding bugs, or notes</span>
+          </button>
+          <button class="choice-card" data-action="new-teammate">
+            <span class="choice-icon">👥</span>
+            <strong>Find a Teammate</strong>
+            <span>Recruit members for upcoming hackathons</span>
+          </button>
+          <button class="choice-card" data-action="new-event">
+            <span class="choice-icon">📅</span>
+            <strong>Announce Event</strong>
+            <span>Host a campus workshop or club meetup</span>
+          </button>
+          <button class="choice-card" data-action="new-lost-found">
+            <span class="choice-icon">🔍</span>
+            <strong>Report Lost / Found</strong>
+            <span>Report missing items or return found belongings</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: POST HELP REQUEST / OFFER SKILL ================= -->
+  <div class="modal-overlay" id="modal-post-help">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="help-modal-heading">Post to Help Hub</h3>
+          <p class="modal-subtitle">Connect with peers across departments for study support</p>
+        </div>
+        <button class="modal-close-btn" id="btn-close-post-help">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-post-help" class="styled-form">
+          
+          <!-- Post Type Selector (Need Help vs Offering Skills) -->
+          <div class="form-group">
+            <label class="form-label">Post Intent</label>
+            <div class="segmented-control">
+              <label class="segment-option">
+                <input type="radio" name="postType" value="request" checked>
+                <span>🆘 I Need Help</span>
+              </label>
+              <label class="segment-option">
+                <input type="radio" name="postType" value="offer">
+                <span>💡 Offering Skills / Notes</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Category Selection -->
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="post-category" class="form-label">Category *</label>
+              <select id="post-category" class="form-input" required>
+                <option value="coding">💻 Coding & Debugging</option>
+                <option value="academic">📚 Academic Coursework</option>
+                <option value="hackathon">🏆 Hackathon Teammates</option>
+                <option value="notes">📝 Study Notes & Cheatsheets</option>
+                <option value="general">🤝 General Campus Assistance</option>
+              </select>
+            </div>
+
+            <div class="form-group flex-1">
+              <label for="post-course" class="form-label">Course / Topic Tag</label>
+              <input type="text" id="post-course" class="form-input" placeholder="e.g. CS201, MATH152, React">
+            </div>
+          </div>
+
+          <!-- Title -->
+          <div class="form-group">
+            <label for="post-title" class="form-label">Title / Summary *</label>
+            <input type="text" id="post-title" class="form-input" placeholder="Briefly describe what you need or offer (e.g. Need help with Dijkstra algorithm)" required>
+          </div>
+
+          <!-- Description -->
+          <div class="form-group">
+            <label for="post-desc" class="form-label">Detailed Explanation *</label>
+            <textarea id="post-desc" class="form-textarea" rows="3" placeholder="Provide context, error messages, lecture topic, or what kind of collaboration you want..." required></textarea>
+          </div>
+
+          <!-- Author and Contact info -->
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="post-author" class="form-label">Your Name *</label>
+              <input type="text" id="post-author" class="form-input" value="Alex Chen" required>
+            </div>
+
+            <div class="form-group flex-1">
+              <label for="post-dept" class="form-label">Department / Year</label>
+              <input type="text" id="post-dept" class="form-input" value="CS Sophomore" placeholder="e.g. IT Junior, Mechanical '27">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="post-contact" class="form-label">Preferred Contact Handle *</label>
+            <input type="text" id="post-contact" class="form-input" placeholder="Discord: username#1234 or college email" value="alex.chen@campus.edu" required>
+          </div>
+
+          <!-- Urgent Checkbox -->
+          <div class="form-checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="post-urgent">
+              <span>🔥 Mark as Urgent (Assignment due within 24 hours / Hackathon deadline)</span>
+            </label>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btn-cancel-post-help">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-submit-post-help">Publish Post</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: RESPOND TO HELP REQUEST ================= -->
+  <div class="modal-overlay" id="modal-respond-help">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Offer Assistance</h3>
+          <p class="modal-subtitle" id="respond-modal-subtitle">Connect with this student</p>
+        </div>
+        <button class="modal-close-btn" id="btn-close-respond-help">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="respond-target-card" id="respond-target-summary">
+          <!-- Populated dynamically -->
+        </div>
+
+        <form id="form-respond-help" class="styled-form">
+          <input type="hidden" id="respond-request-id" value="">
+
+          <div class="form-group">
+            <label for="respond-message" class="form-label">Your Message / Availability *</label>
+            <textarea id="respond-message" class="form-textarea" rows="3" placeholder="Hey! I have experience with this. I can jump on a quick 15-min call or review your code..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="respond-contact" class="form-label">Your Contact Handle (Discord/Email) *</label>
+            <input type="text" id="respond-contact" class="form-input" placeholder="e.g. Discord: alex_chen or alex@campus.edu" value="alex.chen@campus.edu" required>
+          </div>
+
+  <!-- ================= MODAL: SUBMIT CAMPUS EVENT ================= -->
+  <div class="modal-overlay" id="modal-create-event-dialog">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Submit Campus Event</h3>
+          <p class="modal-subtitle">Announce a hackathon, developer workshop, or club meetup</p>
+        </div>
+        <button class="modal-close-btn" id="btn-close-create-event">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-create-event" class="styled-form">
+          
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="event-title" class="form-label">Event Title *</label>
+              <input type="text" id="event-title" class="form-input" placeholder="e.g. AI Prompt Engineering & API Workshop" required>
+            </div>
+
+            <div class="form-group" style="width: 170px;">
+              <label for="event-category" class="form-label">Category *</label>
+              <select id="event-category" class="form-input" required>
+                <option value="Hackathon">🏆 Hackathon</option>
+                <option value="Workshop" selected>💻 Workshop</option>
+                <option value="Competition">⚡ Competition</option>
+                <option value="Career Meetup">🎯 Career Meetup</option>
+                <option value="Tech Talk">🎤 Tech Talk</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="event-date" class="form-label">Event Date *</label>
+              <input type="date" id="event-date" class="form-input" required>
+            </div>
+
+            <div class="form-group flex-1">
+              <label for="event-time" class="form-label">Time Duration *</label>
+              <input type="text" id="event-time" class="form-input" placeholder="e.g. 4:00 PM - 6:30 PM" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="event-location" class="form-label">Location / Room *</label>
+              <input type="text" id="event-location" class="form-input" placeholder="e.g. Auditorium Hall B or Zoom link" required>
+            </div>
+
+            <div class="form-group" style="width: 170px;">
+              <label for="event-venue-type" class="form-label">Format</label>
+              <select id="event-venue-type" class="form-input">
+                <option value="in-person">🏛️ In-Person</option>
+                <option value="virtual">🌐 Virtual</option>
+                <option value="hybrid">⚡ Hybrid</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="event-host" class="form-label">Host Organization / Club *</label>
+              <input type="text" id="event-host" class="form-input" placeholder="e.g. Google Developer Student Club" required>
+            </div>
+
+            <div class="form-group" style="width: 140px;">
+              <label for="event-capacity" class="form-label">Seat Capacity</label>
+              <input type="number" id="event-capacity" class="form-input" placeholder="100" min="10" max="1000" value="120">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="event-desc" class="form-label">Event Overview & Agenda *</label>
+            <textarea id="event-desc" class="form-textarea" rows="3" placeholder="Briefly describe what attendees will learn, what they should bring (laptop, credentials), and prize perks..." required></textarea>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btn-cancel-create-event">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-submit-event">Publish Campus Event</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: CREATE / EDIT TEAMMATE PROFILE ================= -->
+  <div class="modal-overlay" id="modal-create-profile-dialog">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Create / Edit Teammate Profile</h3>
+          <p class="modal-subtitle">Share your skills and what projects you want to build</p>
+        </div>
+        <button class="modal-close-btn" id="btn-close-create-profile">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-create-profile" class="styled-form">
+          
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="profile-name" class="form-label">Full Name *</label>
+              <input type="text" id="profile-name" class="form-input" value="Alex Chen" required>
+            </div>
+
+            <div class="form-group flex-1">
+              <label for="profile-major" class="form-label">Major / Department *</label>
+              <input type="text" id="profile-major" class="form-input" value="Computer Science" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="profile-year" class="form-label">Year of Study *</label>
+              <select id="profile-year" class="form-input" required>
+                <option value="Freshman '29">Freshman ('29)</option>
+                <option value="Sophomore '28" selected>Sophomore ('28)</option>
+                <option value="Junior '27">Junior ('27)</option>
+                <option value="Senior '26">Senior ('26)</option>
+                <option value="Graduate / Masters">Graduate / Masters</option>
+              </select>
+            </div>
+
+            <div class="form-group flex-1">
+              <label for="profile-status" class="form-label">Availability / Goal *</label>
+              <select id="profile-status" class="form-input" required>
+                <option value="hackathon">🚀 Looking for Hackathon Team</option>
+                <option value="capstone">🎓 Capstone & Projects</option>
+                <option value="mentor">💡 Peer Mentoring & Side Projects</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Skills Selection Checkboxes -->
+          <div class="form-group">
+            <label class="form-label">Primary Skills (Select at least 1) *</label>
+            <div class="skills-checkbox-grid">
+              <label class="skill-checkbox-chip">
+                <input type="checkbox" name="profileSkills" value="Web Development" checked>
+                <span>🌐 Web Development</span>
+              </label>
+              <label class="skill-checkbox-chip">
+                <input type="checkbox" name="profileSkills" value="Python" checked>
+                <span>🐍 Python</span>
+              </label>
+              <label class="skill-checkbox-chip">
+                <input type="checkbox" name="profileSkills" value="UI/UX Design">
+                <span>🎨 UI/UX Design</span>
+              </label>
+              <label class="skill-checkbox-chip">
+                <input type="checkbox" name="profileSkills" value="Data Science">
+                <span>📊 Data Science</span>
+              </label>
+              <label class="skill-checkbox-chip">
+                <input type="checkbox" name="profileSkills" value="Public Speaking">
+                <span>🗣️ Public Speaking & Pitch</span>
+              </label>
+              <label class="skill-checkbox-chip">
+                <input type="checkbox" name="profileSkills" value="Cloud & DevOps" checked>
+                <span>☁️ Cloud & DevOps</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="profile-bio" class="form-label">Bio & Project Goals *</label>
+            <textarea id="profile-bio" class="form-textarea" rows="3" placeholder="Tell potential teammates what you like building, your tech stack, and what type of project you want to tackle..." required>Full-stack developer focused on React and Python cloud backends. Passionate about participating in 36-hr hackathons and building campus utility tools.</textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="profile-contact" class="form-label">Contact Handle / Email *</label>
+              <input type="text" id="profile-contact" class="form-input" placeholder="Discord: username or email" value="alex.chen@campus.edu" required>
+            </div>
+
+            <div class="form-group flex-1">
+              <label for="profile-github" class="form-label">GitHub / Portfolio URL</label>
+              <input type="text" id="profile-github" class="form-input" placeholder="github.com/alexchen" value="github.com/alexchen">
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btn-cancel-create-profile">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-submit-profile">Save & Publish Profile</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: INVITE TEAMMATE / COLLABORATE ================= -->
+  <div class="modal-overlay" id="modal-invite-teammate-dialog">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Invite to Collaborate</h3>
+          <p class="modal-subtitle" id="invite-modal-subtitle">Propose a project or hackathon squad</p>
+        </div>
+        <button class="modal-close-btn" id="btn-close-invite-teammate">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="respond-target-card" id="invite-target-summary">
+          <!-- Populated dynamically -->
+        </div>
+
+        <form id="form-invite-teammate" class="styled-form">
+          <input type="hidden" id="invite-student-id" value="">
+
+          <div class="form-group">
+            <label for="invite-project" class="form-label">Project / Hackathon Name *</label>
+            <input type="text" id="invite-project" class="form-input" placeholder="e.g. Annual Campus 36-Hour Hackathon 2026" value="Annual Campus 36-Hour Hackathon 2026" required>
+          </div>
+
+          <div class="form-group">
+            <label for="invite-role" class="form-label">Role Needed *</label>
+            <input type="text" id="invite-role" class="form-input" placeholder="e.g. UI/UX Designer, ML Specialist, Full-Stack Lead" required>
+          </div>
+
+          <div class="form-group">
+            <label for="invite-msg" class="form-label">Collaboration Pitch / Message *</label>
+            <textarea id="invite-msg" class="form-textarea" rows="3" placeholder="Hey! We saw your profile and your skills in Python/UI. We have a team of 3 building a smart campus app and would love to have you onboard..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="invite-contact" class="form-label">Your Discord or Campus Email *</label>
+            <input type="text" id="invite-contact" class="form-input" placeholder="alex.chen@campus.edu or Discord: alex#123" value="alex.chen@campus.edu" required>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btn-cancel-invite">Cancel</button>
+            <button type="submit" class="btn btn-primary">Send Collaboration Invite</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: EVENT DETAILS & REGISTRATION ================= -->
+  <div class="modal-overlay" id="modal-event-details-dialog">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="event-modal-title">Event Details</h3>
+          <p class="modal-subtitle" id="event-modal-subtitle">Official campus event schedule & registration</p>
+        </div>
+        <button class="modal-close-btn" id="btn-close-event-details">&times;</button>
+      </div>
+      <div class="modal-body" id="event-modal-body">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: REPORT LOST OR FOUND ITEM ================= -->
+  <div class="modal-overlay" id="modal-report-lost-found">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="lost-modal-heading">Report Lost / Found Item</h3>
+          <p class="modal-subtitle">Help campus security and students return missing belongings</p>
+        </div>
+        <button class="modal-close-btn" id="btn-close-report-lost">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-report-lost-found" class="styled-form">
+          
+          <div class="form-group">
+            <label class="form-label">Report Type *</label>
+            <div class="segmented-control">
+              <label class="segment-option">
+                <input type="radio" name="lostReportType" value="lost" checked>
+                <span>🔍 I Lost Something</span>
+              </label>
+              <label class="segment-option">
+                <input type="radio" name="lostReportType" value="found">
+                <span>🎒 I Found Something</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="lost-item-name" class="form-label">Item Name *</label>
+              <input type="text" id="lost-item-name" class="form-input" placeholder="e.g. Blue RFID Smart ID Card or TI-84 Calculator" required>
+            </div>
+
+            <div class="form-group" style="width: 190px;">
+              <label for="lost-item-category" class="form-label">Category *</label>
+              <select id="lost-item-category" class="form-input" required>
+                <option value="electronics">📱 Electronics</option>
+                <option value="cards">💳 ID & Wallets</option>
+                <option value="books">📚 Books & Notes</option>
+                <option value="keys">🔑 Keys & Badges</option>
+                <option value="other">🎒 Other Personal</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="lost-item-location" class="form-label">Location (Where Lost or Found) *</label>
+              <input type="text" id="lost-item-location" class="form-input" placeholder="e.g. Central Library 2nd Floor or Canteen Table 4" required>
+            </div>
+
+            <div class="form-group flex-1">
+              <label for="lost-item-date" class="form-label">Date *</label>
+              <input type="date" id="lost-item-date" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="lost-item-desc" class="form-label">Description & Distinguishing Features *</label>
+            <textarea id="lost-item-desc" class="form-textarea" rows="3" placeholder="Describe brand, color, stickers, keychains, or specific marks. (Avoid disclosing full ID numbers or banking card digits)" required></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="lost-item-reporter" class="form-label">Your Name *</label>
+              <input type="text" id="lost-item-reporter" class="form-input" value="Alex Chen" required>
+            </div>
+
+            <div class="form-group flex-1">
+              <label for="lost-item-contact" class="form-label">Safe Contact Handle (Email / Discord) *</label>
+              <input type="text" id="lost-item-contact" class="form-input" placeholder="alex.chen@campus.edu or Discord: username" value="alex.chen@campus.edu" required>
+            </div>
+          </div>
+
+          <div class="disclaimer-banner" style="background-color: var(--accent-emerald-light); border-color:#a7f3d0; color:#047857; margin-bottom: 1rem;">
+            <span>🛡️</span>
+            <div>
+              <strong>Privacy Protection:</strong> Your phone number and private records are never displayed. Peers will reach you via your campus institutional handle.
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btn-cancel-report-lost">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-submit-report-lost">Publish Listing</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: ASK A SENIOR (CAMPUS CONNECT) ================= -->
+  <div class="modal-overlay" id="modal-ask-senior">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Ask a Senior</h3>
+          <p class="modal-subtitle">Post a question about college life, academics, or branch selection to current DYP seniors</p>
+        </div>
+        <button class="modal-close-btn" id="btn-close-ask-senior">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-ask-senior" class="styled-form">
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="ask-student-name" class="form-label">Your Name or Alias *</label>
+              <input type="text" id="ask-student-name" class="form-input" placeholder="e.g. Ananya S. (12th Aspirant)" required>
+            </div>
+            <div class="form-group flex-1">
+              <label for="ask-target-branch" class="form-label">Target Branch *</label>
+              <select id="ask-target-branch" class="form-input" required>
+                <option value="General DYP Campus">General DYP Campus</option>
+                <option value="Computer Science (CSE)">Computer Science (CSE)</option>
+                <option value="Information Technology (IT)">Information Technology (IT)</option>
+                <option value="AI & Data Science (AI/DS)">AI & Data Science (AI/DS)</option>
+                <option value="Electronics & Telecommunication">Electronics & Telecommunication</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Civil Engineering">Civil Engineering</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="ask-category" class="form-label">Category *</label>
+            <select id="ask-category" class="form-input" required>
+              <option value="Academics and Teaching">📚 Academics and Teaching</option>
+              <option value="Branch Selection" selected>🎯 Branch Selection</option>
+              <option value="College Life">🏫 College Life</option>
+              <option value="Campus Facilities">🔬 Campus Facilities</option>
+              <option value="Clubs and Hackathons">💻 Clubs and Hackathons</option>
+              <option value="Admission Guidance">📝 Admission Guidance</option>
+              <option value="Hostel and Accommodation">🛏️ Hostel and Accommodation</option>
+              <option value="Fees and Expenses">💳 Fees and Expenses</option>
+              <option value="Placements and Career Opportunities">🚀 Placements and Career Opportunities</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="ask-title" class="form-label">Question Summary *</label>
+            <input type="text" id="ask-title" class="form-input" placeholder="e.g. How difficult is the first-year coding curriculum for beginners?" required>
+          </div>
+
+          <div class="form-group">
+            <label for="ask-details" class="form-label">Detailed Question & What You Wish to Know *</label>
+            <textarea id="ask-details" class="form-textarea" rows="4" placeholder="Provide background on your 12th stream (PCM/CS), any specific concerns about labs, teachers, or coding environment..." required></textarea>
+          </div>
+
+          <div class="disclaimer-banner" style="background-color: var(--secondary-light); border-color: #99F6E4; color: #11786D; margin-bottom: 1rem;">
+            <span>🛡️</span>
+            <div>
+              <strong>Safe Community Guidelines:</strong> Never post phone numbers, personal Aadhaar/ID numbers, or transaction IDs. Answers from students reflect personal experiences.
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btn-cancel-ask-senior">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-submit-ask-senior">Submit Question</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: ANSWER A QUESTION (SENIOR RESPONSE) ================= -->
+  <div class="modal-overlay" id="modal-submit-answer">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Answer Aspirant Question</h3>
+          <p class="modal-subtitle">Share your authentic student insights to help a college aspirant</p>
+        </div>
+        <button class="modal-close-btn" id="btn-close-submit-answer">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="background: var(--bg-surface-alt); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.25rem;">
+          <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);" id="answer-modal-category">CATEGORY</span>
+          <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-top: 0.25rem;" id="answer-modal-question-title">Question Title</h4>
+        </div>
+
+        <form id="form-submit-answer" class="styled-form">
+          <input type="hidden" id="answer-question-id">
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="answer-senior-name" class="form-label">Your Name *</label>
+              <input type="text" id="answer-senior-name" class="form-input" value="Alex Chen" required>
+            </div>
+            <div class="form-group flex-1">
+              <label for="answer-senior-role" class="form-label">Branch & Year *</label>
+              <input type="text" id="answer-senior-role" class="form-input" value="CSE • 3rd Year" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Response Type *</label>
+            <div class="segmented-control">
+              <label class="segment-option">
+                <input type="radio" name="answerClassification" value="experience" checked>
+                <span>🌟 Personal Student Experience</span>
+              </label>
+              <label class="segment-option">
+                <input type="radio" name="answerClassification" value="general">
+                <span>📋 College General Info</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="answer-text" class="form-label">Your Advice / Experience *</label>
+            <textarea id="answer-text" class="form-textarea" rows="5" placeholder="Share your honest perspective, practical advice, course tips, or personal routine..." required></textarea>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btn-cancel-submit-answer">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-save-submit-answer">Publish Answer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: REQUEST A CONVERSATION ================= -->
+  <div class="modal-overlay" id="modal-request-convo">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Request a 1-on-1 Conversation</h3>
+          <p class="modal-subtitle">Connect with a current student volunteer for guidance before admissions</p>
+        </div>
+        <button class="modal-close-btn" id="btn-close-request-convo">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-request-convo" class="styled-form">
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="convo-aspirant-name-input" class="form-label">Aspirant's Name *</label>
+              <input type="text" id="convo-aspirant-name-input" class="form-input" placeholder="e.g. Rahul Sharma" required>
+            </div>
+            <div class="form-group flex-1">
+              <label for="convo-preferred-branch" class="form-label">Target Branch / Topic *</label>
+              <select id="convo-preferred-branch" class="form-input" required>
+                <option value="Computer Science (CSE)">Computer Science (CSE)</option>
+                <option value="Information Technology (IT)">Information Technology (IT)</option>
+                <option value="AI & Data Science (AI/DS)">AI & Data Science (AI/DS)</option>
+                <option value="E&TC Engineering">E&TC Engineering</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="General College Life">General College Life</option>
+                <option value="Hostel & Commute">Hostel & Commute</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="convo-preferred-mentor" class="form-label">Preferred Student Mentor (Optional)</label>
+              <select id="convo-preferred-mentor" class="form-input">
+                <option value="Any Available Senior">Any Available Senior Volunteer</option>
+              </select>
+            </div>
+            <div class="form-group flex-1">
+              <label for="convo-preferred-lang" class="form-label">Preferred Language *</label>
+              <select id="convo-preferred-lang" class="form-input" required>
+                <option value="English">English</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Marathi">Marathi</option>
+                <option value="English / Hindi Mixed">English / Hindi Mixed</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="convo-preferred-time" class="form-label">Preferred Time Slot *</label>
+            <select id="convo-preferred-time" class="form-input" required>
+              <option value="Weekend Morning (10 AM - 12 PM)">Weekend Morning (10 AM - 12 PM)</option>
+              <option value="Weekday Evening (6 PM - 8 PM)">Weekday Evening (6 PM - 8 PM)</option>
+              <option value="Saturday Afternoon (2 PM - 5 PM)">Saturday Afternoon (2 PM - 5 PM)</option>
+              <option value="Flexible / As Per Senior Availability">Flexible / As Per Senior Availability</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="convo-reason-input" class="form-label">Question or Reason for Conversation *</label>
+            <textarea id="convo-reason-input" class="form-textarea" rows="3" placeholder="e.g. I scored 94% in CET and am confused between CSE vs IT branches at DYP. Would love 10 minutes to understand lab faculties and placement differences." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="convo-optional-msg" class="form-label">Optional Message or Specific Queries</label>
+            <input type="text" id="convo-optional-msg" class="form-input" placeholder="e.g. Please let me know if hostel rooms have reliable Wi-Fi for coding.">
+          </div>
+
+          <div class="disclaimer-banner" style="background-color: var(--secondary-light); border-color: #99F6E4; color: #11786D; margin-bottom: 1rem;">
+            <span>🛡️</span>
+            <div>
+              <strong>Privacy Assurance:</strong> Your request will be queued in the mentor system. Phone numbers and private email addresses are never exposed publicly.
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btn-cancel-request-convo">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-submit-request-convo">Submit Request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: BECOME A CAMPUS MENTOR ================= -->
+  <div class="modal-overlay" id="modal-become-mentor">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Become a Campus Mentor</h3>
+          <p class="modal-subtitle">Volunteer to help incoming students and college aspirants make informed choices</p>
+        </div>
+        <button class="modal-close-btn" id="btn-close-become-mentor">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-become-mentor" class="styled-form">
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="mentor-fullname" class="form-label">Display Name *</label>
+              <input type="text" id="mentor-fullname" class="form-input" placeholder="e.g. Priya Sharma" required>
+            </div>
+            <div class="form-group flex-1">
+              <label for="mentor-student-id" class="form-label">Student ID / PRN (Kept Private) *</label>
+              <input type="text" id="mentor-student-id" class="form-input" placeholder="e.g. DYP2025CS102" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="mentor-branch" class="form-label">Branch *</label>
+              <select id="mentor-branch" class="form-input" required>
+                <option value="CSE">Computer Science (CSE)</option>
+                <option value="IT">Information Technology (IT)</option>
+                <option value="AI/DS">AI & Data Science (AI/DS)</option>
+                <option value="E&TC">Electronics & Telecommunication</option>
+                <option value="Mechanical">Mechanical Engineering</option>
+                <option value="Civil">Civil Engineering</option>
+              </select>
+            </div>
+            <div class="form-group flex-1">
+              <label for="mentor-year" class="form-label">Current Year of Study *</label>
+              <select id="mentor-year" class="form-input" required>
+                <option value="2nd Year">2nd Year (Sophomore)</option>
+                <option value="3rd Year" selected>3rd Year (Junior)</option>
+                <option value="4th Year">4th Year (Senior)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="mentor-languages" class="form-label">Languages You Speak *</label>
+              <input type="text" id="mentor-languages" class="form-input" placeholder="e.g. English, Hindi, Marathi" required>
+            </div>
+            <div class="form-group flex-1">
+              <label for="mentor-topics" class="form-label">Key Topics You Can Answer *</label>
+              <input type="text" id="mentor-topics" class="form-input" placeholder="e.g. Academics, Hackathons, Hostels, Branch selection" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="mentor-experience-areas" class="form-label">Areas of Experience & Clubs *</label>
+            <input type="text" id="mentor-experience-areas" class="form-input" placeholder="e.g. Web Dev Club, Smart India Hackathon finalist, GDSC Core team" required>
+          </div>
+
+          <div class="form-group">
+            <label for="mentor-intro-bio" class="form-label">Short Introduction *</label>
+            <textarea id="mentor-intro-bio" class="form-textarea" rows="3" placeholder="Tell aspirants a little about your journey, what you like about DYP, and how you can assist them..." required></textarea>
+          </div>
+
+          <div class="disclaimer-banner" style="background-color: var(--primary-light); border-color: #D6CBF9; color: var(--primary); margin-bottom: 1rem;">
+            <span>ℹ️</span>
+            <div>
+              <strong>Peer Verification Process:</strong> Mentor applications are reviewed by the campus community before public listing. Your Student ID remains private and will never be shown to aspirants.
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btn-cancel-become-mentor">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-submit-become-mentor">Submit Application</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: READ STUDENT STORY ================= -->
+  <div class="modal-overlay" id="modal-read-story">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header">
+        <div>
+          <span class="sparkle-badge sparkle-badge-purple" id="story-modal-category">Experience Story</span>
+          <h3 class="modal-title" style="margin-top: 0.35rem;" id="story-modal-title">Story Title</h3>
+          <p class="modal-subtitle" id="story-modal-meta">By Author • Branch • Date</p>
+        </div>
+        <button class="modal-close-btn" id="btn-close-read-story">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="story-modal-body" style="font-size: 0.95rem; line-height: 1.75; color: var(--text-main); white-space: pre-line;">
+          <!-- Populated by app.js -->
+        </div>
+
+        <div style="margin-top: 1.5rem; padding: 1.25rem; background: var(--bg-surface-alt); border-radius: var(--radius-md); border-left: 4px solid var(--secondary);">
+          <strong style="color: var(--primary); font-size: 0.9rem;">Senior Takeaway Tip:</strong>
+          <p style="font-size: 0.86rem; color: var(--text-muted); margin-top: 0.25rem;" id="story-modal-takeaway">
+            Have questions for this senior? You can connect with them in the Senior Mentors directory.
+          </p>
+        </div>
+
+        <div class="modal-footer" style="margin-top: 1.5rem;">
+          <button type="button" class="btn btn-primary" id="btn-dismiss-read-story">Close Story</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: SUBMIT STUDENT STORY ================= -->
+  <div class="modal-overlay" id="modal-submit-story">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Share Your Campus Story</h3>
+          <p class="modal-subtitle">Inspire prospective students by sharing your genuine college experience</p>
+        </div>
+        <button class="modal-close-btn" id="btn-close-submit-story">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-submit-story" class="styled-form">
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="story-author-input" class="form-label">Author Name *</label>
+              <input type="text" id="story-author-input" class="form-input" value="Alex Chen" required>
+            </div>
+            <div class="form-group flex-1">
+              <label for="story-branch-input" class="form-label">Branch & Year *</label>
+              <input type="text" id="story-branch-input" class="form-input" value="CSE • 3rd Year" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="story-title-input" class="form-label">Story Heading *</label>
+              <input type="text" id="story-title-input" class="form-input" placeholder="e.g. What I Wish I Knew Before Joining College: 7 Honest Tips" required>
+            </div>
+            <div class="form-group" style="width: 170px;">
+              <label for="story-readtime-input" class="form-label">Read Time *</label>
+              <input type="text" id="story-readtime-input" class="form-input" value="4 min read" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="story-preview-input" class="form-label">Short Summary (Preview) *</label>
+            <input type="text" id="story-preview-input" class="form-input" placeholder="A one-sentence summary for the story card..." required>
+          </div>
+
+          <div class="form-group">
+            <label for="story-full-text" class="form-label">Full Story Content *</label>
+            <textarea id="story-full-text" class="form-textarea" rows="6" placeholder="Write your full story with headings, bullet points, and advice..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="story-takeaway-input" class="form-label">Key Takeaway / Advice for Aspirants *</label>
+            <input type="text" id="story-takeaway-input" class="form-input" placeholder="e.g. Focus on fundamentals in semester 1 and build practical projects." required>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btn-cancel-submit-story">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-save-submit-story">Publish Story</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: REPORT INAPPROPRIATE CONTENT ================= -->
+  <div class="modal-overlay" id="modal-report-content">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Report Content</h3>
+          <p class="modal-subtitle">Help keep DYP Campus Connect safe, respectful, and genuine</p>
+        </div>
+        <button class="modal-close-btn" id="btn-close-report-content">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-report-content" class="styled-form">
+          <input type="hidden" id="report-target-id">
+          <input type="hidden" id="report-target-type">
+
+          <div style="background: var(--bg-surface-alt); padding: 0.85rem; border-radius: var(--radius-md); margin-bottom: 1rem; font-size: 0.85rem;">
+            Reporting: <strong id="report-target-title">General Content</strong>
+          </div>
+
+          <div class="form-group">
+            <label for="report-reason" class="form-label">Reason for Report *</label>
+            <select id="report-reason" class="form-input" required>
+              <option value="Inappropriate language or harassment">Inappropriate language or harassment</option>
+              <option value="Private phone number or personal credentials revealed">Private phone number or personal credentials revealed</option>
+              <option value="Misleading or inaccurate college information">Misleading or inaccurate college information</option>
+              <option value="Spam or promotional advertising">Spam or promotional advertising</option>
+              <option value="Fake student profile">Fake student profile</option>
+              <option value="Other concern">Other concern</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="report-details" class="form-label">Additional Details (Optional)</label>
+            <textarea id="report-details" class="form-textarea" rows="3" placeholder="Describe the concern..."></textarea>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btn-cancel-report-content">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-submit-report-content">Submit Report</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: VIEW MENTOR PROFILE ================= -->
+  <div class="modal-overlay" id="modal-mentor-profile">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="mentor-profile-title">Mentor Profile</h3>
+          <p class="modal-subtitle" id="mentor-profile-branch">Branch & Year</p>
+        </div>
+        <button class="modal-close-btn" id="btn-close-mentor-profile">&times;</button>
+      </div>
+      <div class="modal-body" id="mentor-profile-content">
+        <!-- Populated by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: DATABASE ARCHITECTURE & FIREBASE STATUS ================= -->
+  <div class="modal-overlay" id="modal-database-status">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Supabase Cloud Database Settings</h3>
+          <p class="modal-subtitle">DYP CAMPUS 360 Real-Time Storage & Synchronization</p>
+        </div>
+        <button class="modal-close-btn" id="btn-close-db-status">&times;</button>
+      </div>
+      <div class="modal-body">
+        
+        <div id="supabase-status-banner" style="background-color: var(--secondary-light); border: 1px solid #99F6E4; border-radius: var(--radius-md); padding: 1.15rem; margin-bottom: 1.25rem;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.4rem; flex-wrap:wrap; gap:0.5rem;">
+            <strong style="color: #0F766E; font-size:1rem;">Database Engine Status</strong>
+            <span class="db-status-pill" id="modal-db-pill"><span class="db-pulse-dot"></span><span id="modal-db-pill-label">Checking...</span></span>
+          </div>
+          <p id="supabase-status-desc" style="font-size: 0.84rem; color: #115E59; line-height: 1.5;">
+            Loading database synchronization status...
+          </p>
+        </div>
+
+        <!-- Interactive Supabase Credentials Configuration Form -->
+        <div style="background-color: var(--bg-surface-alt); border-radius: var(--radius-md); padding: 1.15rem; margin-bottom: 1.25rem;">
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">Configure Supabase API Credentials</h4>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.85rem; line-height: 1.45;">
+            Paste your Project API URL and publishable <code>anon</code> key below. They are saved securely in your browser and connect immediately.
+          </p>
+          
+          <form id="form-supabase-config" onsubmit="handleSaveSupabaseConfig(event)">
+            <div style="margin-bottom: 0.75rem;">
+              <label for="cfg-supabase-url" style="display:block; font-size: 0.78rem; font-weight: 700; margin-bottom: 0.25rem; color: var(--text-main);">
+                Supabase Project API URL *
+              </label>
+              <input type="url" id="cfg-supabase-url" class="form-input" placeholder="https://your-project-ref.supabase.co" required style="font-family: monospace; font-size: 0.84rem;">
+            </div>
+
+            <div style="margin-bottom: 0.85rem;">
+              <label for="cfg-supabase-key" style="display:block; font-size: 0.78rem; font-weight: 700; margin-bottom: 0.25rem; color: var(--text-main);">
+                Supabase Anon Publishable Key *
+              </label>
+              <input type="text" id="cfg-supabase-key" class="form-input" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." required style="font-family: monospace; font-size: 0.84rem;">
+              <span style="font-size: 0.72rem; color: var(--text-muted); display: block; margin-top: 0.25rem;">
+                🛡️ Safe to use on frontend. Never paste your <code>service_role</code> secret key here.
+              </span>
+            </div>
+
+            <div style="display: flex; gap: 0.65rem; align-items: center; flex-wrap: wrap;">
+              <button type="submit" class="btn btn-teal btn-sm" id="btn-save-supabase-cfg">
+                <span>⚡ Save & Test Connection</span>
+              </button>
+              <button type="button" class="btn btn-outline btn-sm" id="btn-clear-supabase-cfg" onclick="handleClearSupabaseConfig()">
+                <span>Reset to Local Mode</span>
+              </button>
+            </div>
+            <div id="supabase-test-feedback" style="margin-top: 0.65rem; font-size: 0.8rem; display: none;"></div>
+          </form>
+        </div>
+
+        <div style="background-color: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1rem; font-size: 0.82rem;">
+          <strong style="color: var(--primary);">Quick 3-Step Setup Instructions:</strong>
+          <ol style="margin-left: 1.25rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.35rem; color: var(--text-main); line-height: 1.45;">
+            <li>In Supabase Dashboard, go to <strong>SQL Editor</strong> -> Run <code>supabase-schema.sql</code> (included in your project) to create tables & RLS security rules.</li>
+            <li>Go to <strong>Project Settings</strong> -> <strong>API</strong>. Copy your <strong>Project URL</strong> and <strong>anon public key</strong>.</li>
+            <li>Paste them above or in <code>supabase-config.js</code>. The website will automatically sync Events, Registrations, Q&A, and Campus Help!</li>
+          </ol>
+        </div>
+
+        <div class="modal-footer" style="margin-top: 1.25rem;">
+          <button type="button" class="btn btn-primary" id="btn-dismiss-db-modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FLOATING TOAST NOTIFICATION ================= -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="brand-text">
+          <div class="footer-logo-badge" style="background:#ffffff; padding:6px 14px; border-radius:10px; display:inline-block; margin-bottom:0.75rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+            <img src="assets/logo-emblem.jpg" alt="Campus360 Logo" style="height:44px; width:auto; display:block;">
+          </div>
+        </div>
+        <p class="footer-tagline">Your Campus. Your Community. Your Compass.</p>
+        <p class="footer-desc">
+          Official campus companion for students. Built with clean semantic HTML5, modern vanilla CSS, and JavaScript with Supabase Cloud Database readiness.
+        </p>
+      </div>
+      <div class="footer-meta">
+        <div class="footer-badge" id="footer-db-status" style="cursor: pointer;">
+          <span class="cloud-ready-dot" style="background-color: #20B8A8;"></span>
+          <span id="footer-db-text">Database: Local Mode (Supabase Ready)</span>
+        </div>
+        <p class="footer-copy">© 2026 Campus360 Student Platform. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Official Supabase JS SDK, Environment Variables & Application Client Config -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="env.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+

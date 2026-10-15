@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Log in or register for Campus360 - Navigate Smart. Connect Better. Explore events, teammates, and campus navigator.">
+    <title>Campus360 | Navigate Smart. Connect Better.</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Google Typography: Montserrat, Poppins & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Left Hero & Branding Panel (Warm Cream & Botanical Campus Theme) -->
+    <div class="left-panel">
+        <!-- Background Imagery Layers -->
+        <img src="assets/campus-bg-right.png" alt="Campus Building" class="bg-campus-building">
+        <img src="assets/botanical-left.png" alt="Botanical Foliage" class="bg-botanical-leaves">
+        <img src="assets/paper-plane.png" alt="Paper Airplane" class="bg-paper-plane">
+
+        <div class="brand">
+            <a href="index.html" class="brand-link" title="Return to Campus360 Dashboard">
+                <div class="brand-logo-badge">
+                    <img src="assets/logo-emblem.jpg" alt="Campus360 Logo" class="brand-logo-img">
+                </div>
+            </a>
+        </div>
+
+        <div class="hero">
+            <!-- CAMPUS360 Title with Arched Orbit & Star -->
+            <div class="hero-title-wrapper">
+                <h1 class="hero-title">
+                    CAMPUS<span class="highlight-360">360<span class="orbit-sparkle-container">
+                        <svg class="orbit-sparkle" viewBox="0 0 100 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 6 42 C 28 -4, 72 -4, 94 42" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                            <path d="M 50 4 L 52 -1 L 54 4 L 59 6 L 54 8 L 52 13 L 50 8 L 45 6 Z" fill="#16a34a"/>
+                        </svg>
+                    </span></span>
+                </h1>
+            </div>
+
+            <!-- Tagline Highlighted in Tropical Teal with Sparkle Accents -->
+            <div class="tagline-highlight-wrapper">
+                <span class="sparkle-accent left">✦</span>
+                <span class="tagline-highlight">Your Campus. Your Community. Your Compass.</span>
+                <span class="sparkle-accent right">✦</span>
+            </div>
+
+            <!-- Description Text -->
+            <p class="hero-description">
+                Discover your campus, explore opportunities, connect with students, and take the next step towards your future.
+            </p>
+
+            <!-- 3 Soft Pastel Feature Cards in Horizontal Row -->
+            <div class="features-grid">
+                <div class="feature-card card-mint">
+                    <div class="card-icon-circle icon-mint">
+                        <span>📅</span>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">Discover Campus<br>Events</span>
+                    </div>
+                    <span class="card-arrow">→</span>
+                </div>
+
+                <div class="feature-card card-lavender">
+                    <div class="card-icon-circle icon-lavender">
+                        <span>👥</span>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">Connect with<br>Students</span>
+                    </div>
+                    <span class="card-arrow">→</span>
+                </div>
+
+                <div class="feature-card card-peach">
+                    <div class="card-icon-circle icon-peach">
+                        <span>🚀</span>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">Explore New<br>Opportunities</span>
+                    </div>
+                    <span class="card-arrow">→</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Divider with Brand Line -->
+        <div class="footer-divider-container">
+            <span class="footer-divider-line"></span>
+            <span class="footer-divider-text">Campus360 • Your Campus. Your Community. Your Compass.</span>
+            <span class="footer-divider-line"></span>
+        </div>
+    </div>
+
+    <!-- Right Form & Interaction Panel -->
+    <div class="right-panel">
+        <div class="form-box">
+
+            <!-- Switcher Tabs -->
+            <div class="tabs" role="tablist" aria-label="Authentication tabs">
+                <button id="loginTab" class="tab active" role="tab" aria-selected="true"
+                    onclick="showForm('login')">Login</button>
+                <button id="registerTab" class="tab" role="tab" aria-selected="false"
+                    onclick="showForm('register')">Register</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm">
+                <h2>Welcome back! 👋</h2>
+                <p class="subtitle">Log in to explore your campus.</p>
+
+                <div class="input-group">
+                    <label for="loginEmail">College email</label>
+                    <input type="email" id="loginEmail"
+                        placeholder="you@college.edu" required autocomplete="email">
+                </div>
+
+                <div class="input-group">
+                    <label for="loginPassword">Password</label>
+                    <div class="password-box">
+                        <input type="password" id="loginPassword"
+                            placeholder="Enter your password" required autocomplete="current-password">
+                        <button type="button" class="toggle-btn"
+                            onclick="togglePassword('loginPassword', this)" aria-label="Toggle password visibility">Show</button>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember">
+                        <input type="checkbox" id="remember">
+                        <span>Remember me</span>
+                    </label>
+                    <button type="button" class="text-button forgot-link"
+                        onclick="forgotPassword()">Forgot password?</button>
+                </div>
+
+                <button type="submit" class="primary-btn" id="loginSubmitBtn">
+                    <span>Login</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+
+                <!-- Quick Demo Login Pill for Instant Testing -->
+                <div class="demo-login-box">
+                    <span>Quick Test:</span>
+                    <button type="button" class="demo-chip" onclick="fillDemoAccount('alex')">Alex Chen (CS)</button>
+                    <button type="button" class="demo-chip" onclick="fillDemoAccount('rohan')">Rohan Sharma (IT)</button>
+                </div>
+
+                <p class="switch-text">
+                    New to Campus360?
+                    <button type="button" class="text-button"
+                        onclick="showForm('register')">Create an account</button>
+                </p>
+            </form>
+
+            <!-- Registration Form -->
+            <form id="registerForm" class="hidden">
+                <h2>Create account ✨</h2>
+                <p class="subtitle">Join your campus community.</p>
+
+                <div class="input-group">
+                    <label for="fullName">Full name</label>
+                    <input type="text" id="fullName"
+                        placeholder="Enter your full name" required autocomplete="name">
+                </div>
+
+                <div class="input-group">
+                    <label for="regEmail">College email</label>
+                    <input type="email" id="regEmail"
+                        placeholder="you@college.edu" required autocomplete="email">
+                </div>
+
+                <div class="input-group">
+                    <label for="studentId">Student ID</label>
+                    <input type="text" id="studentId"
+                        placeholder="Enter your student ID (e.g. DYP2026CS042)" required>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label for="branch">Branch</label>
+                        <select id="branch" required>
+                            <option value="">Select branch</option>
+                            <option value="CSE">CSE</option>
+                            <option value="Data Science">Data Science</option>
+                            <option value="IT">IT</option>
+                            <option value="ENTC">ENTC</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="Mechanical">Mechanical</option>
+                            <option value="Civil">Civil</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="year">Year</label>
+                        <select id="year" required>
+                            <option value="">Select year</option>
+                            <option value="First Year">First Year</option>
+                            <option value="Second Year">Second Year</option>
+                            <option value="Third Year">Third Year</option>
+                            <option value="Final Year">Final Year</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="regPassword">Create password</label>
+                    <div class="password-box">
+                        <input type="password" id="regPassword"
+                            placeholder="Minimum 8 characters"
+                            minlength="8" required autocomplete="new-password">
+                        <button type="button" class="toggle-btn"
+                            onclick="togglePassword('regPassword', this)" aria-label="Toggle password visibility">Show</button>
+                    </div>
+                </div>
+
+                <label class="terms">
+                    <input type="checkbox" id="terms" required>
+                    <span>I agree to the <a href="#terms-modal" onclick="showTerms(event)">terms and conditions</a>.</span>
+                </label>
+
+                <button type="submit" class="primary-btn" id="regSubmitBtn">
+                    <span>Create Account</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+
+                <p class="switch-text">
+                    Already registered?
+                    <button type="button" class="text-button"
+                        onclick="showForm('login')">Login</button>
+                </p>
+            </form>
+
+            <!-- Status message container -->
+            <p id="message" role="status" aria-live="polite"></p>
+
+            <!-- Back to Campus Portal Link -->
+            <div class="portal-return">
+                <a href="index.html" class="portal-link">
+                    <span>← Return to Campus360 Portal</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
