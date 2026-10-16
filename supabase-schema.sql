@@ -1,5 +1,5 @@
 -- =================================================================
--- DYP CAMPUS 360 — Supabase Cloud Database Schema & Security
+-- Campus 360 — Supabase Cloud Database Schema & Security
 -- =================================================================
 -- Instructions:
 -- 1. Open your Supabase Dashboard: https://supabase.com/dashboard
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS public.campus_connect_questions (
   title TEXT NOT NULL,
   details TEXT NOT NULL,
   category TEXT NOT NULL DEFAULT 'Admission Guidance',
-  target_branch TEXT DEFAULT 'General DYP Campus',
+  target_branch TEXT DEFAULT 'General Campus',
   asker_name TEXT DEFAULT 'College Aspirant',
   status TEXT DEFAULT 'open',
   created_at TIMESTAMPTZ DEFAULT now()
@@ -152,14 +152,14 @@ VALUES
   ('evt-1', 'HackTheCampus 2026: 36-Hour Hackathon', 'Hackathon', 'Build innovative software and hardware prototypes for college campus automation, student productivity, and sustainability.', '2026-11-14', '09:00 AM - 09:00 PM', 'NOV', '14', 'Main Auditorium & CS Labs', 'in-person', 'GDSC & Coding Duo Club', 120, 84, true),
   ('evt-2', 'Hands-on Generative AI & LLM Systems', 'Workshop', 'Learn how to deploy open-source models, build RAG pipelines, and integrate conversational AI into web apps.', '2026-11-18', '02:00 PM - 05:30 PM', 'NOV', '18', 'Lab 304, IT Block A', 'in-person', 'AI Student Society', 60, 48, false),
   ('evt-3', 'Competitive Coding Duel: Speed Algorithmic Round', 'Competition', '1v1 algorithmic face-off on data structures, dynamic programming, and binary search with live leaderboard.', '2026-11-22', '04:00 PM - 06:30 PM', 'NOV', '22', 'Online Code Arena & Lab 102', 'hybrid', 'Competitive Programming Cell', 80, 52, false),
-  ('evt-4', 'Product Management & Tech Career Roadmap', 'Career Meetup', 'Insights from alumni working at top tech firms on crack interviews, resume tailoring, and off-campus offers.', '2026-11-26', '06:00 PM - 07:30 PM', 'NOV', '26', 'Seminar Hall 2 & YouTube Live', 'virtual', 'DYP Placement Cell', 250, 189, false)
+  ('evt-4', 'Product Management & Tech Career Roadmap', 'Career Meetup', 'Insights from alumni working at top tech firms on crack interviews, resume tailoring, and off-campus offers.', '2026-11-26', '06:00 PM - 07:30 PM', 'NOV', '26', 'Seminar Hall 2 & YouTube Live', 'virtual', 'Campus Placement Cell', 250, 189, false)
 ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.campus_connect_questions (id, title, details, category, target_branch, asker_name)
 VALUES
   ('qa-1', 'How difficult is first-year coding for students without computer science in 12th?', 'I took PCM with Hindi in 12th and have zero experience with C/Python. Will I struggle in the first semester programming lab?', 'Academics and Teaching', 'Computer Science (CSE)', 'Ananya Deshmukh (12th Aspirant)'),
-  ('qa-2', 'What is the actual difference between CSE and IT branches in syllabus and placements?', 'Confused between CSE and IT options at DYP. Do IT students get access to all top tech companies during campus drives?', 'Branch Selection', 'Information Technology (IT)', 'Sameer Patil (CET Aspirant)'),
-  ('qa-3', 'How is the hostel mess food and Wi-Fi connectivity for late-night coding?', 'Planning to stay in the on-campus hostel. How reliable is the internet speed in rooms and what are the library night hours?', 'Hostel and Accommodation', 'General DYP Campus', 'Zoya Khan (Prospective Student)')
+  ('qa-2', 'What is the actual difference between CSE and IT branches in syllabus and placements?', 'Confused between CSE and IT options on campus. Do IT students get access to all top tech companies during campus drives?', 'Branch Selection', 'Information Technology (IT)', 'Sameer Patil (CET Aspirant)'),
+  ('qa-3', 'How is the hostel mess food and Wi-Fi connectivity for late-night coding?', 'Planning to stay in the on-campus hostel. How reliable is the internet speed in rooms and what are the library night hours?', 'Hostel and Accommodation', 'General Campus', 'Zoya Khan (Prospective Student)')
 ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.campus_connect_answers (id, question_id, author_name, author_role, perspective_type, answer_text, helpful_count)

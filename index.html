@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Asynchronous Progress Indicator Bar -->
+  <div id="c360-async-loading-bar" class="c360-async-loading-bar" aria-hidden="true"></div>
 
   <!-- ================= TOP NAVIGATION BAR ================= -->
   <header class="navbar" id="main-navbar">
@@ -95,9 +97,14 @@
           </svg>
           <span>Quick Help</span>
         </button>
+
+        <div class="mobile-nav-auth" id="mobile-nav-auth">
+          <a href="login.html" class="btn btn-outline btn-sm mobile-auth-btn" id="mobile-nav-btn-login">Sign In</a>
+          <a href="login.html#register" class="btn btn-primary btn-sm mobile-auth-btn" id="mobile-nav-btn-register">Register</a>
+        </div>
       </nav>
 
-      <!-- Right Controls: Theme Toggle, DB Status, Quick Action Button & Profile Chip -->
+      <!-- Right Controls: Theme Toggle, DB Status, Quick Action Button, Auth Buttons & Profile Dropdown -->
       <div class="nav-actions">
         <!-- Theme Toggle Button -->
         <button class="theme-toggle-btn" id="btn-theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle theme">
@@ -105,25 +112,52 @@
         </button>
 
         <!-- Database Status Button -->
-        <button class="db-status-pill" id="btn-db-status" title="Database Configuration: Local Storage Active (Ready for Firebase)">
+        <button class="db-status-pill" id="btn-db-status" title="Database Configuration: Local Storage Active (Supabase Cloud Ready)">
           <span class="db-pulse-dot"></span>
           <span id="nav-db-label">Local DB</span>
         </button>
 
-        <button class="btn btn-primary btn-sm" id="btn-quick-post">
+        <button class="btn btn-teal btn-sm" id="btn-quick-post">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line>
           </svg>
           <span>New Post</span>
         </button>
 
-        <div class="user-chip" id="user-profile-chip" title="Active Campus Student Profile">
-          <div class="user-avatar">
-            <span>DY</span>
+        <!-- Auth Navigation Links (Visible when logged out) -->
+        <div class="auth-nav-group" id="auth-nav-group">
+          <a href="login.html" class="btn btn-outline btn-sm auth-nav-link" id="nav-btn-login">Sign In</a>
+          <a href="login.html#register" class="btn btn-primary btn-sm auth-nav-link" id="nav-btn-register">Register</a>
+        </div>
+
+        <!-- Student Profile Chip & Dropdown Menu (Visible when logged in) -->
+        <div class="user-chip-wrapper" id="user-chip-wrapper" style="display: none;">
+          <div class="user-chip" id="user-profile-chip" title="Campus Student Profile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+            <div class="user-avatar" id="nav-user-avatar">
+              <span>AC</span>
+            </div>
+            <div class="user-info">
+              <span class="user-name" id="nav-user-name">Alex Chen</span>
+              <span class="user-role" id="nav-user-role">Campus CS '26</span>
+            </div>
+            <span class="chip-dropdown-caret" style="font-size: 0.65rem; color: var(--text-muted); margin-left: 2px;">▼</span>
           </div>
-          <div class="user-info">
-            <span class="user-name">Alex Chen</span>
-            <span class="user-role">DYP CS '26</span>
+
+          <div class="user-dropdown-menu" id="user-dropdown-menu" role="menu">
+            <div class="user-dropdown-header">
+              <strong id="dropdown-user-name">Alex Chen</strong>
+              <span id="dropdown-user-email" class="dropdown-user-email">alex.chen@campus.edu</span>
+              <span id="dropdown-user-badge" class="dropdown-user-badge">ID: CAMPUS2026CS042</span>
+            </div>
+            <div class="user-dropdown-divider"></div>
+            <a href="login.html" class="user-dropdown-item" id="dropdown-switch-account" role="menuitem">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span>Switch Account</span>
+            </a>
+            <button type="button" class="user-dropdown-item user-dropdown-logout" id="dropdown-btn-logout" role="menuitem">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+              <span>Sign Out</span>
+            </button>
           </div>
         </div>
 
@@ -141,26 +175,27 @@
   <section class="hero-section">
     <div class="hero-backdrop"></div>
     <div class="hero-content">
-      <div class="hero-tag" style="margin-bottom: 14px;">
+      <div class="hero-tag" style="margin-bottom: 12px;">
         <span class="hero-tag-pulse"></span>
-        <span>DYP CAMPUS 360 • SMART CAMPUS PLATFORM</span>
-        <span style="color: var(--accent-amber);">✦</span>
+        <span>CAMPUS 360 • SMART CAMPUS PLATFORM</span>
       </div>
 
-      <div class="tagline-highlight-wrapper" style="margin-bottom: 16px;">
-        <span class="sparkle-accent left" style="color: var(--primary); font-size: 1.25rem;">✦</span>
-        <span class="tagline-highlight" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: #ffffff; font-size: 1.15rem; font-weight: 700; padding: 6px 24px; border-radius: 9999px; box-shadow: 0 4px 16px var(--primary-glow); display: inline-block;">
+      <div class="tagline-highlight-wrapper" style="margin-bottom: 14px;">
+        <span class="tagline-highlight">
           Your Campus. Your Community. Your Compass.
         </span>
-        <span class="sparkle-accent right" style="color: var(--primary); font-size: 1.25rem;">✦</span>
       </div>
 
       <h1 class="hero-title">
-        DYP CAMPUS<span class="text-gradient">360</span>
+        Campus <span class="highlight-teal">360</span>
       </h1>
 
+      <p class="hero-platform-badge">
+        Smart Campus Navigation, Student Assistance &amp; Event Management Platform
+      </p>
+
       <p class="hero-subtitle">
-        Discover your campus, explore opportunities, connect with students, and take the next step towards your future.
+        Discover campus facilities, explore upcoming events, find academic help, and connect with fellow students.
       </p>
 
       <!-- Welcome Hero 3 Action Buttons -->
@@ -182,7 +217,7 @@
       <!-- SECTION 2: GLOBAL UNIFIED SEARCH -->
       <div class="hero-search-wrapper">
         <div class="hero-search-box">
-          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg class="search-icon" id="btn-global-search-icon" style="cursor: pointer;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="button" aria-label="Perform search" tabindex="0">
             <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
           <input type="text" id="global-search-input" placeholder="Search classrooms, labs, events, seniors, hackathons, lost items, or academic forms..." autocomplete="off">
@@ -214,7 +249,7 @@
         </div>
         <div class="quick-hub-grid">
           <!-- Card 1: Navigator -->
-          <div class="quick-hub-card" data-goto-tab="navigator">
+          <div class="quick-hub-card" data-goto-tab="navigator" id="hub-card-navigator" role="button" tabindex="0" aria-label="Smart Navigator">
             <div class="quick-hub-icon-box icon-box-sky">🧭</div>
             <h4 class="quick-hub-name">Smart Navigator</h4>
             <p class="quick-hub-desc">Classrooms, labs, auditorium & floor-by-floor walking routes</p>
@@ -222,7 +257,7 @@
           </div>
 
           <!-- Card 2: Events Hub -->
-          <div class="quick-hub-card" data-goto-tab="events">
+          <div class="quick-hub-card" data-goto-tab="events" id="hub-card-events" role="button" tabindex="0" aria-label="Events Hub">
             <div class="quick-hub-icon-box icon-box-amber">📅</div>
             <h4 class="quick-hub-name">Events Hub</h4>
             <p class="quick-hub-desc">Hackathons, tech workshops, coding duels & registration tickets</p>
@@ -230,7 +265,7 @@
           </div>
 
           <!-- Card 3: Teammates -->
-          <div class="quick-hub-card" data-goto-tab="teammates">
+          <div class="quick-hub-card" data-goto-tab="teammates" id="hub-card-collab" role="button" tabindex="0" aria-label="Student Collab">
             <div class="quick-hub-icon-box icon-box-indigo">👥</div>
             <h4 class="quick-hub-name">Student Collab</h4>
             <p class="quick-hub-desc">Find hackathon squads, capstone partners & skill exchange</p>
@@ -238,7 +273,7 @@
           </div>
 
           <!-- Card 4: Lost & Found -->
-          <div class="quick-hub-card" data-goto-tab="lost-found">
+          <div class="quick-hub-card" data-goto-tab="lost-found" id="hub-card-lost-found" role="button" tabindex="0" aria-label="Lost and Found">
             <div class="quick-hub-icon-box icon-box-emerald">🔍</div>
             <h4 class="quick-hub-name">Lost & Found</h4>
             <p class="quick-hub-desc">Report missing IDs, calculators, keys & claim recovered belongings</p>
@@ -246,7 +281,7 @@
           </div>
 
           <!-- Card 5: Campus Quick Help -->
-          <div class="quick-hub-card" data-goto-tab="campus-help">
+          <div class="quick-hub-card" data-goto-tab="campus-help" id="hub-card-campus-help" role="button" tabindex="0" aria-label="Campus Help">
             <div class="quick-hub-icon-box icon-box-purple">📄</div>
             <h4 class="quick-hub-name">Campus Help</h4>
             <p class="quick-hub-desc">Academic forms, counter timings, syllabus & official portals</p>
@@ -254,10 +289,10 @@
           </div>
 
           <!-- Card 6: Campus Connect -->
-          <div class="quick-hub-card" data-goto-tab="campus-connect">
+          <div class="quick-hub-card" data-goto-tab="campus-connect" id="hub-card-campus-connect" role="button" tabindex="0" aria-label="Campus Connect">
             <div class="quick-hub-icon-box icon-box-connect">🎓</div>
             <h4 class="quick-hub-name">Campus Connect</h4>
-            <p class="quick-hub-desc">Connect with DYP seniors, ask admission queries & read student advice</p>
+            <p class="quick-hub-desc">Connect with campus seniors, ask admission queries & read student advice</p>
             <span class="quick-hub-action" style="color: var(--secondary);">Connect with Seniors →</span>
           </div>
         </div>
@@ -444,7 +479,7 @@
                 </div>
                 <div>
                   <h3 class="panel-title">Student Experience Stories</h3>
-                  <span class="panel-subtitle">Real experiences, advice, and tips written by DYP seniors</span>
+                  <span class="panel-subtitle">Real experiences, advice, and tips written by campus seniors</span>
                 </div>
               </div>
               <button class="btn btn-ghost btn-sm" data-goto-tab="campus-connect">Read All Stories →</button>
@@ -535,7 +570,7 @@
             "Your Questions. Their Experience. Your Future."
           </p>
           <p class="section-desc" style="max-width: 780px; margin-top: 0.25rem;">
-            Help 12th-pass students and college aspirants connect with current DYP students to understand college life, academics, branches, activities, and campus experiences before making admission decisions.
+            Help 12th-pass students and college aspirants connect with current students to understand college life, academics, branches, activities, and campus experiences before making admission decisions.
           </p>
         </div>
         <div class="header-action-group" style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
@@ -558,7 +593,7 @@
       <div class="campus-connect-hero-card">
         <div class="connect-hero-content">
           <div class="connect-hero-badge">
-            <span>✦</span>
+            <span>•</span>
             <span>Official Student-Led Aspirant Initiative</span>
           </div>
           <h3 class="connect-hero-title">
@@ -585,7 +620,7 @@
 
         <div class="connect-hero-media">
           <img src="assets/campus-connect-hero.jpg" alt="Campus Connect Students Collaborating" loading="lazy">
-          <span class="connect-media-badge">🎓 DYP Student Network</span>
+          <span class="connect-media-badge">🎓 Campus Student Network</span>
         </div>
       </div>
 
@@ -594,7 +629,7 @@
         <div style="font-size: 1.75rem; flex-shrink: 0;">🛡️</div>
         <div class="safe-content-text">
           <strong>Safe, Respectful, and Private Community:</strong>
-          All participating mentors are voluntarily registered DYP student peers. Personal phone numbers and private email addresses are never publicly visible. Answers represent personal student experiences and insights — for binding official college policies, please refer to college administrative offices.
+          All participating mentors are voluntarily registered student peers. Personal phone numbers and private email addresses are never publicly visible. Answers represent personal student experiences and insights — for binding official college policies, please refer to college administrative offices.
         </div>
         <button class="btn btn-outline btn-sm" id="btn-trigger-report-guidelines" style="flex-shrink: 0;">
           <span>🚩</span>
@@ -690,7 +725,7 @@
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
           <div>
             <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main);">Ask a Senior Questions & Answers</h3>
-            <p style="font-size: 0.88rem; color: var(--text-muted);">Explore real questions asked by aspirants with genuine answers from current DYP students.</p>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Explore real questions asked by aspirants with genuine answers from current campus seniors.</p>
           </div>
           <button class="btn btn-primary" id="btn-ask-senior-inside-tab">
             <span>➕</span>
@@ -763,7 +798,7 @@
       <!-- Callout Banner: Become a Student Mentor -->
       <div class="become-mentor-banner">
         <div class="become-mentor-text">
-          <h3>Are You a Current DYP Student? Volunteer as a Mentor!</h3>
+          <h3>Are You a Current Student? Volunteer as a Mentor!</h3>
           <p>
             Help prospective juniors make informed decisions about their academic future. Share your genuine experiences, guide branch choices, and welcome future classmates. Profiles are reviewed by the community.
           </p>
@@ -793,7 +828,7 @@
       <div class="disclaimer-banner">
         <span>📍</span>
         <div>
-          <strong>Campus Demonstration Directory:</strong> Verified room allocations for DYP Campus Academic Blocks. Room allocations reflect the current semester timetable.
+          <strong>Campus Demonstration Directory:</strong> Verified room allocations for Academic Blocks. Room allocations reflect the current semester timetable.
         </div>
       </div>
 
@@ -826,10 +861,22 @@
           <div>
             <label style="display:block; font-size:0.75rem; font-weight:700; margin-bottom:0.35rem; color:#e0e7ff;">Year / Semester</label>
             <select id="find-class-year" class="find-class-select" style="width:100%;">
-              <option value="SE">Second Year (SE - 2nd Yr)</option>
-              <option value="TE" selected>Third Year (TE - 3rd Yr)</option>
-              <option value="BE">Final Year (BE - 4th Yr)</option>
-              <option value="FE">First Year (FE - 1st Yr)</option>
+              <optgroup label="First Year (FE)">
+                <option value="FE-SEM1">First Year (FE - Sem 1)</option>
+                <option value="FE-SEM2">First Year (FE - Sem 2)</option>
+              </optgroup>
+              <optgroup label="Second Year (SE)">
+                <option value="SE-SEM3">Second Year (SE - Sem 3)</option>
+                <option value="SE-SEM4">Second Year (SE - Sem 4)</option>
+              </optgroup>
+              <optgroup label="Third Year (TE)">
+                <option value="TE-SEM5" selected>Third Year (TE - Sem 5)</option>
+                <option value="TE-SEM6">Third Year (TE - Sem 6)</option>
+              </optgroup>
+              <optgroup label="Final Year (BE)">
+                <option value="BE-SEM7">Final Year (BE - Sem 7)</option>
+                <option value="BE-SEM8">Final Year (BE - Sem 8)</option>
+              </optgroup>
             </select>
           </div>
 
@@ -953,7 +1000,7 @@
       <!-- Help Hub Filter Toolbar -->
       <div class="hub-filter-wrapper">
         <!-- Category Filter Pills -->
-        <div class="category-tabs" id="help-category-tabs">
+        <div class="category-tabs" id="help-category-tabs" style="display: none;">
           <button class="cat-pill active" data-category="all">
             <span>All Posts</span>
             <span class="cat-count" id="count-all">0</span>
@@ -1212,18 +1259,18 @@
       </div>
 
       <!-- Active Filter Status Bar -->
-      <div class="filter-results-bar">
+      <div class="filter-results-bar" style="display: none;">
         <span id="teammates-results-text">Showing all student profiles</span>
         <button class="btn-text-link hidden" id="btn-reset-teammates-filters">Reset filters</button>
       </div>
 
       <!-- Teammates Cards Grid -->
-      <div class="teammates-cards-grid" id="teammates-cards-grid">
+      <div class="teammates-cards-grid" id="teammates-cards-grid" style="display: none;">
         <!-- Rendered dynamically by app.js -->
       </div>
 
       <!-- Empty State View -->
-      <div class="empty-state-card hidden" id="teammates-empty-state">
+      <div class="empty-state-card hidden" id="teammates-empty-state" style="display: none;">
         <div class="empty-state-icon">👥</div>
         <h3 id="teammates-empty-title">No teammates matching this skill found</h3>
         <p id="teammates-empty-desc">Try selecting "All Talents" or searching with a different technology keyword.</p>
@@ -1302,18 +1349,18 @@
       </div>
 
       <!-- Active Filter Status Bar -->
-      <div class="filter-results-bar">
+      <div class="filter-results-bar" style="display: none;">
         <span id="lost-results-text">Showing all lost and found listings</span>
         <button class="btn-text-link hidden" id="btn-reset-lost-filters">Reset filters</button>
       </div>
 
       <!-- Listings Grid -->
-      <div class="lost-found-grid" id="lost-cards-grid">
+      <div class="lost-found-grid" id="lost-cards-grid" style="display: none;">
         <!-- Rendered dynamically by app.js -->
       </div>
 
       <!-- Empty State View -->
-      <div class="empty-state-card hidden" id="lost-empty-state">
+      <div class="empty-state-card hidden" id="lost-empty-state" style="display: none;">
         <div class="empty-state-icon">🔍</div>
         <h3>No matching listings found</h3>
         <p>Try searching with another keyword or change your filter selection.</p>
@@ -1341,7 +1388,7 @@
       <div class="campus-help-sections">
         
         <!-- Subsection 1: Downloadable Academic Forms -->
-        <div>
+        <div id="subsection-academic-forms" style="display: none;">
           <h3 class="help-subheading">📄 Official Academic Applications & Forms</h3>
           <div class="forms-grid" id="forms-grid-container">
             <!-- Populated dynamically by app.js -->
@@ -1381,7 +1428,7 @@
   <div class="modal-overlay" id="quick-modal-overlay">
     <div class="modal-card">
       <div class="modal-header">
-        <h3 class="modal-title" id="modal-title">DYP CAMPUS 360 Quick Action</h3>
+        <h3 class="modal-title" id="modal-title">Campus 360 Quick Action</h3>
         <button class="modal-close-btn" id="modal-close-btn">&times;</button>
       </div>
       <div class="modal-body" id="modal-body">
@@ -1533,6 +1580,15 @@
             <label for="respond-contact" class="form-label">Your Contact Handle (Discord/Email) *</label>
             <input type="text" id="respond-contact" class="form-input" placeholder="e.g. Discord: alex_chen or alex@campus.edu" value="alex.chen@campus.edu" required>
           </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btn-cancel-respond">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-submit-respond">Send Assistance</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- ================= MODAL: SUBMIT CAMPUS EVENT ================= -->
   <div class="modal-overlay" id="modal-create-event-dialog">
@@ -1882,7 +1938,7 @@
       <div class="modal-header">
         <div>
           <h3 class="modal-title">Ask a Senior</h3>
-          <p class="modal-subtitle">Post a question about college life, academics, or branch selection to current DYP seniors</p>
+          <p class="modal-subtitle">Post a question about college life, academics, or branch selection to current campus seniors</p>
         </div>
         <button class="modal-close-btn" id="btn-close-ask-senior">&times;</button>
       </div>
@@ -1896,7 +1952,7 @@
             <div class="form-group flex-1">
               <label for="ask-target-branch" class="form-label">Target Branch *</label>
               <select id="ask-target-branch" class="form-input" required>
-                <option value="General DYP Campus">General DYP Campus</option>
+                <option value="General Campus">General Campus</option>
                 <option value="Computer Science (CSE)">Computer Science (CSE)</option>
                 <option value="Information Technology (IT)">Information Technology (IT)</option>
                 <option value="AI & Data Science (AI/DS)">AI & Data Science (AI/DS)</option>
@@ -2067,7 +2123,7 @@
 
           <div class="form-group">
             <label for="convo-reason-input" class="form-label">Question or Reason for Conversation *</label>
-            <textarea id="convo-reason-input" class="form-textarea" rows="3" placeholder="e.g. I scored 94% in CET and am confused between CSE vs IT branches at DYP. Would love 10 minutes to understand lab faculties and placement differences." required></textarea>
+            <textarea id="convo-reason-input" class="form-textarea" rows="3" placeholder="e.g. I scored 94% in CET and am confused between CSE vs IT branches on campus. Would love 10 minutes to understand lab faculties and placement differences." required></textarea>
           </div>
 
           <div class="form-group">
@@ -2110,7 +2166,7 @@
             </div>
             <div class="form-group flex-1">
               <label for="mentor-student-id" class="form-label">Student ID / PRN (Kept Private) *</label>
-              <input type="text" id="mentor-student-id" class="form-input" placeholder="e.g. DYP2025CS102" required>
+              <input type="text" id="mentor-student-id" class="form-input" placeholder="e.g. CAMPUS2025CS102" required>
             </div>
           </div>
 
@@ -2154,7 +2210,7 @@
 
           <div class="form-group">
             <label for="mentor-intro-bio" class="form-label">Short Introduction *</label>
-            <textarea id="mentor-intro-bio" class="form-textarea" rows="3" placeholder="Tell aspirants a little about your journey, what you like about DYP, and how you can assist them..." required></textarea>
+            <textarea id="mentor-intro-bio" class="form-textarea" rows="3" placeholder="Tell aspirants a little about your journey, what you like about college, and how you can assist them..." required></textarea>
           </div>
 
           <div class="disclaimer-banner" style="background-color: var(--primary-light); border-color: #D6CBF9; color: var(--primary); margin-bottom: 1rem;">
@@ -2267,7 +2323,7 @@
       <div class="modal-header">
         <div>
           <h3 class="modal-title">Report Content</h3>
-          <p class="modal-subtitle">Help keep DYP Campus Connect safe, respectful, and genuine</p>
+          <p class="modal-subtitle">Help keep Campus Connect safe, respectful, and genuine</p>
         </div>
         <button class="modal-close-btn" id="btn-close-report-content">&times;</button>
       </div>
@@ -2328,7 +2384,7 @@
       <div class="modal-header">
         <div>
           <h3 class="modal-title">Supabase Cloud Database Settings</h3>
-          <p class="modal-subtitle">DYP CAMPUS 360 Real-Time Storage & Synchronization</p>
+          <p class="modal-subtitle">Campus 360 Real-Time Storage & Synchronization</p>
         </div>
         <button class="modal-close-btn" id="btn-close-db-status">&times;</button>
       </div>

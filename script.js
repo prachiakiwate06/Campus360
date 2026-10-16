@@ -6,7 +6,7 @@
  *  - Password visibility toggle (Show / Hide)
  *  - Client-side validation & student credentials handling
  *  - LocalStorage user registry & session persistence
- *  - Seamless redirection to DYP Campus 360 dashboard (index.html)
+ *  - Seamless redirection to Campus 360 dashboard (index.html)
  *  - 1-click demo accounts for fast verification
  * =================================================================
  */
@@ -15,9 +15,9 @@
 const DEFAULT_ACCOUNTS = [
   {
     fullName: "Alex Chen",
-    email: "alex@dyp.edu",
+    email: "alex.chen@campus.edu",
     password: "password123",
-    studentId: "DYP2026CS042",
+    studentId: "CAMPUS2026CS042",
     branch: "CSE",
     year: "Final Year"
   },
@@ -25,7 +25,7 @@ const DEFAULT_ACCOUNTS = [
     fullName: "Rohan Sharma",
     email: "rohan.sharma@campus.edu",
     password: "password123",
-    studentId: "DYP2025IT018",
+    studentId: "CAMPUS2025IT018",
     branch: "IT",
     year: "Third Year"
   },
@@ -33,7 +33,7 @@ const DEFAULT_ACCOUNTS = [
     fullName: "Sophia Ramirez",
     email: "sophia@campus.edu",
     password: "password123",
-    studentId: "DYP2027DS099",
+    studentId: "CAMPUS2027DS099",
     branch: "Data Science",
     year: "Second Year"
   }
@@ -41,7 +41,23 @@ const DEFAULT_ACCOUNTS = [
 
 // Initialize persistent user storage
 function initializeStorage() {
-  if (!localStorage.getItem('smartCampusUsers')) {
+  try {
+    const existing = JSON.parse(localStorage.getItem('smartCampusUsers') || '[]');
+    if (!existing || existing.length === 0) {
+      localStorage.setItem('smartCampusUsers', JSON.stringify(DEFAULT_ACCOUNTS));
+    } else {
+      let updated = false;
+      DEFAULT_ACCOUNTS.forEach(seed => {
+        if (!existing.some(u => u.email.toLowerCase() === seed.email.toLowerCase())) {
+          existing.push(seed);
+          updated = true;
+        }
+      });
+      if (updated) {
+        localStorage.setItem('smartCampusUsers', JSON.stringify(existing));
+      }
+    }
+  } catch (e) {
     localStorage.setItem('smartCampusUsers', JSON.stringify(DEFAULT_ACCOUNTS));
   }
 }
@@ -169,9 +185,9 @@ function fillDemoAccount(userKey) {
   const passwordInput = document.getElementById('loginPassword');
 
   if (userKey === 'alex') {
-    emailInput.value = 'alex@dyp.edu';
+    emailInput.value = 'alex.chen@campus.edu';
     passwordInput.value = 'password123';
-    showMessage("Demo account loaded: Alex Chen (alex@dyp.edu). Click Login →", "info");
+    showMessage("Demo account loaded: Alex Chen (alex.chen@campus.edu). Click Login →", "info");
   } else {
     emailInput.value = 'rohan.sharma@campus.edu';
     passwordInput.value = 'password123';
@@ -184,6 +200,19 @@ function fillDemoAccount(userKey) {
 // -------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
   initializeStorage();
+
+  // Handle URL hash routing (#register or #login)
+  const handleHashAuth = () => {
+    const hash = (window.location.hash || '').toLowerCase();
+    if (hash === '#register' || hash === '#signup') {
+      showForm('register');
+    } else if (hash === '#login' || hash === '#signin') {
+      showForm('login');
+    }
+  };
+
+  handleHashAuth();
+  window.addEventListener('hashchange', handleHashAuth);
 
   const loginForm = document.getElementById('loginForm');
   const registerForm = document.getElementById('registerForm');
@@ -223,13 +252,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const users = JSON.parse(localStorage.getItem('smartCampusUsers') || '[]');
       const matchedUser = users.find(u => u.email.toLowerCase() === email.toLowerCase());
 
-      // Loading state on button
+      // Loading state on button and async loading bar
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = `<span>Signing in...</span>`;
+        submitBtn.innerHTML = `<span class="c360-spinner"></span> <span>Signing in...</span>`;
       }
+      const loadingBar = document.getElementById('c360-async-loading-bar');
+      if (loadingBar) loadingBar.classList.add('active');
 
       setTimeout(() => {
+        if (loadingBar) loadingBar.classList.remove('active');
         if (matchedUser && matchedUser.password === password) {
           // Success with existing user record
           localStorage.setItem('smartCampusCurrentUser', JSON.stringify(matchedUser));
@@ -247,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fullName: formattedName || 'Campus Student',
             email: email,
             password: password,
-            studentId: 'DYP' + Math.floor(1000 + Math.random() * 9000),
+            studentId: 'CAMPUS' + Math.floor(1000 + Math.random() * 9000),
             branch: 'CSE',
             year: 'Second Year'
           };
@@ -312,10 +344,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = `<span>Creating account...</span>`;
+        submitBtn.innerHTML = `<span class="c360-spinner"></span> <span>Creating account...</span>`;
       }
+      const loadingBar = document.getElementById('c360-async-loading-bar');
+      if (loadingBar) loadingBar.classList.add('active');
 
       setTimeout(() => {
+        if (loadingBar) loadingBar.classList.remove('active');
         const newUser = {
           fullName,
           email: regEmail,

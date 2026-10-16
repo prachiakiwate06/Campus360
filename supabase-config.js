@@ -1,6 +1,6 @@
 /**
  * =================================================================
- * DYP CAMPUS 360 — Supabase Cloud Database Client & Service Adapter
+ * Campus 360 — Supabase Cloud Database Client & Service Adapter
  * =================================================================
  * 
  * HOW TO CONFIGURE YOUR SUPABASE PROJECT:
@@ -23,8 +23,8 @@ function getSupabaseCredentials() {
   const envUrl = (typeof window !== 'undefined' && window.__ENV && window.__ENV.SUPABASE_URL) ? window.__ENV.SUPABASE_URL : null;
   const envKey = (typeof window !== 'undefined' && window.__ENV && window.__ENV.SUPABASE_ANON_KEY) ? window.__ENV.SUPABASE_ANON_KEY : null;
 
-  const storedUrl = localStorage.getItem('dyp_supabase_url');
-  const storedKey = localStorage.getItem('dyp_supabase_anon_key');
+  const storedUrl = localStorage.getItem('campus360_supabase_url') || localStorage.getItem('dyp_supabase_url');
+  const storedKey = localStorage.getItem('campus360_supabase_anon_key') || localStorage.getItem('dyp_supabase_anon_key');
 
   const url = (storedUrl && storedUrl.trim().length > 0)
     ? storedUrl.trim()
@@ -44,14 +44,22 @@ const CampusSupabase = {
   getCredentials: getSupabaseCredentials,
 
   saveCredentials: (url, anonKey) => {
-    if (url) localStorage.setItem('dyp_supabase_url', url.trim());
-    if (anonKey) localStorage.setItem('dyp_supabase_anon_key', anonKey.trim());
+    if (url) {
+      localStorage.setItem('campus360_supabase_url', url.trim());
+      localStorage.setItem('dyp_supabase_url', url.trim());
+    }
+    if (anonKey) {
+      localStorage.setItem('campus360_supabase_anon_key', anonKey.trim());
+      localStorage.setItem('dyp_supabase_anon_key', anonKey.trim());
+    }
     _supabaseClientInstance = null;
     _connectionTestCache = { tested: false, success: false, lastTestedAt: null, message: '' };
     return CampusSupabase.getClient();
   },
 
   clearCredentials: () => {
+    localStorage.removeItem('campus360_supabase_url');
+    localStorage.removeItem('campus360_supabase_anon_key');
     localStorage.removeItem('dyp_supabase_url');
     localStorage.removeItem('dyp_supabase_anon_key');
     _supabaseClientInstance = null;

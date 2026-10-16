@@ -1,15 +1,15 @@
 /**
  * =================================================================
- * DYP CAMPUS 360 — Cloud Database & Authentication Configuration
+ * Campus 360 — Cloud Database & Authentication Configuration
  * =================================================================
  * 
  * CURRENT STATUS:
  * [✓] Local Persistence Active (HTML5 Web Storage / LocalStorage)
- * [!] Cloud Firestore & Firebase Auth: Ready to connect
+ * [!] Cloud Database & Auth: Ready to connect
  * 
  * TO CONNECT YOUR LIVE FIREBASE BACKEND:
  * 1. Visit https://console.firebase.google.com/ and create or select your project.
- * 2. Register a Web App ("DYP Campus 360") in Project Settings.
+ * 2. Register a Web App ("Campus 360") in Project Settings.
  * 3. Enable Cloud Firestore in "Test Mode" or with rules permitting authenticated reads/writes.
  * 4. Enable Authentication -> Sign-in methods -> Email/Password & Google.
  * 5. Replace the placeholder values in `FIREBASE_CONFIG` below with your project credentials.
@@ -22,9 +22,9 @@
 
 const FIREBASE_CONFIG = {
   apiKey: "YOUR_API_KEY_HERE",
-  authDomain: "dyp-campus-360.firebaseapp.com",
-  projectId: "dyp-campus-360",
-  storageBucket: "dyp-campus-360.appspot.com",
+  authDomain: "campus-360.firebaseapp.com",
+  projectId: "campus-360",
+  storageBucket: "campus-360.appspot.com",
   messagingSenderId: "123456789012",
   appId: "1:123456789012:web:abcdef1234567890"
 };

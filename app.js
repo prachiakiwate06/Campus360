@@ -262,11 +262,11 @@ const DEFAULT_EVENTS = [
     time: '5:00 PM - 9:30 PM',
     location: 'Campus Main Auditorium B',
     venueType: 'in-person',
-    host: 'DYP Cultural & Fine Arts Society',
+    host: 'Campus Cultural & Fine Arts Society',
     capacity: 450,
     registeredCount: 310,
     isRegistered: false,
-    description: 'Annual musical night, street dance battle, dramatics showcase, and rock band fusion battle. Free entry pass for DYP students with college ID.'
+    description: 'Annual musical night, street dance battle, dramatics showcase, and rock band fusion battle. Free entry pass for all students with college ID.'
   },
   {
     id: 'evt-8',
@@ -294,7 +294,7 @@ const DEFAULT_EVENTS = [
     time: '3:30 PM - 6:00 PM',
     location: 'Computer Lab 304',
     venueType: 'in-person',
-    host: 'DYP Coding Duo & ACM Club',
+    host: 'Campus Coding Duo & ACM Club',
     capacity: 50,
     registeredCount: 38,
     isRegistered: true,
@@ -661,7 +661,7 @@ const DEFAULT_LOST_ITEMS = [
     categoryLabel: '💳 ID & Wallets',
     location: 'Canteen Table 4 near juice counter',
     date: '2026-10-14',
-    description: 'DYP student smart ID card with dark blue branded lanyard. Belonging to Computer Engg student with initials S.M.',
+    description: 'Student smart ID card with dark blue branded lanyard. Belonging to Computer Engg student with initials S.M.',
     reporter: 'Canteen Security Desk',
     contact: 'Campus Security Office (Window 2)',
     status: 'found',
@@ -801,26 +801,26 @@ const CAMPUS_OFFICE_TIMINGS = [
 ];
 
 const CAMPUS_DEPARTMENTS = [
-  { name: 'Computer Engineering', hod: 'Dr. A. P. Shinde', email: 'hod.comp@dyp.edu', room: 'Block A - Room 301', phone: 'Ext. 2101' },
-  { name: 'Information Technology', hod: 'Dr. R. S. Kulkarni', email: 'hod.it@dyp.edu', room: 'Block A - Room 201', phone: 'Ext. 2102' },
-  { name: 'AI & Data Science', hod: 'Dr. P. M. Jadhav', email: 'hod.aids@dyp.edu', room: 'Block A - Room 303', phone: 'Ext. 2103' },
-  { name: 'Mechanical Engineering', hod: 'Dr. S. B. More', email: 'hod.mech@dyp.edu', room: 'Block A - Room 110', phone: 'Ext. 2104' },
-  { name: 'Electronics & Telecom', hod: 'Dr. M. D. Gaikwad', email: 'hod.entc@dyp.edu', room: 'Block A - Room 210', phone: 'Ext. 2105' },
-  { name: 'Applied Sciences (First Year)', hod: 'Dr. N. T. Pawar', email: 'hod.fe@dyp.edu', room: 'Block A - Room 105', phone: 'Ext. 2106' }
+  { name: 'Computer Engineering', hod: 'Dr. A. P. Shinde', email: 'hod.comp@campus.edu', room: 'Block A - Room 301', phone: 'Ext. 2101' },
+  { name: 'Information Technology', hod: 'Dr. R. S. Kulkarni', email: 'hod.it@campus.edu', room: 'Block A - Room 201', phone: 'Ext. 2102' },
+  { name: 'AI & Data Science', hod: 'Dr. P. M. Jadhav', email: 'hod.aids@campus.edu', room: 'Block A - Room 303', phone: 'Ext. 2103' },
+  { name: 'Mechanical Engineering', hod: 'Dr. S. B. More', email: 'hod.mech@campus.edu', room: 'Block A - Room 110', phone: 'Ext. 2104' },
+  { name: 'Electronics & Telecom', hod: 'Dr. M. D. Gaikwad', email: 'hod.entc@campus.edu', room: 'Block A - Room 210', phone: 'Ext. 2105' },
+  { name: 'Applied Sciences (First Year)', hod: 'Dr. N. T. Pawar', email: 'hod.fe@campus.edu', room: 'Block A - Room 105', phone: 'Ext. 2106' }
 ];
 
 const CAMPUS_PORTALS = [
-  { title: 'Student ERP Portal', desc: 'Attendance, marks, fees & academic profile', url: 'https://erp.dypcampus.edu', icon: '🎓' },
+  { title: 'Student ERP Portal', desc: 'Attendance, marks, fees & academic profile', url: 'https://erp.campus360.edu', icon: '🎓' },
   { title: 'University Exam Portal', desc: 'Question banks, syllabus & grade cards', url: 'https://exam.university.edu', icon: '📚' },
   { title: 'NPTEL & Swayam Registry', desc: 'Earn MOOC credits approved by academic council', url: 'https://swayam.gov.in', icon: '💻' },
-  { title: 'Campus Digital Library', desc: 'Access 5,000+ IEEE journals, papers & e-books', url: 'https://library.dypcampus.edu', icon: '🌐' },
-  { title: 'Placement & Career Cell', desc: 'Campus drive registrations & aptitude portal', url: 'https://tpo.dypcampus.edu', icon: '🎯' }
+  { title: 'Campus Digital Library', desc: 'Access 5,000+ IEEE journals, papers & e-books', url: 'https://library.campus360.edu', icon: '🌐' },
+  { title: 'Placement & Career Cell', desc: 'Campus drive registrations & aptitude portal', url: 'https://tpo.campus360.edu', icon: '🎯' }
 ];
 
 // Persistence Helpers
 function loadPersistedRequests() {
   try {
-    const raw = localStorage.getItem('dyp_help_requests') || localStorage.getItem('collabu_help_requests');
+    const raw = (localStorage.getItem('campus360_help_requests') || localStorage.getItem('dyp_help_requests')) || localStorage.getItem('collabu_help_requests');
     if (raw) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -831,13 +831,13 @@ function loadPersistedRequests() {
 
 function saveRequests(list) {
   try {
-    localStorage.setItem('dyp_help_requests', JSON.stringify(list));
+    localStorage.setItem('campus360_help_requests', JSON.stringify(list));
   } catch (e) { console.warn(e); }
 }
 
 function loadPersistedEvents() {
   try {
-    const raw = localStorage.getItem('dyp_campus_events') || localStorage.getItem('collabu_campus_events');
+    const raw = (localStorage.getItem('campus360_campus_events') || localStorage.getItem('dyp_campus_events')) || localStorage.getItem('collabu_campus_events');
     if (raw) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -848,13 +848,13 @@ function loadPersistedEvents() {
 
 function saveEvents(list) {
   try {
-    localStorage.setItem('dyp_campus_events', JSON.stringify(list));
+    localStorage.setItem('campus360_campus_events', JSON.stringify(list));
   } catch (e) { console.warn(e); }
 }
 
 function loadPersistedTeammates() {
   try {
-    const raw = localStorage.getItem('dyp_teammates') || localStorage.getItem('collabu_teammates');
+    const raw = (localStorage.getItem('campus360_teammates') || localStorage.getItem('dyp_teammates')) || localStorage.getItem('collabu_teammates');
     if (raw) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -865,13 +865,13 @@ function loadPersistedTeammates() {
 
 function saveTeammates(list) {
   try {
-    localStorage.setItem('dyp_teammates', JSON.stringify(list));
+    localStorage.setItem('campus360_teammates', JSON.stringify(list));
   } catch (e) { console.warn(e); }
 }
 
 function loadPersistedLocations() {
   try {
-    const raw = localStorage.getItem('dyp_campus_locations');
+    const raw = (localStorage.getItem('campus360_campus_locations') || localStorage.getItem('dyp_campus_locations'));
     if (raw) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -882,13 +882,13 @@ function loadPersistedLocations() {
 
 function saveLocations(list) {
   try {
-    localStorage.setItem('dyp_campus_locations', JSON.stringify(list));
+    localStorage.setItem('campus360_campus_locations', JSON.stringify(list));
   } catch (e) { console.warn(e); }
 }
 
 function loadPersistedLostItems() {
   try {
-    const raw = localStorage.getItem('dyp_lost_found_items');
+    const raw = (localStorage.getItem('campus360_lost_found_items') || localStorage.getItem('dyp_lost_found_items'));
     if (raw) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -899,7 +899,7 @@ function loadPersistedLostItems() {
 
 function saveLostItems(list) {
   try {
-    localStorage.setItem('dyp_lost_found_items', JSON.stringify(list));
+    localStorage.setItem('campus360_lost_found_items', JSON.stringify(list));
   } catch (e) { console.warn(e); }
 }
 
@@ -931,7 +931,7 @@ const DEFAULT_CAMPUS_MENTORS = [
     languages: ['English', 'Marathi'],
     topics: ['Branch Selection', 'Hostel Life', 'Clubs'],
     helpAreas: 'ACM Chapter, Hostel Management, Cloud Fundamentals, Cultural Fest',
-    bio: 'Third-year Information Technology student. Staying at the on-campus DYP hostel for 3 years. Can honestly answer everything about mess food, curfew, Wi-Fi reliability, room allotments, and peer study groups.',
+    bio: 'Third-year Information Technology student. Staying at the on-campus student hostel for 3 years. Can honestly answer everything about mess food, curfew, Wi-Fi reliability, room allotments, and peer study groups.',
     isVerifiedVolunteer: true,
     isDemo: true,
     rating: '5.0 ★',
@@ -976,7 +976,7 @@ const DEFAULT_CAMPUS_MENTORS = [
     languages: ['English', 'Marathi', 'Hindi'],
     topics: ['Campus Facilities', 'Clubs', 'Academics'],
     helpAreas: 'Formula Student SAE, CAD/SolidWorks, CNC Workshop, Tech Fests',
-    bio: 'Final year Mechanical Engineering lead. Chassis head for the college Formula Student racing team. Ask me about mechanical workshops, maker spaces, and student automotive projects at DYP.',
+    bio: 'Final year Mechanical Engineering lead. Chassis head for the college Formula Student racing team. Ask me about mechanical workshops, maker spaces, and student automotive projects on campus.',
     isVerifiedVolunteer: true,
     isDemo: true,
     rating: '4.7 ★',
@@ -1003,7 +1003,7 @@ const DEFAULT_QA_QUESTIONS = [
   {
     id: 'qa-1',
     category: 'Academics and Teaching',
-    targetBranch: 'General DYP Campus',
+    targetBranch: 'General Campus',
     title: 'How approachable are first-year professors if a student needs help after class?',
     details: 'I am coming from a small-town school and feel a bit intimidated by large lecture halls. Do professors hold office hours or mentor sessions?',
     asker: 'Aakash (12th Aspirant)',
@@ -1023,7 +1023,7 @@ const DEFAULT_QA_QUESTIONS = [
     id: 'qa-2',
     category: 'Branch Selection',
     targetBranch: 'Computer Science (CSE)',
-    title: 'What is the practical difference between CSE and AI/DS at DYP in terms of curriculum and placements?',
+    title: 'What is the practical difference between CSE and AI/DS on campus in terms of curriculum and placements?',
     details: 'My CET score is eligible for both. Will choosing AI/DS restrict me from regular software engineer roles during campus placements?',
     asker: 'Simran K. (Pune)',
     timestamp: 'Yesterday',
@@ -1041,7 +1041,7 @@ const DEFAULT_QA_QUESTIONS = [
   {
     id: 'qa-3',
     category: 'College Life',
-    targetBranch: 'General DYP Campus',
+    targetBranch: 'General Campus',
     title: 'Is it easy for introvert students to make friends and find good project partners in first year?',
     details: 'I take some time to open up in new environments. What are the best ways to get involved in student circles?',
     asker: 'Devendra (Nashik)',
@@ -1060,7 +1060,7 @@ const DEFAULT_QA_QUESTIONS = [
   {
     id: 'qa-4',
     category: 'Campus Facilities',
-    targetBranch: 'General DYP Campus',
+    targetBranch: 'General Campus',
     title: 'Are high-performance GPU workstations and central library accessible 24/7 during exam weeks?',
     details: 'I like studying late at night and want to run PyTorch deep learning models for my projects. Are labs open after normal college hours?',
     asker: 'Vikram S. (Mumbai)',
@@ -1098,7 +1098,7 @@ const DEFAULT_QA_QUESTIONS = [
   {
     id: 'qa-6',
     category: 'Admission Guidance',
-    targetBranch: 'General DYP Campus',
+    targetBranch: 'General Campus',
     title: 'What documents should I keep ready for CAP rounds and institutional document verification?',
     details: 'Want to ensure no delays during the seat reporting window. What are the essential certificates needed?',
     asker: 'Aarav G.',
@@ -1117,7 +1117,7 @@ const DEFAULT_QA_QUESTIONS = [
   {
     id: 'qa-7',
     category: 'Hostel and Accommodation',
-    targetBranch: 'General DYP Campus',
+    targetBranch: 'General Campus',
     title: 'How are the hostel amenities, safety, laundry, and mess food for outstation students?',
     details: 'Coming from outside Maharashtra. How is the room sharing setup, hot water, and cleanliness?',
     asker: 'Sanyam (Nagpur)',
@@ -1136,7 +1136,7 @@ const DEFAULT_QA_QUESTIONS = [
   {
     id: 'qa-8',
     category: 'Fees and Expenses',
-    targetBranch: 'General DYP Campus',
+    targetBranch: 'General Campus',
     title: 'Are there additional laboratory, library, or activity fees beyond the declared annual tuition?',
     details: 'Want to budget accurately for the entire academic year. Are exam fees or club memberships extra?',
     asker: 'Priya R.',
@@ -1178,12 +1178,12 @@ const DEFAULT_STUDENT_STORIES = [
     id: 'story-1',
     category: 'Campus Life',
     readTime: '4 min read',
-    title: 'My First Month at DYP: What to Expect & How to Settle In',
+    title: 'My First Month on Campus: What to Expect & How to Settle In',
     author: 'Neha Kulkarni',
     authorRole: 'CSE • 2nd Year',
     date: 'Oct 2026',
     preview: 'From the nervousness of finding lecture hall 304 to eating late-night canteen dosas with roommates, here is how the first month actually felt.',
-    content: `When I first walked through the DYP campus gates with my parent, my head was spinning with anxieties. Will I fit in? Will the lectures be impossible?
+    content: `When I first walked through the campus gates with my parent, my head was spinning with anxieties. Will I fit in? Will the lectures be impossible?
 
 Here is what really happened in month 1:
 1. The First Week is Pure Exploration: Everyone is in the same boat. Nobody knows where the physics lab is, and people will happily walk together to find classrooms.
@@ -1307,7 +1307,7 @@ const DEFAULT_CONVO_REQUESTS = [
     aspirantName: 'Pranav Shinde',
     preferredBranch: 'Computer Science (CSE)',
     mentorName: 'Rohan Kulkarni',
-    question: 'Confused between DYP CSE and another Pune college. Want honest feedback about coding clubs and placement packages.',
+    question: 'Confused between Campus CSE and another Pune college. Want honest feedback about coding clubs and placement packages.',
     preferredLang: 'Marathi',
     preferredTime: 'Weekday Evening (6 PM - 8 PM)',
     optionalMsg: 'Interested in competitive coding culture.',
@@ -1330,7 +1330,7 @@ const DEFAULT_CONVO_REQUESTS = [
 
 function loadPersistedMentors() {
   try {
-    const raw = localStorage.getItem('dyp_campus_mentors');
+    const raw = (localStorage.getItem('campus360_campus_mentors') || localStorage.getItem('dyp_campus_mentors'));
     if (raw) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -1341,13 +1341,13 @@ function loadPersistedMentors() {
 
 function saveMentors(list) {
   try {
-    localStorage.setItem('dyp_campus_mentors', JSON.stringify(list));
+    localStorage.setItem('campus360_campus_mentors', JSON.stringify(list));
   } catch (e) { console.warn(e); }
 }
 
 function loadPersistedQA() {
   try {
-    const raw = localStorage.getItem('dyp_campus_qa');
+    const raw = (localStorage.getItem('campus360_campus_qa') || localStorage.getItem('dyp_campus_qa'));
     if (raw) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -1358,13 +1358,13 @@ function loadPersistedQA() {
 
 function saveQA(list) {
   try {
-    localStorage.setItem('dyp_campus_qa', JSON.stringify(list));
+    localStorage.setItem('campus360_campus_qa', JSON.stringify(list));
   } catch (e) { console.warn(e); }
 }
 
 function loadPersistedStories() {
   try {
-    const raw = localStorage.getItem('dyp_campus_stories');
+    const raw = (localStorage.getItem('campus360_campus_stories') || localStorage.getItem('dyp_campus_stories'));
     if (raw) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -1375,13 +1375,13 @@ function loadPersistedStories() {
 
 function saveStories(list) {
   try {
-    localStorage.setItem('dyp_campus_stories', JSON.stringify(list));
+    localStorage.setItem('campus360_campus_stories', JSON.stringify(list));
   } catch (e) { console.warn(e); }
 }
 
 function loadPersistedConvoRequests() {
   try {
-    const raw = localStorage.getItem('dyp_campus_convo_requests');
+    const raw = (localStorage.getItem('campus360_campus_convo_requests') || localStorage.getItem('dyp_campus_convo_requests'));
     if (raw) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -1392,13 +1392,13 @@ function loadPersistedConvoRequests() {
 
 function saveConvoRequests(list) {
   try {
-    localStorage.setItem('dyp_campus_convo_requests', JSON.stringify(list));
+    localStorage.setItem('campus360_campus_convo_requests', JSON.stringify(list));
   } catch (e) { console.warn(e); }
 }
 
 function loadPersistedReports() {
   try {
-    const raw = localStorage.getItem('dyp_campus_reports');
+    const raw = (localStorage.getItem('campus360_campus_reports') || localStorage.getItem('dyp_campus_reports'));
     if (raw) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed)) return parsed;
@@ -1409,11 +1409,11 @@ function loadPersistedReports() {
 
 function saveReports(list) {
   try {
-    localStorage.setItem('dyp_campus_reports', JSON.stringify(list));
+    localStorage.setItem('campus360_campus_reports', JSON.stringify(list));
   } catch (e) { console.warn(e); }
 }
 
-// Global Application State - DYP CAMPUS 360
+// Global Application State - Campus 360
 const CollabUState = {
   activeTab: 'dashboard',
   helpRequests: loadPersistedRequests(),
@@ -1500,6 +1500,7 @@ const CollabUState = {
 
 // Expose state globally
 window.CampusState = CollabUState;
+window.CollabUState = CollabUState;
 
 // -------------------------------------------------------------
 // 2. DOM Initialization
@@ -1534,7 +1535,7 @@ function initNavigation() {
   navButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       const tabTarget = btn.getAttribute('data-tab');
-      switchTab(tabTarget);
+      switchTab(tabTarget, tabTarget !== 'dashboard');
       if (navMenu && navMenu.classList.contains('open')) {
         navMenu.classList.remove('open');
       }
@@ -1547,20 +1548,78 @@ function initNavigation() {
     });
   }
 
-  // Delegated clicks for jumping between tabs
+  const normalizeTab = (name) => {
+    if (!name) return 'dashboard';
+    const clean = name.replace(/^#/, '').toLowerCase().trim();
+    if (clean === 'help' || clean === 'helphub') return 'help-hub';
+    if (clean === 'quickhelp' || clean === 'quick-help' || clean === 'academic-help') return 'campus-help';
+    if (clean === 'collab' || clean === 'collaborate' || clean === 'team') return 'teammates';
+    if (clean === 'map' || clean === 'navigation' || clean === 'nav') return 'navigator';
+    if (clean === 'connect' || clean === 'aspirant') return 'campus-connect';
+    return clean;
+  };
+
+  // Direct Access Hubs Explicit Bindings
+  const hubCardMappings = [
+    { id: 'hub-card-events', tab: 'events', label: 'Events Hub' },
+    { id: 'hub-card-collab', tab: 'teammates', label: 'Student Collab' },
+    { id: 'hub-card-lost-found', tab: 'lost-found', label: 'Lost & Found' },
+    { id: 'hub-card-campus-help', tab: 'campus-help', label: 'Campus Help' },
+    { id: 'hub-card-navigator', tab: 'navigator', label: 'Smart Navigator' },
+    { id: 'hub-card-campus-connect', tab: 'campus-connect', label: 'Campus Connect' }
+  ];
+
+  hubCardMappings.forEach(({ id, tab, label }) => {
+    const cardEl = document.getElementById(id);
+    if (cardEl) {
+      const openHub = (e) => {
+        if (e) e.preventDefault();
+        switchTab(tab, true);
+        showToast(`Opened ${label}`, 'info');
+      };
+      cardEl.addEventListener('click', openHub);
+      cardEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openHub(e);
+        }
+      });
+    }
+  });
+
+  // Delegated clicks for jumping between tabs and smooth section scrolling
   document.addEventListener('click', (e) => {
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const scrollBehavior = prefersReduced ? 'auto' : 'smooth';
+
     const targetLink = e.target.closest('[data-goto-tab]');
     if (targetLink) {
       e.preventDefault();
-      const tabTarget = targetLink.getAttribute('data-goto-tab');
-      switchTab(tabTarget);
-      window.scrollTo({ top: 380, behavior: 'smooth' });
+      const rawTarget = targetLink.getAttribute('data-goto-tab');
+      const tabTarget = normalizeTab(rawTarget);
+      switchTab(tabTarget, true);
+      return;
     }
 
     const statCardTarget = e.target.closest('.stat-card[data-target-tab]');
     if (statCardTarget) {
-      const targetTab = statCardTarget.getAttribute('data-target-tab');
-      switchTab(targetTab);
+      const rawTarget = statCardTarget.getAttribute('data-target-tab');
+      const targetTab = normalizeTab(rawTarget);
+      switchTab(targetTab, true);
+      return;
+    }
+
+    // In-page anchor links smooth scroll & tab switching
+    const anchor = e.target.closest('a[href^="#"]');
+    if (anchor && anchor.id !== 'brand-home-link') {
+      const hash = anchor.getAttribute('href');
+      const normalized = normalizeTab(hash);
+      const validTabs = ['dashboard', 'navigator', 'events', 'campus-connect', 'teammates', 'help-hub', 'lost-found', 'campus-help'];
+      if (validTabs.includes(normalized)) {
+        e.preventDefault();
+        switchTab(normalized, true);
+        return;
+      }
     }
   });
 
@@ -1568,27 +1627,37 @@ function initNavigation() {
   if (brandHomeLink) {
     brandHomeLink.addEventListener('click', (e) => {
       e.preventDefault();
-      switchTab('dashboard');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      switchTab('dashboard', true);
     });
   }
 
   // Handle URL hash on initial load & hash changes
   const validTabs = ['dashboard', 'navigator', 'events', 'campus-connect', 'teammates', 'help-hub', 'lost-found', 'campus-help'];
-  const initialHash = (window.location.hash || '').replace('#', '');
+  const initialHash = normalizeTab(window.location.hash);
   if (initialHash && validTabs.includes(initialHash)) {
-    switchTab(initialHash);
+    switchTab(initialHash, initialHash !== 'dashboard');
   }
 
   window.addEventListener('hashchange', () => {
-    const currentHash = (window.location.hash || '').replace('#', '');
+    const currentHash = normalizeTab(window.location.hash);
     if (currentHash && validTabs.includes(currentHash)) {
-      switchTab(currentHash);
+      switchTab(currentHash, currentHash !== 'dashboard');
     }
   });
 }
 
-function switchTab(tabName) {
+function switchTab(rawTabName, shouldScroll = false) {
+  const normalizeTab = (name) => {
+    if (!name) return 'dashboard';
+    const clean = name.replace(/^#/, '').toLowerCase().trim();
+    if (clean === 'help' || clean === 'helphub') return 'help-hub';
+    if (clean === 'quickhelp' || clean === 'quick-help' || clean === 'academic-help') return 'campus-help';
+    if (clean === 'collab' || clean === 'collaborate' || clean === 'team') return 'teammates';
+    if (clean === 'map' || clean === 'navigation' || clean === 'nav') return 'navigator';
+    if (clean === 'connect' || clean === 'aspirant') return 'campus-connect';
+    return clean;
+  };
+  const tabName = normalizeTab(rawTabName);
   CollabUState.activeTab = tabName;
 
   document.querySelectorAll('.nav-link').forEach(btn => {
@@ -1623,6 +1692,21 @@ function switchTab(tabName) {
     }
   });
 
+  // Keep URL hash updated with active view
+  try {
+    const targetHash = tabName === 'dashboard' ? '' : `#${tabName}`;
+    if (window.location.hash !== targetHash) {
+      if (window.history && window.history.replaceState) {
+        const newUrl = window.location.pathname + window.location.search + targetHash;
+        window.history.replaceState(null, '', newUrl);
+      } else {
+        window.location.hash = targetHash;
+      }
+    }
+  } catch (err) {
+    // Graceful fallback for restricted origins
+  }
+
   if (tabName === 'navigator') {
     renderNavigator();
   } else if (tabName === 'events') {
@@ -1643,6 +1727,27 @@ function switchTab(tabName) {
     renderDashboardEventsList();
     renderCampusConnectHighlight();
     renderDashboardStories();
+  }
+
+  if (shouldScroll) {
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const scrollBehavior = prefersReduced ? 'auto' : 'smooth';
+    if (tabName === 'dashboard') {
+      window.scrollTo({ top: 0, behavior: scrollBehavior });
+    } else {
+      const targetSec = sections[tabName];
+      if (targetSec) {
+        setTimeout(() => {
+          const headerOffset = 76;
+          const elementPosition = targetSec.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: Math.max(0, offsetPosition),
+            behavior: scrollBehavior
+          });
+        }, 50);
+      }
+    }
   }
 }
 
@@ -2060,40 +2165,44 @@ function bindHelpModals() {
       const submitBtn = formPostHelp.querySelector('button[type="submit"]');
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Publishing...';
+        submitBtn.innerHTML = '<span class="c360-spinner"></span> Publishing...';
       }
+      showAsyncLoading();
 
       const publishHelpAsync = async () => {
-        let savedToCloud = false;
-        if (window.CampusSupabase && window.CampusSupabase.isConfigured()) {
-          try {
-            const dbReq = await window.CampusSupabase.postHelpRequest(newPost);
-            if (dbReq && dbReq.id) newPost.id = dbReq.id;
-            savedToCloud = true;
-          } catch (err) {
-            console.warn('[Campus 360] Supabase postHelpRequest failed, saving locally:', err);
+        try {
+          let savedToCloud = false;
+          if (window.CampusSupabase && window.CampusSupabase.isConfigured()) {
+            try {
+              const dbReq = await window.CampusSupabase.postHelpRequest(newPost);
+              if (dbReq && dbReq.id) newPost.id = dbReq.id;
+              savedToCloud = true;
+            } catch (err) {
+              console.warn('[Campus 360] Supabase postHelpRequest failed, saving locally:', err);
+            }
           }
-        }
 
-        CollabUState.helpRequests.unshift(newPost);
-        saveRequests(CollabUState.helpRequests);
+          CollabUState.helpRequests.unshift(newPost);
+          saveRequests(CollabUState.helpRequests);
 
-        formPostHelp.reset();
-        closePostModal();
+          formPostHelp.reset();
+          closePostModal();
 
-        renderHelpHub();
-        renderDashboardHelpList();
-        renderKPIs();
+          renderHelpHub();
+          renderDashboardHelpList();
+          renderKPIs();
 
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Publish Post';
-        }
-
-        if (savedToCloud) {
-          showToast(`Help request published to Supabase Cloud!`, 'success');
-        } else {
-          showToast(`Successfully published: "${title.substring(0, 32)}..."`, 'success');
+          if (savedToCloud) {
+            showToast(`Help request published to Supabase Cloud!`, 'success');
+          } else {
+            showToast(`Successfully published: "${title.substring(0, 32)}..."`, 'success');
+          }
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Publish Post';
+          }
+          hideAsyncLoading();
         }
       };
 
@@ -2470,6 +2579,7 @@ window.handleEventRegistration = async function(evtId, studentData = null) {
 
   if (event.isRegistered) {
     let cloudSynced = false;
+    showAsyncLoading();
     if (window.CampusSupabase && window.CampusSupabase.isConfigured()) {
       try {
         const studentName = studentData?.name || 'Alex Chen';
@@ -2486,7 +2596,11 @@ window.handleEventRegistration = async function(evtId, studentData = null) {
         cloudSynced = true;
       } catch (err) {
         console.warn('[Campus 360] Supabase event registration failed, saved locally:', err);
+      } finally {
+        hideAsyncLoading();
       }
+    } else {
+      hideAsyncLoading();
     }
 
     if (cloudSynced) {
@@ -2563,40 +2677,44 @@ function bindEventSubmitModal() {
       const submitBtn = form.querySelector('button[type="submit"]');
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Saving event...';
+        submitBtn.innerHTML = '<span class="c360-spinner"></span> Saving event...';
       }
+      showAsyncLoading();
 
       const saveEventAsync = async () => {
-        let savedToCloud = false;
-        if (window.CampusSupabase && window.CampusSupabase.isConfigured()) {
-          try {
-            const dbEvent = await window.CampusSupabase.createEvent(newEvent);
-            if (dbEvent && dbEvent.id) newEvent.id = dbEvent.id;
-            savedToCloud = true;
-          } catch (err) {
-            console.warn('[Campus 360] Supabase createEvent failed, saving locally:', err);
+        try {
+          let savedToCloud = false;
+          if (window.CampusSupabase && window.CampusSupabase.isConfigured()) {
+            try {
+              const dbEvent = await window.CampusSupabase.createEvent(newEvent);
+              if (dbEvent && dbEvent.id) newEvent.id = dbEvent.id;
+              savedToCloud = true;
+            } catch (err) {
+              console.warn('[Campus 360] Supabase createEvent failed, saving locally:', err);
+            }
           }
-        }
 
-        CollabUState.events.unshift(newEvent);
-        saveEvents(CollabUState.events);
+          CollabUState.events.unshift(newEvent);
+          saveEvents(CollabUState.events);
 
-        form.reset();
-        closeModal();
+          form.reset();
+          closeModal();
 
-        renderEvents();
-        renderDashboardEventsList();
-        renderKPIs();
+          renderEvents();
+          renderDashboardEventsList();
+          renderKPIs();
 
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Publish Event';
-        }
-
-        if (savedToCloud) {
-          showToast(`Event published to Supabase Cloud: "${title.substring(0, 30)}..."`, 'success');
-        } else {
-          showToast(`Event published: "${title.substring(0, 30)}..." (saved locally)`, 'success');
+          if (savedToCloud) {
+            showToast(`Event published to Supabase Cloud: "${title.substring(0, 30)}..."`, 'success');
+          } else {
+            showToast(`Event published: "${title.substring(0, 30)}..." (saved locally)`, 'success');
+          }
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Publish Event';
+          }
+          hideAsyncLoading();
         }
       };
 
@@ -3126,7 +3244,7 @@ function renderNavigator() {
     if (isFiltered) {
       resultsText.textContent = `Showing ${filtered.length} of ${total} verified campus locations`;
     } else {
-      resultsText.textContent = `Showing all ${total} campus locations (DYP Campus Blocks A, B, C & Amenities)`;
+      resultsText.textContent = `Showing all ${total} campus locations (Campus Blocks A, B, C & Amenities)`;
     }
   }
 
@@ -3209,7 +3327,419 @@ function updateNavigatorCategoryCounts() {
 // -------------------------------------------------------------
 // 9. "FIND MY NEXT CLASS" ASSISTANT CONTROLLER
 // -------------------------------------------------------------
+const CAMPUS_TIMETABLE_DB = {
+  'CS': {
+    'FE-SEM1': {
+      label: 'FE - Semester 1 (Computer Engineering)',
+      slots: {
+        morning: { subject: 'Engineering Physics & Fundamentals', room: '101', locId: 'loc-1', faculty: 'Dr. N. T. Pawar', time: '9:30 AM - 11:30 AM', type: 'Core Theory' },
+        afternoon: { subject: 'Basic Computer Programming Lab (C/C++)', room: '304', locId: 'loc-4', faculty: 'Prof. K. R. Patil', time: '1:15 PM - 3:15 PM', type: 'Hands-on Lab' },
+        evening: { subject: 'Engineering Mathematics I Tutorial', room: '101', locId: 'loc-1', faculty: 'Dr. S. K. Joshi', time: '3:30 PM - 5:00 PM', type: 'Tutorial Session' }
+      }
+    },
+    'FE-SEM2': {
+      label: 'FE - Semester 2 (Computer Engineering)',
+      slots: {
+        morning: { subject: 'Basic Electronics & Logic Design', room: '215', locId: 'loc-7', faculty: 'Prof. S. R. Kale', time: '9:30 AM - 11:30 AM', type: 'Theory Class' },
+        afternoon: { subject: 'Programming & Data Problem Solving Lab', room: '304', locId: 'loc-4', faculty: 'Prof. K. R. Patil', time: '1:15 PM - 3:15 PM', type: 'Computing Lab' },
+        evening: { subject: 'Engineering Graphics & Modeling', room: '112', locId: 'loc-6', faculty: 'Prof. D. K. Shinde', time: '3:30 PM - 5:00 PM', type: 'Studio Practice' }
+      }
+    },
+    'SE-SEM3': {
+      label: 'SE - Semester 3 (Computer Engineering)',
+      slots: {
+        morning: { subject: 'Data Structures & Algorithms', room: '101', locId: 'loc-1', faculty: 'Prof. K. R. Patil', time: '9:30 AM - 11:30 AM', type: 'Theory Lecture' },
+        afternoon: { subject: 'Data Structures Hands-on Lab', room: '304', locId: 'loc-4', faculty: 'Prof. K. R. Patil', time: '1:15 PM - 3:15 PM', type: 'Hands-on Lab' },
+        evening: { subject: 'Discrete Mathematics & Graph Theory', room: '101', locId: 'loc-1', faculty: 'Dr. S. K. Joshi', time: '3:30 PM - 5:00 PM', type: 'Core Lecture' }
+      }
+    },
+    'SE-SEM4': {
+      label: 'SE - Semester 4 (Computer Engineering)',
+      slots: {
+        morning: { subject: 'Computer Organization & Architecture', room: '101', locId: 'loc-1', faculty: 'Prof. M. S. Joshi', time: '9:30 AM - 11:30 AM', type: 'Core Theory' },
+        afternoon: { subject: 'Microprocessors & Systems Lab', room: '215', locId: 'loc-7', faculty: 'Dr. M. D. Gaikwad', time: '1:15 PM - 3:15 PM', type: 'Hardware Lab' },
+        evening: { subject: 'Principles of Programming Languages', room: '101', locId: 'loc-1', faculty: 'Prof. K. R. Patil', time: '3:30 PM - 5:00 PM', type: 'Theory Class' }
+      }
+    },
+    'TE-SEM5': {
+      label: 'TE - Semester 5 (Computer Engineering)',
+      slots: {
+        morning: { subject: 'Database Management Systems (DBMS)', room: '302', locId: 'loc-3', faculty: 'Dr. A. P. Shinde', time: '9:30 AM - 11:30 AM', type: 'Theory Class' },
+        afternoon: { subject: 'Cloud Computing & Distributed Systems Lab', room: '304', locId: 'loc-4', faculty: 'Dr. A. P. Shinde', time: '1:15 PM - 3:15 PM', type: 'Hands-on Lab' },
+        evening: { subject: 'Software Engineering & Agile Project Review', room: '302', locId: 'loc-3', faculty: 'Prof. V. A. Shah', time: '3:30 PM - 5:00 PM', type: 'Seminar / Review' }
+      }
+    },
+    'TE-SEM6': {
+      label: 'TE - Semester 6 (Computer Engineering)',
+      slots: {
+        morning: { subject: 'Design & Analysis of Algorithms', room: '302', locId: 'loc-3', faculty: 'Prof. K. R. Patil', time: '9:30 AM - 11:30 AM', type: 'Advanced Theory' },
+        afternoon: { subject: 'Full-Stack Web Development Lab', room: '304', locId: 'loc-4', faculty: 'Dr. A. P. Shinde', time: '1:15 PM - 3:15 PM', type: 'Practical Lab' },
+        evening: { subject: 'Information & Network Security', room: '302', locId: 'loc-3', faculty: 'Prof. V. A. Shah', time: '3:30 PM - 5:00 PM', type: 'Technical Elective' }
+      }
+    },
+    'BE-SEM7': {
+      label: 'BE - Semester 7 (Computer Engineering)',
+      slots: {
+        morning: { subject: 'High Performance Computing & GPU Systems', room: '302', locId: 'loc-3', faculty: 'Prof. M. S. Joshi', time: '9:30 AM - 11:30 AM', type: 'Specialized Theory' },
+        afternoon: { subject: 'Capstone Industry Project Review & Lab', room: '304', locId: 'loc-4', faculty: 'Prof. M. S. Joshi', time: '1:15 PM - 3:15 PM', type: 'Capstone Review' },
+        evening: { subject: 'Artificial Intelligence & Robotics Seminar', room: '2B', locId: 'loc-5', faculty: 'Dr. P. M. Jadhav', time: '3:30 PM - 5:00 PM', type: 'Department Seminar' }
+      }
+    },
+    'BE-SEM8': {
+      label: 'BE - Semester 8 (Computer Engineering)',
+      slots: {
+        morning: { subject: 'Deep Learning & Neural Architectures', room: '302', locId: 'loc-3', faculty: 'Dr. P. M. Jadhav', time: '9:30 AM - 11:30 AM', type: 'Core Elective' },
+        afternoon: { subject: 'Final Project Defense & Prototype Demo', room: '304', locId: 'loc-4', faculty: 'Prof. M. S. Joshi', time: '1:15 PM - 3:15 PM', type: 'Project Defense' },
+        evening: { subject: 'Cyber Forensics & Incident Response', room: '302', locId: 'loc-3', faculty: 'Prof. V. A. Shah', time: '3:30 PM - 5:00 PM', type: 'Industry Seminar' }
+      }
+    }
+  },
+  'IT': {
+    'FE-SEM1': {
+      label: 'FE - Semester 1 (Information Technology)',
+      slots: {
+        morning: { subject: 'Engineering Chemistry & Material Science', room: '101', locId: 'loc-1', faculty: 'Dr. N. T. Pawar', time: '9:30 AM - 11:30 AM', type: 'Core Lecture' },
+        afternoon: { subject: 'Basic Computing & Web Foundations Lab', room: '204', locId: 'loc-2', faculty: 'Prof. S. D. Wagh', time: '1:15 PM - 3:15 PM', type: 'Hands-on Lab' },
+        evening: { subject: 'Engineering Mathematics I Tutorial', room: '101', locId: 'loc-1', faculty: 'Dr. S. K. Joshi', time: '3:30 PM - 5:00 PM', type: 'Problem Session' }
+      }
+    },
+    'FE-SEM2': {
+      label: 'FE - Semester 2 (Information Technology)',
+      slots: {
+        morning: { subject: 'Basic Electronics & Digital Systems', room: '215', locId: 'loc-7', faculty: 'Prof. P. V. Deshpande', time: '9:30 AM - 11:30 AM', type: 'Theory Class' },
+        afternoon: { subject: 'Electronics Workshop & Circuit Simulation', room: '215', locId: 'loc-7', faculty: 'Prof. P. V. Deshpande', time: '1:15 PM - 3:15 PM', type: 'Hardware Lab' },
+        evening: { subject: 'Communication Skills & Tech Writing', room: '204', locId: 'loc-2', faculty: 'Prof. S. D. Wagh', time: '3:30 PM - 5:00 PM', type: 'Seminar' }
+      }
+    },
+    'SE-SEM3': {
+      label: 'SE - Semester 3 (Information Technology)',
+      slots: {
+        morning: { subject: 'Object Oriented Programming with Java', room: '204', locId: 'loc-2', faculty: 'Prof. S. D. Wagh', time: '9:30 AM - 11:30 AM', type: 'Theory Lecture' },
+        afternoon: { subject: 'Java Applications & OOP Lab', room: '204', locId: 'loc-2', faculty: 'Prof. S. D. Wagh', time: '1:15 PM - 3:15 PM', type: 'Practical Lab' },
+        evening: { subject: 'Data Communications & Networking', room: '204', locId: 'loc-2', faculty: 'Dr. R. S. Kulkarni', time: '3:30 PM - 5:00 PM', type: 'Core Theory' }
+      }
+    },
+    'SE-SEM4': {
+      label: 'SE - Semester 4 (Information Technology)',
+      slots: {
+        morning: { subject: 'Database Management & SQL Systems', room: '204', locId: 'loc-2', faculty: 'Dr. R. S. Kulkarni', time: '9:30 AM - 11:30 AM', type: 'Theory Class' },
+        afternoon: { subject: 'RDBMS & Enterprise DB Lab', room: '204', locId: 'loc-2', faculty: 'Dr. R. S. Kulkarni', time: '1:15 PM - 3:15 PM', type: 'Database Lab' },
+        evening: { subject: 'Operating Systems & Shell Scripting', room: '204', locId: 'loc-2', faculty: 'Prof. S. D. Wagh', time: '3:30 PM - 5:00 PM', type: 'Theory Lecture' }
+      }
+    },
+    'TE-SEM5': {
+      label: 'TE - Semester 5 (Information Technology)',
+      slots: {
+        morning: { subject: 'Full-Stack Web Architectures & Frameworks', room: '204', locId: 'loc-2', faculty: 'Dr. R. S. Kulkarni', time: '9:30 AM - 11:30 AM', type: 'Theory Class' },
+        afternoon: { subject: 'Web Architecture Practical Lab', room: '204', locId: 'loc-2', faculty: 'Dr. R. S. Kulkarni', time: '1:15 PM - 3:15 PM', type: 'Hands-on Lab' },
+        evening: { subject: 'Human-Computer Interaction (HCI)', room: '204', locId: 'loc-2', faculty: 'Prof. S. D. Wagh', time: '3:30 PM - 5:00 PM', type: 'Design Seminar' }
+      }
+    },
+    'TE-SEM6': {
+      label: 'TE - Semester 6 (Information Technology)',
+      slots: {
+        morning: { subject: 'Cloud Infrastructure & DevOps Workflows', room: '204', locId: 'loc-2', faculty: 'Dr. R. S. Kulkarni', time: '9:30 AM - 11:30 AM', type: 'Core Theory' },
+        afternoon: { subject: 'DevOps & Containerization Lab (Docker/K8s)', room: '304', locId: 'loc-4', faculty: 'Dr. A. P. Shinde', time: '1:15 PM - 3:15 PM', type: 'Systems Lab' },
+        evening: { subject: 'Mobile App Development (Flutter/React Native)', room: '204', locId: 'loc-2', faculty: 'Prof. S. D. Wagh', time: '3:30 PM - 5:00 PM', type: 'Technical Elective' }
+      }
+    },
+    'BE-SEM7': {
+      label: 'BE - Semester 7 (Information Technology)',
+      slots: {
+        morning: { subject: 'Cyber Security & Cryptography', room: '302', locId: 'loc-3', faculty: 'Prof. V. A. Shah', time: '9:30 AM - 11:30 AM', type: 'Specialized Elective' },
+        afternoon: { subject: 'Network Penetration & Security Lab', room: '304', locId: 'loc-4', faculty: 'Prof. V. A. Shah', time: '1:15 PM - 3:15 PM', type: 'Security Lab' },
+        evening: { subject: 'Capstone Project Phase I Review', room: '204', locId: 'loc-2', faculty: 'Dr. R. S. Kulkarni', time: '3:30 PM - 5:00 PM', type: 'Project Review' }
+      }
+    },
+    'BE-SEM8': {
+      label: 'BE - Semester 8 (Information Technology)',
+      slots: {
+        morning: { subject: 'Blockchain Technology & Smart Contracts', room: '302', locId: 'loc-3', faculty: 'Prof. V. A. Shah', time: '9:30 AM - 11:30 AM', type: 'Emerging Tech' },
+        afternoon: { subject: 'Final Project Implementation Defense', room: '204', locId: 'loc-2', faculty: 'Dr. R. S. Kulkarni', time: '1:15 PM - 3:15 PM', type: 'Capstone Defense' },
+        evening: { subject: 'Enterprise IT Governance & Ethics', room: '204', locId: 'loc-2', faculty: 'Prof. S. D. Wagh', time: '3:30 PM - 5:00 PM', type: 'Industry Seminar' }
+      }
+    }
+  },
+  'AIDS': {
+    'FE-SEM1': {
+      label: 'FE - Semester 1 (AI & Data Science)',
+      slots: {
+        morning: { subject: 'Linear Algebra & Calculus for AI', room: '302', locId: 'loc-3', faculty: 'Prof. G. N. Sharma', time: '9:30 AM - 11:30 AM', type: 'Math Theory' },
+        afternoon: { subject: 'Python Programming Essentials Lab', room: '304', locId: 'loc-4', faculty: 'Prof. K. R. Patil', time: '1:15 PM - 3:15 PM', type: 'Computing Lab' },
+        evening: { subject: 'Foundations of Artificial Intelligence', room: '302', locId: 'loc-3', faculty: 'Dr. P. M. Jadhav', time: '3:30 PM - 5:00 PM', type: 'Intro Seminar' }
+      }
+    },
+    'FE-SEM2': {
+      label: 'FE - Semester 2 (AI & Data Science)',
+      slots: {
+        morning: { subject: 'Data Analysis with Python (NumPy/Pandas)', room: '302', locId: 'loc-3', faculty: 'Prof. G. N. Sharma', time: '9:30 AM - 11:30 AM', type: 'Theory Class' },
+        afternoon: { subject: 'Scientific Computing Lab', room: '304', locId: 'loc-4', faculty: 'Prof. G. N. Sharma', time: '1:15 PM - 3:15 PM', type: 'Data Lab' },
+        evening: { subject: 'Digital Electronics & Logic Gates', room: '215', locId: 'loc-7', faculty: 'Prof. S. R. Kale', time: '3:30 PM - 5:00 PM', type: 'Core Theory' }
+      }
+    },
+    'SE-SEM3': {
+      label: 'SE - Semester 3 (AI & Data Science)',
+      slots: {
+        morning: { subject: 'Statistics & Probability for Machine Learning', room: '302', locId: 'loc-3', faculty: 'Prof. G. N. Sharma', time: '9:30 AM - 11:30 AM', type: 'Theory Class' },
+        afternoon: { subject: 'Statistical Modeling & R Lab', room: '304', locId: 'loc-4', faculty: 'Prof. G. N. Sharma', time: '1:15 PM - 3:15 PM', type: 'Statistics Lab' },
+        evening: { subject: 'Data Structures for Large Scale AI', room: '302', locId: 'loc-3', faculty: 'Prof. K. R. Patil', time: '3:30 PM - 5:00 PM', type: 'Core Lecture' }
+      }
+    },
+    'SE-SEM4': {
+      label: 'SE - Semester 4 (AI & Data Science)',
+      slots: {
+        morning: { subject: 'Supervised & Unsupervised Machine Learning', room: '302', locId: 'loc-3', faculty: 'Dr. P. M. Jadhav', time: '9:30 AM - 11:30 AM', type: 'Core Lecture' },
+        afternoon: { subject: 'Scikit-Learn ML Practical Lab', room: '304', locId: 'loc-4', faculty: 'Dr. P. M. Jadhav', time: '1:15 PM - 3:15 PM', type: 'Machine Learning Lab' },
+        evening: { subject: 'Database Technologies & Vector Databases', room: '302', locId: 'loc-3', faculty: 'Dr. A. P. Shinde', time: '3:30 PM - 5:00 PM', type: 'Theory Class' }
+      }
+    },
+    'TE-SEM5': {
+      label: 'TE - Semester 5 (AI & Data Science)',
+      slots: {
+        morning: { subject: 'Computer Vision & Convolutional Networks', room: '302', locId: 'loc-3', faculty: 'Dr. P. M. Jadhav', time: '9:30 AM - 11:30 AM', type: 'Advanced Theory' },
+        afternoon: { subject: 'Computer Vision OpenCV & PyTorch Lab', room: '2B', locId: 'loc-5', faculty: 'Dr. P. M. Jadhav', time: '1:15 PM - 3:15 PM', type: 'GPU Lab Session' },
+        evening: { subject: 'Ethics & Governance in AI Systems', room: '302', locId: 'loc-3', faculty: 'Prof. G. N. Sharma', time: '3:30 PM - 5:00 PM', type: 'Specialized Elective' }
+      }
+    },
+    'TE-SEM6': {
+      label: 'TE - Semester 6 (AI & Data Science)',
+      slots: {
+        morning: { subject: 'Natural Language Processing & Transformers', room: '302', locId: 'loc-3', faculty: 'Dr. A. P. Shinde', time: '9:30 AM - 11:30 AM', type: 'NLP Theory' },
+        afternoon: { subject: 'NLP & Large Language Models Lab', room: '2B', locId: 'loc-5', faculty: 'Dr. A. P. Shinde', time: '1:15 PM - 3:15 PM', type: 'GPU Accelerated Lab' },
+        evening: { subject: 'Big Data Processing with PySpark', room: '304', locId: 'loc-4', faculty: 'Prof. G. N. Sharma', time: '3:30 PM - 5:00 PM', type: 'Cluster Lab' }
+      }
+    },
+    'BE-SEM7': {
+      label: 'BE - Semester 7 (AI & Data Science)',
+      slots: {
+        morning: { subject: 'Deep Reinforcement Learning & Autonomous AI', room: '302', locId: 'loc-3', faculty: 'Dr. P. M. Jadhav', time: '9:30 AM - 11:30 AM', type: 'Specialized Theory' },
+        afternoon: { subject: 'AI Capstone Industry Project Review', room: '2B', locId: 'loc-5', faculty: 'Dr. P. M. Jadhav', time: '1:15 PM - 3:15 PM', type: 'Project Review' },
+        evening: { subject: 'Edge AI Deployment on Embedded Devices', room: '2B', locId: 'loc-5', faculty: 'Prof. S. R. Kale', time: '3:30 PM - 5:00 PM', type: 'Hardware Lab' }
+      }
+    },
+    'BE-SEM8': {
+      label: 'BE - Semester 8 (AI & Data Science)',
+      slots: {
+        morning: { subject: 'Generative AI & Multimodal Models', room: '302', locId: 'loc-3', faculty: 'Dr. A. P. Shinde', time: '9:30 AM - 11:30 AM', type: 'Advanced Elective' },
+        afternoon: { subject: 'Final Capstone Project Defense', room: '2B', locId: 'loc-5', faculty: 'Dr. P. M. Jadhav', time: '1:15 PM - 3:15 PM', type: 'Project Defense' },
+        evening: { subject: 'AI Startup Incubator & Pitch Reviews', room: '302', locId: 'loc-3', faculty: 'Prof. G. N. Sharma', time: '3:30 PM - 5:00 PM', type: 'Incubator Session' }
+      }
+    }
+  },
+  'MECH': {
+    'FE-SEM1': {
+      label: 'FE - Semester 1 (Mechanical Engineering)',
+      slots: {
+        morning: { subject: 'Engineering Physics & Thermodynamics Intro', room: '101', locId: 'loc-1', faculty: 'Prof. H. B. Jagtap', time: '9:30 AM - 11:30 AM', type: 'Core Theory' },
+        afternoon: { subject: 'Basic Mechanical Engineering Workshop', room: '112', locId: 'loc-6', faculty: 'Prof. D. K. Shinde', time: '1:15 PM - 3:15 PM', type: 'Workshop Practice' },
+        evening: { subject: 'Engineering Mathematics I', room: '101', locId: 'loc-1', faculty: 'Dr. S. K. Joshi', time: '3:30 PM - 5:00 PM', type: 'Problem Session' }
+      }
+    },
+    'FE-SEM2': {
+      label: 'FE - Semester 2 (Mechanical Engineering)',
+      slots: {
+        morning: { subject: 'Engineering Mechanics & Dynamics', room: '101', locId: 'loc-1', faculty: 'Prof. B. S. Kadam', time: '9:30 AM - 11:30 AM', type: 'Mechanics Lecture' },
+        afternoon: { subject: 'Engineering Graphics & 2D Drafting', room: '112', locId: 'loc-6', faculty: 'Prof. D. K. Shinde', time: '1:15 PM - 3:15 PM', type: 'Drawing Hall' },
+        evening: { subject: 'Material Science & Metallurgy Basics', room: '101', locId: 'loc-1', faculty: 'Prof. H. B. Jagtap', time: '3:30 PM - 5:00 PM', type: 'Materials Theory' }
+      }
+    },
+    'SE-SEM3': {
+      label: 'SE - Semester 3 (Mechanical Engineering)',
+      slots: {
+        morning: { subject: 'Thermodynamics & Heat Transfer', room: '101', locId: 'loc-1', faculty: 'Prof. H. B. Jagtap', time: '9:30 AM - 11:30 AM', type: 'Core Theory' },
+        afternoon: { subject: 'Thermal Engineering Testing Lab', room: '112', locId: 'loc-6', faculty: 'Prof. H. B. Jagtap', time: '1:15 PM - 3:15 PM', type: 'Testing Lab' },
+        evening: { subject: 'Strength of Materials', room: '101', locId: 'loc-1', faculty: 'Prof. B. S. Kadam', time: '3:30 PM - 5:00 PM', type: 'Core Lecture' }
+      }
+    },
+    'SE-SEM4': {
+      label: 'SE - Semester 4 (Mechanical Engineering)',
+      slots: {
+        morning: { subject: 'Fluid Mechanics & Hydraulic Machinery', room: '101', locId: 'loc-1', faculty: 'Prof. H. B. Jagtap', time: '9:30 AM - 11:30 AM', type: 'Fluid Dynamics' },
+        afternoon: { subject: 'Fluid Mechanics Laboratory', room: '112', locId: 'loc-6', faculty: 'Prof. H. B. Jagtap', time: '1:15 PM - 3:15 PM', type: 'Fluid Lab' },
+        evening: { subject: 'Manufacturing Processes & CNC Machining', room: '112', locId: 'loc-6', faculty: 'Dr. S. B. More', time: '3:30 PM - 5:00 PM', type: 'Workshop Theory' }
+      }
+    },
+    'TE-SEM5': {
+      label: 'TE - Semester 5 (Mechanical Engineering)',
+      slots: {
+        morning: { subject: 'CAD/CAM SolidWorks 3D Modeling & FEA', room: '112', locId: 'loc-6', faculty: 'Dr. S. B. More', time: '9:30 AM - 11:30 AM', type: 'Design Theory' },
+        afternoon: { subject: 'SolidWorks & ANSYS Simulation Lab', room: '112', locId: 'loc-6', faculty: 'Dr. S. B. More', time: '1:15 PM - 3:15 PM', type: 'Design Lab' },
+        evening: { subject: 'Theory of Machines & Kinematics', room: '101', locId: 'loc-1', faculty: 'Prof. R. T. Mane', time: '3:30 PM - 5:00 PM', type: 'Core Lecture' }
+      }
+    },
+    'TE-SEM6': {
+      label: 'TE - Semester 6 (Mechanical Engineering)',
+      slots: {
+        morning: { subject: 'Mechatronics & Industrial Automation', room: '112', locId: 'loc-6', faculty: 'Dr. S. B. More', time: '9:30 AM - 11:30 AM', type: 'Systems Class' },
+        afternoon: { subject: 'PLC & Pneumatics Automation Lab', room: '112', locId: 'loc-6', faculty: 'Dr. S. B. More', time: '1:15 PM - 3:15 PM', type: 'Automation Lab' },
+        evening: { subject: 'Design of Machine Elements', room: '101', locId: 'loc-1', faculty: 'Prof. R. T. Mane', time: '3:30 PM - 5:00 PM', type: 'Design Practice' }
+      }
+    },
+    'BE-SEM7': {
+      label: 'BE - Semester 7 (Mechanical Engineering)',
+      slots: {
+        morning: { subject: 'Automobile Dynamics & Electric Vehicles (EV)', room: '204', locId: 'loc-2', faculty: 'Prof. R. T. Mane', time: '9:30 AM - 11:30 AM', type: 'Specialized Elective' },
+        afternoon: { subject: 'EV Powertrain & Battery Simulation Lab', room: '112', locId: 'loc-6', faculty: 'Prof. R. T. Mane', time: '1:15 PM - 3:15 PM', type: 'EV Lab' },
+        evening: { subject: 'Capstone Project Phase I Review', room: '112', locId: 'loc-6', faculty: 'Dr. S. B. More', time: '3:30 PM - 5:00 PM', type: 'Capstone Review' }
+      }
+    },
+    'BE-SEM8': {
+      label: 'BE - Semester 8 (Mechanical Engineering)',
+      slots: {
+        morning: { subject: 'Renewable Energy Systems & Solar Engineering', room: '101', locId: 'loc-1', faculty: 'Prof. H. B. Jagtap', time: '9:30 AM - 11:30 AM', type: 'Green Energy' },
+        afternoon: { subject: 'Final Project Prototype Fabrication Defense', room: '112', locId: 'loc-6', faculty: 'Dr. S. B. More', time: '1:15 PM - 3:15 PM', type: 'Defense Lab' },
+        evening: { subject: 'Industrial Robotics & Rapid Prototyping', room: '2B', locId: 'loc-5', faculty: 'Dr. P. M. Jadhav', time: '3:30 PM - 5:00 PM', type: 'Maker Space' }
+      }
+    }
+  },
+  'ENTC': {
+    'FE-SEM1': {
+      label: 'FE - Semester 1 (Electronics & Telecom)',
+      slots: {
+        morning: { subject: 'Basic Electrical & Electronic Devices', room: '215', locId: 'loc-7', faculty: 'Prof. S. R. Kale', time: '9:30 AM - 11:30 AM', type: 'Core Theory' },
+        afternoon: { subject: 'Basic Electronics Measurement Lab', room: '215', locId: 'loc-7', faculty: 'Prof. S. R. Kale', time: '1:15 PM - 3:15 PM', type: 'Lab Session' },
+        evening: { subject: 'Engineering Mathematics I', room: '101', locId: 'loc-1', faculty: 'Dr. S. K. Joshi', time: '3:30 PM - 5:00 PM', type: 'Tutorial' }
+      }
+    },
+    'FE-SEM2': {
+      label: 'FE - Semester 2 (Electronics & Telecom)',
+      slots: {
+        morning: { subject: 'Network Theory & Circuit Analysis', room: '215', locId: 'loc-7', faculty: 'Prof. S. R. Kale', time: '9:30 AM - 11:30 AM', type: 'Circuits Class' },
+        afternoon: { subject: 'Circuit Simulation (SPICE) Lab', room: '215', locId: 'loc-7', faculty: 'Dr. M. D. Gaikwad', time: '1:15 PM - 3:15 PM', type: 'Simulation Lab' },
+        evening: { subject: 'C Programming for Microcontrollers', room: '304', locId: 'loc-4', faculty: 'Prof. K. R. Patil', time: '3:30 PM - 5:00 PM', type: 'Embedded Lab' }
+      }
+    },
+    'SE-SEM3': {
+      label: 'SE - Semester 3 (Electronics & Telecom)',
+      slots: {
+        morning: { subject: 'Digital Circuit Design & Microprocessors', room: '215', locId: 'loc-7', faculty: 'Prof. S. R. Kale', time: '9:30 AM - 11:30 AM', type: 'Circuits Theory' },
+        afternoon: { subject: 'Digital ICs & Breadboard Lab', room: '215', locId: 'loc-7', faculty: 'Prof. S. R. Kale', time: '1:15 PM - 3:15 PM', type: 'Circuits Lab' },
+        evening: { subject: 'Electronic Devices & Linear ICs', room: '215', locId: 'loc-7', faculty: 'Dr. M. D. Gaikwad', time: '3:30 PM - 5:00 PM', type: 'Analog Theory' }
+      }
+    },
+    'SE-SEM4': {
+      label: 'SE - Semester 4 (Electronics & Telecom)',
+      slots: {
+        morning: { subject: 'Signals & Systems Analysis', room: '215', locId: 'loc-7', faculty: 'Prof. T. V. Rao', time: '9:30 AM - 11:30 AM', type: 'Signals Theory' },
+        afternoon: { subject: 'MATLAB Signals & Waveform Lab', room: '304', locId: 'loc-4', faculty: 'Prof. T. V. Rao', time: '1:15 PM - 3:15 PM', type: 'Computing Lab' },
+        evening: { subject: 'Analog Communications (AM/FM Systems)', room: '215', locId: 'loc-7', faculty: 'Prof. T. V. Rao', time: '3:30 PM - 5:00 PM', type: 'Communications' }
+      }
+    },
+    'TE-SEM5': {
+      label: 'TE - Semester 5 (Electronics & Telecom)',
+      slots: {
+        morning: { subject: 'VLSI Systems & Embedded Firmware', room: '215', locId: 'loc-7', faculty: 'Dr. M. D. Gaikwad', time: '9:30 AM - 11:30 AM', type: 'VLSI Theory' },
+        afternoon: { subject: 'FPGA Xilinx Vivado Hardware Lab', room: '215', locId: 'loc-7', faculty: 'Dr. M. D. Gaikwad', time: '1:15 PM - 3:15 PM', type: 'FPGA Lab' },
+        evening: { subject: 'Electromagnetic Field Theory & Waveguides', room: '215', locId: 'loc-7', faculty: 'Prof. T. V. Rao', time: '3:30 PM - 5:00 PM', type: 'Electromagnetics' }
+      }
+    },
+    'TE-SEM6': {
+      label: 'TE - Semester 6 (Electronics & Telecom)',
+      slots: {
+        morning: { subject: 'Digital Signal Processing (DSP) & Filters', room: '215', locId: 'loc-7', faculty: 'Prof. T. V. Rao', time: '9:30 AM - 11:30 AM', type: 'DSP Class' },
+        afternoon: { subject: 'DSP Processor TMS320 Testing Lab', room: '215', locId: 'loc-7', faculty: 'Prof. T. V. Rao', time: '1:15 PM - 3:15 PM', type: 'DSP Lab' },
+        evening: { subject: 'Internet of Things (IoT) Embedded Systems', room: '2B', locId: 'loc-5', faculty: 'Prof. S. R. Kale', time: '3:30 PM - 5:00 PM', type: 'IoT Workshop' }
+      }
+    },
+    'BE-SEM7': {
+      label: 'BE - Semester 7 (Electronics & Telecom)',
+      slots: {
+        morning: { subject: 'Wireless & Optical Satellite Communications', room: '204', locId: 'loc-2', faculty: 'Prof. T. V. Rao', time: '9:30 AM - 11:30 AM', type: 'Telecom Lecture' },
+        afternoon: { subject: 'Optical Fiber & Microwave Bench Lab', room: '215', locId: 'loc-7', faculty: 'Prof. T. V. Rao', time: '1:15 PM - 3:15 PM', type: 'Microwave Lab' },
+        evening: { subject: 'Embedded Systems Capstone Review', room: '215', locId: 'loc-7', faculty: 'Dr. M. D. Gaikwad', time: '3:30 PM - 5:00 PM', type: 'Project Review' }
+      }
+    },
+    'BE-SEM8': {
+      label: 'BE - Semester 8 (Electronics & Telecom)',
+      slots: {
+        morning: { subject: '5G Mobile Broadband & Massive MIMO', room: '204', locId: 'loc-2', faculty: 'Prof. T. V. Rao', time: '9:30 AM - 11:30 AM', type: '5G Systems' },
+        afternoon: { subject: 'Final Embedded Capstone Defense', room: '215', locId: 'loc-7', faculty: 'Dr. M. D. Gaikwad', time: '1:15 PM - 3:15 PM', type: 'Defense Lab' },
+        evening: { subject: 'Radar & Navigation Satellite Systems', room: '215', locId: 'loc-7', faculty: 'Prof. S. R. Kale', time: '3:30 PM - 5:00 PM', type: 'Seminar' }
+      }
+    }
+  },
+  'CIVIL': {
+    'FE-SEM1': {
+      label: 'FE - Semester 1 (Civil Engineering)',
+      slots: {
+        morning: { subject: 'Engineering Mechanics & Statics', room: '101', locId: 'loc-1', faculty: 'Prof. B. S. Kadam', time: '9:30 AM - 11:30 AM', type: 'Core Theory' },
+        afternoon: { subject: 'Mechanics Practical Demonstration Lab', room: '101', locId: 'loc-1', faculty: 'Prof. B. S. Kadam', time: '1:15 PM - 3:15 PM', type: 'Testing Lab' },
+        evening: { subject: 'Engineering Mathematics I', room: '101', locId: 'loc-1', faculty: 'Dr. S. K. Joshi', time: '3:30 PM - 5:00 PM', type: 'Problem Session' }
+      }
+    },
+    'FE-SEM2': {
+      label: 'FE - Semester 2 (Civil Engineering)',
+      slots: {
+        morning: { subject: 'Basic Civil & Environmental Engineering', room: '101', locId: 'loc-1', faculty: 'Prof. A. S. Patil', time: '9:30 AM - 11:30 AM', type: 'Intro Class' },
+        afternoon: { subject: 'Civil Engineering Drawing & Survey Prep', room: '112', locId: 'loc-6', faculty: 'Prof. D. K. Shinde', time: '1:15 PM - 3:15 PM', type: 'Drawing Hall' },
+        evening: { subject: 'Building Construction Technology', room: '101', locId: 'loc-1', faculty: 'Prof. B. S. Kadam', time: '3:30 PM - 5:00 PM', type: 'Construction Theory' }
+      }
+    },
+    'SE-SEM3': {
+      label: 'SE - Semester 3 (Civil Engineering)',
+      slots: {
+        morning: { subject: 'Surveying & Structural Analysis', room: '101', locId: 'loc-1', faculty: 'Prof. B. S. Kadam', time: '9:30 AM - 11:30 AM', type: 'Civil Classroom' },
+        afternoon: { subject: 'Field Surveying Total Station Practical', room: '101', locId: 'loc-1', faculty: 'Prof. B. S. Kadam', time: '1:15 PM - 3:15 PM', type: 'Field Work' },
+        evening: { subject: 'Fluid Mechanics in Open Channels', room: '101', locId: 'loc-1', faculty: 'Dr. R. D. Chavan', time: '3:30 PM - 5:00 PM', type: 'Theory Class' }
+      }
+    },
+    'SE-SEM4': {
+      label: 'SE - Semester 4 (Civil Engineering)',
+      slots: {
+        morning: { subject: 'Concrete Technology & Construction Materials', room: '101', locId: 'loc-1', faculty: 'Dr. R. D. Chavan', time: '9:30 AM - 11:30 AM', type: 'Materials Theory' },
+        afternoon: { subject: 'Concrete Compression & Quality Testing Lab', room: '101', locId: 'loc-1', faculty: 'Dr. R. D. Chavan', time: '1:15 PM - 3:15 PM', type: 'Testing Lab' },
+        evening: { subject: 'Engineering Geology & Rock Mechanics', room: '101', locId: 'loc-1', faculty: 'Prof. A. S. Patil', time: '3:30 PM - 5:00 PM', type: 'Geology Class' }
+      }
+    },
+    'TE-SEM5': {
+      label: 'TE - Semester 5 (Civil Engineering)',
+      slots: {
+        morning: { subject: 'Geotechnical Engineering & Soil Mechanics', room: '101', locId: 'loc-1', faculty: 'Dr. R. D. Chavan', time: '9:30 AM - 11:30 AM', type: 'Soil Mechanics' },
+        afternoon: { subject: 'Soil Direct Shear & Permeability Lab', room: '101', locId: 'loc-1', faculty: 'Dr. R. D. Chavan', time: '1:15 PM - 3:15 PM', type: 'Soil Lab' },
+        evening: { subject: 'Structural Design of Reinforced Concrete (RCC)', room: '101', locId: 'loc-1', faculty: 'Prof. B. S. Kadam', time: '3:30 PM - 5:00 PM', type: 'RCC Design' }
+      }
+    },
+    'TE-SEM6': {
+      label: 'TE - Semester 6 (Civil Engineering)',
+      slots: {
+        morning: { subject: 'Design of Steel Structures (Limit State)', room: '101', locId: 'loc-1', faculty: 'Prof. B. S. Kadam', time: '9:30 AM - 11:30 AM', type: 'Steel Structures' },
+        afternoon: { subject: 'STAAD.Pro & AutoCAD Civil Drafting Lab', room: '112', locId: 'loc-6', faculty: 'Dr. S. B. More', time: '1:15 PM - 3:15 PM', type: 'CAD Lab' },
+        evening: { subject: 'Hydrology & Water Resources Engineering', room: '101', locId: 'loc-1', faculty: 'Prof. A. S. Patil', time: '3:30 PM - 5:00 PM', type: 'Water Systems' }
+      }
+    },
+    'BE-SEM7': {
+      label: 'BE - Semester 7 (Civil Engineering)',
+      slots: {
+        morning: { subject: 'Transportation & Highway Systems', room: '204', locId: 'loc-2', faculty: 'Prof. A. S. Patil', time: '9:30 AM - 11:30 AM', type: 'Transportation' },
+        afternoon: { subject: 'Bitumen & Highway Pavement Testing Lab', room: '101', locId: 'loc-1', faculty: 'Prof. A. S. Patil', time: '1:15 PM - 3:15 PM', type: 'Highway Lab' },
+        evening: { subject: 'Capstone Civil Project Review', room: '101', locId: 'loc-1', faculty: 'Dr. R. D. Chavan', time: '3:30 PM - 5:00 PM', type: 'Project Review' }
+      }
+    },
+    'BE-SEM8': {
+      label: 'BE - Semester 8 (Civil Engineering)',
+      slots: {
+        morning: { subject: 'Environmental Systems & Wastewater Treatment', room: '101', locId: 'loc-1', faculty: 'Prof. A. S. Patil', time: '9:30 AM - 11:30 AM', type: 'Environmental Class' },
+        afternoon: { subject: 'Final Civil Capstone Project Defense', room: '101', locId: 'loc-1', faculty: 'Dr. R. D. Chavan', time: '1:15 PM - 3:15 PM', type: 'Project Defense' },
+        evening: { subject: 'Construction Project Management & Estimation', room: '101', locId: 'loc-1', faculty: 'Prof. B. S. Kadam', time: '3:30 PM - 5:00 PM', type: 'Management Seminar' }
+      }
+    }
+  }
+};
+
+function normalizeYearSemesterKey(rawYear) {
+  if (!rawYear) return 'TE-SEM5';
+  const val = rawYear.trim().toUpperCase();
+  if (val === 'FE' || val === '1') return 'FE-SEM1';
+  if (val === 'SE' || val === '2') return 'SE-SEM3';
+  if (val === 'TE' || val === '3') return 'TE-SEM5';
+  if (val === 'BE' || val === '4') return 'BE-SEM7';
+  return val;
+}
+
 function initFindMyNextClass() {
+  const deptSelect = document.getElementById('find-class-dept');
+  const yearSelect = document.getElementById('find-class-year');
+  const slotSelect = document.getElementById('find-class-slot');
   const btnRun = document.getElementById('btn-run-find-class');
   const btnJump = document.getElementById('btn-jump-find-class');
   const resultCard = document.getElementById('find-class-result');
@@ -3219,96 +3749,160 @@ function initFindMyNextClass() {
       const widget = document.getElementById('find-class-anchor');
       if (widget) {
         widget.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        widget.style.outline = '3px solid #38bdf8';
+        widget.style.outline = '3px solid var(--secondary)';
         setTimeout(() => { widget.style.outline = 'none'; }, 2000);
       }
     });
   }
 
-  if (btnRun && resultCard) {
-    btnRun.addEventListener('click', () => {
-      const dept = document.getElementById('find-class-dept').value;
-      const year = document.getElementById('find-class-year').value;
-      const slot = document.getElementById('find-class-slot').value;
+  function updateClassSchedule(showToastNotice = false) {
+    if (!resultCard || !deptSelect || !yearSelect || !slotSelect) return;
 
-      // Realistic timetable schedule mapping
-      const scheduleMatrix = {
-        'CS': {
-          'SE': { subject: 'Data Structures & Algorithms', room: '101', locId: 'loc-1', faculty: 'Prof. K. R. Patil', time: '10:00 AM - 11:30 AM', type: 'Theory Lecture' },
-          'TE': { subject: 'Cloud Computing & Distributed Systems', room: '304', locId: 'loc-4', faculty: 'Dr. A. P. Shinde', time: '1:15 PM - 3:15 PM', type: 'Hands-on Lab' },
-          'BE': { subject: 'High Performance Computing & Capstone', room: '302', locId: 'loc-3', faculty: 'Prof. M. S. Joshi', time: '11:45 AM - 1:00 PM', type: 'Project Review' },
-          'FE': { subject: 'Engineering Physics & Fundamentals', room: '101', locId: 'loc-1', faculty: 'Dr. N. T. Pawar', time: '9:30 AM - 11:00 AM', type: 'Core Lecture' }
-        },
-        'IT': {
-          'SE': { subject: 'Object Oriented Programming with Java', room: '204', locId: 'loc-2', faculty: 'Prof. S. D. Wagh', time: '11:15 AM - 12:45 PM', type: 'Theory Lecture' },
-          'TE': { subject: 'Full-Stack Web Architectures', room: '204', locId: 'loc-2', faculty: 'Dr. R. S. Kulkarni', time: '1:15 PM - 3:15 PM', type: 'Practical Lab' },
-          'BE': { subject: 'Cyber Security & Cryptography', room: '302', locId: 'loc-3', faculty: 'Prof. V. A. Shah', time: '9:30 AM - 11:00 AM', type: 'Specialized Elective' },
-          'FE': { subject: 'Basic Electronics & Workshop', room: '215', locId: 'loc-7', faculty: 'Prof. P. V. Deshpande', time: '1:15 PM - 3:15 PM', type: 'Electronics Lab' }
-        },
-        'AIDS': {
-          'SE': { subject: 'Statistics & Probability for Machine Learning', room: '302', locId: 'loc-3', faculty: 'Prof. G. N. Sharma', time: '10:00 AM - 11:30 AM', type: 'Theory Class' },
-          'TE': { subject: 'Computer Vision & Deep Learning', room: '2B', locId: 'loc-5', faculty: 'Dr. P. M. Jadhav', time: '1:15 PM - 4:15 PM', type: 'GPU Lab Session' },
-          'BE': { subject: 'Natural Language Processing & LLMs', room: '304', locId: 'loc-4', faculty: 'Dr. A. P. Shinde', time: '11:45 AM - 1:00 PM', type: 'AI Lab' },
-          'FE': { subject: 'Python Programming Essentials', room: '304', locId: 'loc-4', faculty: 'Prof. K. R. Patil', time: '9:30 AM - 11:00 AM', type: 'Computing Lab' }
-        },
-        'MECH': {
-          'SE': { subject: 'Thermodynamics & Fluid Dynamics', room: '101', locId: 'loc-1', faculty: 'Prof. H. B. Jagtap', time: '9:30 AM - 11:00 AM', type: 'Core Theory' },
-          'TE': { subject: 'CAD/CAM SolidWorks 3D Modeling', room: '112', locId: 'loc-6', faculty: 'Dr. S. B. More', time: '1:15 PM - 3:30 PM', type: 'Design Lab' },
-          'BE': { subject: 'Automobile Dynamics & Electric Vehicles', room: '204', locId: 'loc-2', faculty: 'Prof. R. T. Mane', time: '11:15 AM - 12:45 PM', type: 'Elective' },
-          'FE': { subject: 'Engineering Graphics & Drawing', room: '112', locId: 'loc-6', faculty: 'Prof. D. K. Shinde', time: '1:15 PM - 3:15 PM', type: 'Drawing Hall' }
-        },
-        'ENTC': {
-          'SE': { subject: 'Digital Circuit Design & Microprocessors', room: '215', locId: 'loc-7', faculty: 'Prof. S. R. Kale', time: '10:00 AM - 11:30 AM', type: 'Circuits Lab' },
-          'TE': { subject: 'VLSI Systems & Embedded Firmware', room: '215', locId: 'loc-7', faculty: 'Dr. M. D. Gaikwad', time: '1:15 PM - 3:15 PM', type: 'FPGA Lab' },
-          'BE': { subject: 'Wireless & Optical Satellite Communications', room: '204', locId: 'loc-2', faculty: 'Prof. T. V. Rao', time: '11:15 AM - 12:45 PM', type: 'Telecom Lecture' },
-          'FE': { subject: 'Basic Electrical Engineering', room: '215', locId: 'loc-7', faculty: 'Prof. S. R. Kale', time: '9:30 AM - 11:00 AM', type: 'Lab Session' }
-        },
-        'CIVIL': {
-          'SE': { subject: 'Surveying & Structural Analysis', room: '101', locId: 'loc-1', faculty: 'Prof. B. S. Kadam', time: '10:00 AM - 11:30 AM', type: 'Civil Classroom' },
-          'TE': { subject: 'Geotechnical Engineering & Concrete Tech', room: '101', locId: 'loc-1', faculty: 'Dr. R. D. Chavan', time: '1:15 PM - 3:15 PM', type: 'Testing Lab' },
-          'BE': { subject: 'Transportation & Environmental Systems', room: '204', locId: 'loc-2', faculty: 'Prof. A. S. Patil', time: '11:15 AM - 12:45 PM', type: 'Theory Lecture' },
-          'FE': { subject: 'Engineering Mechanics', room: '101', locId: 'loc-1', faculty: 'Prof. B. S. Kadam', time: '9:30 AM - 11:00 AM', type: 'Core Class' }
-        }
-      };
+    const dept = deptSelect.value || 'CS';
+    const rawYear = yearSelect.value;
+    const yearKey = normalizeYearSemesterKey(rawYear);
+    const chosenSlot = slotSelect.value || 'current';
 
-      const deptData = scheduleMatrix[dept] || scheduleMatrix['CS'];
-      const slotClass = deptData[year] || deptData['TE'];
-      const targetLoc = CollabUState.locations.find(l => l.id === slotClass.locId) || CollabUState.locations[0];
+    const deptData = CAMPUS_TIMETABLE_DB[dept] || CAMPUS_TIMETABLE_DB['CS'];
+    const semesterData = deptData[yearKey] || deptData['TE-SEM5'];
 
-      resultCard.style.display = 'flex';
+    if (!semesterData || !semesterData.slots) {
+      resultCard.style.display = 'block';
       resultCard.innerHTML = `
-        <div class="class-result-info">
-          <div class="class-room-badge">
-            <span>Room</span>
-            ${escapeHTML(slotClass.room)}
-          </div>
-          <div>
-            <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; color:#7dd3fc; font-weight:700;">
-              ⚡ ${escapeHTML(slotClass.type)} • Next Scheduled Class
-            </div>
-            <h4 style="font-size:1.1rem; font-weight:800; margin:0.2rem 0; color:white;">
-              ${escapeHTML(slotClass.subject)}
-            </h4>
-            <div style="font-size:0.82rem; color:#e0e7ff;">
-              <span>👨‍🏫 ${escapeHTML(slotClass.faculty)}</span> • 
-              <span>⏰ ${escapeHTML(slotClass.time)}</span> • 
-              <span>🏛️ ${escapeHTML(targetLoc.building)} (${escapeHTML(targetLoc.floor)})</span>
-            </div>
-            <div style="font-size:0.78rem; color:#bae6fd; margin-top:0.35rem;">
-              🚶 <strong>Directions:</strong> ${escapeHTML(targetLoc.directions)}
-            </div>
-          </div>
-        </div>
-        <div style="display:flex; flex-direction:column; gap:0.5rem; align-items:flex-end;">
-          <button class="class-route-btn" onclick="highlightLocationInDirectory('${targetLoc.id}')">
-            Show Location Card ↓
-          </button>
+        <div style="padding: 1.25rem; color: #fca5a5; font-size: 0.9rem; text-align: center;">
+          ⚠️ Timetable data currently unavailable for ${escapeHTML(dept)} (${escapeHTML(yearKey)}). Please choose another academic semester.
         </div>
       `;
+      return;
+    }
 
-      showToast(`Located next class: ${slotClass.subject} in Room ${slotClass.room}!`, 'success');
-    });
+    // Determine active slot
+    let activeSlot = chosenSlot;
+    let slotMetaLabel = '';
+    const now = new Date();
+    const currentHour = now.getHours() + now.getMinutes() / 60;
+
+    if (chosenSlot === 'current') {
+      if (currentHour < 12.5) {
+        activeSlot = 'morning';
+        slotMetaLabel = '⚡ Current Period (Morning Theory)';
+      } else if (currentHour < 15.5) {
+        activeSlot = 'afternoon';
+        slotMetaLabel = '⚡ Current Period (Afternoon Practical Lab)';
+      } else if (currentHour < 18.0) {
+        activeSlot = 'evening';
+        slotMetaLabel = '⚡ Current Period (Evening Elective / Seminar)';
+      } else {
+        activeSlot = 'morning';
+        slotMetaLabel = '🌙 Campus Day Concluded • Next Scheduled Morning Class';
+      }
+    } else if (chosenSlot === 'morning') {
+      slotMetaLabel = '🌅 Morning Timetable Period (9:30 AM - 11:30 AM)';
+    } else if (chosenSlot === 'afternoon') {
+      slotMetaLabel = '💻 Afternoon Practical Lab (1:15 PM - 3:15 PM)';
+    } else if (chosenSlot === 'evening') {
+      slotMetaLabel = '🌆 Evening Elective / Seminar (3:30 PM - 5:00 PM)';
+    }
+
+    const slotClass = semesterData.slots[activeSlot] || semesterData.slots['morning'];
+    const targetLoc = CollabUState.locations.find(l => l.id === slotClass.locId) || CollabUState.locations[0];
+
+    // Build Semester Day Schedule Preview
+    const allSlots = ['morning', 'afternoon', 'evening'];
+    const slotHeaders = {
+      morning: 'Morning (9:30 - 11:30)',
+      afternoon: 'Afternoon (1:15 - 3:15)',
+      evening: 'Evening (3:30 - 5:00)'
+    };
+
+    const scheduleListHtml = allSlots.map(sKey => {
+      const item = semesterData.slots[sKey];
+      if (!item) return '';
+      const isSelected = sKey === activeSlot;
+      return `
+        <div class="day-slot-item ${isSelected ? 'active-slot-pill' : ''}" onclick="window.selectFindClassSlot('${sKey}')" style="cursor: pointer; background: ${isSelected ? 'rgba(20, 184, 166, 0.25)' : 'rgba(255, 255, 255, 0.08)'}; border: 1px solid ${isSelected ? '#14b8a6' : 'rgba(255, 255, 255, 0.15)'}; border-radius: 8px; padding: 0.6rem 0.85rem; flex: 1; min-width: 170px;">
+          <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: ${isSelected ? '#5eead4' : '#94a3b8'}; font-weight: 700; display: flex; justify-content: space-between;">
+            <span>${slotHeaders[sKey]}</span>
+            ${isSelected ? '<span style="color:#5eead4;">● Selected</span>' : ''}
+          </div>
+          <div style="font-weight: 700; font-size: 0.85rem; color: white; margin: 0.2rem 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${escapeHTML(item.subject)}">
+            ${escapeHTML(item.subject)}
+          </div>
+          <div style="font-size: 0.75rem; color: #cbd5e1;">
+            Room ${escapeHTML(item.room)} • ${escapeHTML(item.faculty.split(' ')[0])} ${escapeHTML(item.faculty.split(' ')[1] || '')}
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    resultCard.style.display = 'block';
+    resultCard.innerHTML = `
+      <div style="display: flex; flex-direction: column; gap: 1rem; width: 100%;">
+        <div class="class-result-info" style="display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="class-room-badge" style="width: 62px; height: 62px;">
+              <span style="font-size: 0.65rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Room</span>
+              <span style="font-size: 1.25rem; font-weight: 900; color: var(--primary);">${escapeHTML(slotClass.room)}</span>
+            </div>
+            <div>
+              <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: #7dd3fc; font-weight: 700;">
+                ${escapeHTML(slotMetaLabel)} • ${escapeHTML(slotClass.type)}
+              </div>
+              <h4 style="font-size: 1.18rem; font-weight: 800; margin: 0.25rem 0; color: white;">
+                ${escapeHTML(slotClass.subject)}
+              </h4>
+              <div style="font-size: 0.82rem; color: #e0e7ff; line-height: 1.4;">
+                <span>👨‍🏫 ${escapeHTML(slotClass.faculty)}</span> • 
+                <span>⏰ ${escapeHTML(slotClass.time)}</span> • 
+                <span>🏛️ ${escapeHTML(targetLoc.building)} (${escapeHTML(targetLoc.floor)})</span>
+              </div>
+              <div style="font-size: 0.78rem; color: #bae6fd; margin-top: 0.35rem;">
+                🚶 <strong>Walking Route:</strong> ${escapeHTML(targetLoc.directions)}
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; align-self: center;">
+            <button class="class-route-btn" onclick="highlightLocationInDirectory('${targetLoc.id}')" style="background: white; color: var(--primary); font-weight: 700; border: none; padding: 0.55rem 1rem; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;">
+              Show Location Card ↓
+            </button>
+          </div>
+        </div>
+
+        <div style="border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 0.85rem;">
+          <div style="font-size: 0.75rem; font-weight: 700; color: #bae6fd; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">
+            📅 ${escapeHTML(semesterData.label)} • Day Schedule (Click any slot to inspect):
+          </div>
+          <div style="display: flex; gap: 0.65rem; flex-wrap: wrap;">
+            ${scheduleListHtml}
+          </div>
+        </div>
+      </div>
+    `;
+
+    if (showToastNotice) {
+      showToast(`Sync complete: ${slotClass.subject} in Room ${slotClass.room}!`, 'success');
+    }
   }
+
+  // Interactive changes update timetable display immediately
+  if (deptSelect) deptSelect.addEventListener('change', () => updateClassSchedule(false));
+  if (yearSelect) yearSelect.addEventListener('change', () => updateClassSchedule(false));
+  if (slotSelect) slotSelect.addEventListener('change', () => updateClassSchedule(false));
+
+  if (btnRun) {
+    btnRun.addEventListener('click', () => updateClassSchedule(true));
+  }
+
+  // Allow clicking slots in the timetable view
+  window.selectFindClassSlot = function(slotKey) {
+    if (slotSelect) {
+      slotSelect.value = slotKey;
+      updateClassSchedule(false);
+    }
+  };
+
+  // Initial render with default selections
+  updateClassSchedule(false);
 }
 
 window.highlightLocationInDirectory = function(locId) {
@@ -3705,67 +4299,117 @@ window.downloadFormSimulation = function(formCode) {
 };
 
 // -------------------------------------------------------------
-// 12. UNIFIED SMART SEARCH CONTROLLER (Across 5 Modules)
+// 12. UNIFIED SMART SEARCH CONTROLLER (Across All Modules & Features)
 // -------------------------------------------------------------
 function initUnifiedSearch() {
   const searchInput = document.getElementById('global-search-input');
   const searchBtn = document.getElementById('btn-global-search');
+  const searchIconBtn = document.getElementById('btn-global-search-icon');
   const dropdown = document.getElementById('unified-search-dropdown');
+
+  if (searchIconBtn) {
+    if (typeof searchIconBtn.click !== 'function') {
+      searchIconBtn.click = function() {
+        this.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+      };
+    }
+    searchIconBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        searchIconBtn.click();
+      }
+    });
+  }
 
   if (!searchInput) return;
 
-  function runUnifiedSearch(query) {
+  const platformFeatures = [
+    { id: 'feat-nav', name: 'Smart Campus Navigator', tab: 'navigator', desc: 'Classrooms, laboratories, auditorium & walking directions', icon: '🧭', keywords: ['navigator', 'map', 'directions', 'walking', 'classrooms', 'labs', 'auditorium', 'building', 'floor', 'hall'] },
+    { id: 'feat-next-class', name: 'Find My Next Class Assistant', tab: 'navigator', extraAction: 'find-class', desc: 'Locate next scheduled class, timetable & room number', icon: '⚡', keywords: ['find class', 'next class', 'timetable', 'schedule', 'period', 'year', 'semester', 'class assistant', 'subject'] },
+    { id: 'feat-events', name: 'Events Hub', tab: 'events', desc: 'Hackathons, technical workshops, competitions & tickets', icon: '📅', keywords: ['events', 'hackathons', 'workshops', 'seminars', 'competitions', 'tickets', 'fest', 'event hub'] },
+    { id: 'feat-collab', name: 'Student Collab & Teammate Finder', tab: 'teammates', desc: 'Find hackathon partners, capstone squads & skill exchange', icon: '👥', keywords: ['collab', 'student collab', 'teammates', 'partner', 'squad', 'hackathon team', 'capstone', 'projects', 'developer', 'designer'] },
+    { id: 'feat-lost', name: 'Campus Lost & Found', tab: 'lost-found', desc: 'Report missing IDs, keys, calculators & claim recovered belongings', icon: '🔍', keywords: ['lost', 'found', 'lost and found', 'missing', 'recovered', 'belongings', 'calculator', 'id card', 'keys', 'wallet', 'bag'] },
+    { id: 'feat-campus-help', name: 'Campus Help & Academic Services', tab: 'campus-help', desc: 'Academic forms, bonafide, counter timings, syllabus & official portals', icon: '📄', keywords: ['campus help', 'quick help', 'academic forms', 'bonafide', 'concession', 'counter timings', 'office', 'hod', 'syllabus', 'help'] },
+    { id: 'feat-helphub', name: 'Student Help Hub & Study Notes', tab: 'help-hub', desc: 'Peer study notes, course assistance & academic Q&A', icon: '📚', keywords: ['help hub', 'study notes', 'notes', 'peer help', 'assignment help', 'cheatsheets', 'exam prep'] },
+    { id: 'feat-connect', name: 'Campus Connect - Senior Network', tab: 'campus-connect', desc: 'Connect with campus seniors, ask admission queries & mentorship', icon: '🎓', keywords: ['campus connect', 'connect', 'seniors', 'mentors', 'admission', 'hostel', 'placement', 'advice', 'aspirant'] }
+  ];
+
+  function runUnifiedSearch(query, forceDisplay = false) {
     const q = (query || '').trim().toLowerCase();
     if (!dropdown) return;
 
-    if (q.length < 2) {
+    if (q.length < 2 && !forceDisplay) {
       dropdown.classList.remove('active');
       dropdown.innerHTML = '';
       return;
     }
 
-    // 1. Locations
-    const locMatches = CollabUState.locations.filter(l => 
-      `${l.name} ${l.room} ${l.building} ${l.department} ${l.landmark}`.toLowerCase().includes(q)
+    if (q.length === 0) {
+      dropdown.classList.remove('active');
+      dropdown.innerHTML = '';
+      return;
+    }
+
+    // 1. Platform Features & Tools
+    const featureMatches = platformFeatures.filter(f =>
+      f.name.toLowerCase().includes(q) ||
+      f.desc.toLowerCase().includes(q) ||
+      f.keywords.some(k => k.includes(q) || q.includes(k))
     ).slice(0, 3);
 
-    // 2. Events
-    const eventMatches = CollabUState.events.filter(e => 
-      `${e.title} ${e.category} ${e.location} ${e.host || ''}`.toLowerCase().includes(q)
+    // 2. Campus Locations
+    const locMatches = (CollabUState.locations || []).filter(l => 
+      `${l.name} ${l.room} ${l.building} ${l.floor} ${l.department} ${l.landmark} ${l.equipment || ''}`.toLowerCase().includes(q)
     ).slice(0, 3);
 
-    // 3. Teammates
-    const teamMatches = CollabUState.teammates.filter(t => 
-      `${t.name} ${t.department} ${(t.skills || []).join(' ')}`.toLowerCase().includes(q)
+    // 3. Events & Hackathons
+    const eventMatches = (CollabUState.events || []).filter(e => 
+      `${e.title} ${e.category} ${e.location} ${e.host || ''} ${e.description || ''}`.toLowerCase().includes(q)
+    ).slice(0, 3);
+
+    // 4. Student Collab & Teammates
+    const teamMatches = (CollabUState.teammates || []).filter(t => 
+      `${t.name} ${t.department} ${(t.skills || []).join(' ')} ${t.bio || ''}`.toLowerCase().includes(q)
+    ).slice(0, 3);
+
+    // 5. Lost & Found Items
+    const lostMatches = (CollabUState.lostItems || []).filter(i => 
+      `${i.title} ${i.location} ${i.description} ${i.categoryLabel || ''}`.toLowerCase().includes(q)
+    ).slice(0, 3);
+
+    // 6. Campus Help Services & Academic Forms
+    const formMatches = (CollabUState.forms || []).filter(f =>
+      `${f.title} ${f.code} ${f.office} ${f.desc || ''}`.toLowerCase().includes(q)
+    ).slice(0, 3);
+
+    const timingMatches = (CollabUState.officeTimings || []).filter(t =>
+      `${t.name} ${t.hours} ${t.location} ${t.inCharge || ''}`.toLowerCase().includes(q)
     ).slice(0, 2);
 
-    // 4. Lost & Found
-    const lostMatches = CollabUState.lostItems.filter(i => 
-      `${i.title} ${i.location} ${i.description}`.toLowerCase().includes(q)
+    // 7. Student Help Hub Requests & Notes
+    const helpMatches = (CollabUState.helpRequests || []).filter(h => 
+      `${h.title} ${h.description} ${h.courseTag || ''} ${h.categoryLabel || ''}`.toLowerCase().includes(q)
     ).slice(0, 2);
 
-    // 5. Help Requests
-    const helpMatches = CollabUState.helpRequests.filter(h => 
-      `${h.title} ${h.description} ${h.courseTag || ''}`.toLowerCase().includes(q)
-    ).slice(0, 2);
-
-    // 6. Campus Connect Mentors
+    // 8. Campus Connect Mentors & Q&A
     const mentorMatches = (CollabUState.campusMentors || []).filter(m =>
       `${m.name} ${m.branch} ${m.bio} ${(m.topics || []).join(' ')} ${(m.languages || []).join(' ')}`.toLowerCase().includes(q)
     ).slice(0, 2);
 
-    // 7. Campus Connect Q&A
-    const qaMatches = (CollabUState.campusQA || []).filter(item =>
-      `${item.question} ${item.category} ${item.askerBranch || ''}`.toLowerCase().includes(q)
-    ).slice(0, 2);
-
-    const totalMatches = locMatches.length + eventMatches.length + teamMatches.length + lostMatches.length + helpMatches.length + mentorMatches.length + qaMatches.length;
+    const totalMatches = featureMatches.length + locMatches.length + eventMatches.length + 
+                         teamMatches.length + lostMatches.length + formMatches.length + 
+                         timingMatches.length + helpMatches.length + mentorMatches.length;
 
     if (totalMatches === 0) {
       dropdown.innerHTML = `
-        <div class="search-empty-notice">
-          🔍 No direct matches found for "<strong>${escapeHTML(q)}</strong>".<br>
-          <small>Try keywords like "Lab 304", "Hackathon", "Seniors", "Placement", "Python", "Calculator", or "Bonafide".</small>
+        <div class="search-empty-notice" style="padding: 1.5rem; text-align: center;">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🔍</div>
+          <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.35rem;">
+            No direct matches found for "<strong>${escapeHTML(q)}</strong>"
+          </div>
+          <div style="font-size: 0.82rem; color: var(--text-muted); max-width: 400px; margin: 0 auto; line-height: 1.45;">
+            Try searching for campus locations (<em>Lab 304, Room 101</em>), events (<em>Hackathon, Workshop</em>), student collaboration (<em>Python, React</em>), lost items (<em>ID card, Calculator</em>), or campus help (<em>Bonafide, Counter Timings</em>).
+          </div>
         </div>
       `;
       dropdown.classList.add('active');
@@ -3774,44 +4418,28 @@ function initUnifiedSearch() {
 
     let html = '';
 
-    if (mentorMatches.length > 0) {
-      html += `<div class="search-group-header">🎓 Campus Connect Mentors (${mentorMatches.length})</div>`;
-      mentorMatches.forEach(m => {
+    // Render Features
+    if (featureMatches.length > 0) {
+      html += `<div class="search-group-header">⚡ Platform Features &amp; Direct Hubs (${featureMatches.length})</div>`;
+      featureMatches.forEach(f => {
         html += `
-          <div class="search-result-item" onclick="jumpToSearchResult('campus-connect', '${escapeHTML(m.name)}')">
+          <div class="search-result-item" onclick="jumpToSearchResult('${f.tab}', '${escapeHTML(f.name)}', '${f.extraAction || ''}')">
             <div class="search-result-main">
-              <div class="search-result-icon">🎓</div>
+              <div class="search-result-icon">${f.icon}</div>
               <div class="search-result-text">
-                <span class="search-result-title">${escapeHTML(m.name)} • ${escapeHTML(m.branch)} (${escapeHTML(m.year)})</span>
-                <span class="search-result-sub">Topics: ${(m.topics || []).slice(0, 3).join(', ')}</span>
+                <span class="search-result-title">${escapeHTML(f.name)}</span>
+                <span class="search-result-sub">${escapeHTML(f.desc)}</span>
               </div>
             </div>
-            <span class="search-result-badge">Senior →</span>
+            <span class="search-result-badge">Open Hub →</span>
           </div>
         `;
       });
     }
 
-    if (qaMatches.length > 0) {
-      html += `<div class="search-group-header">💬 Senior Q&A (${qaMatches.length})</div>`;
-      qaMatches.forEach(item => {
-        html += `
-          <div class="search-result-item" onclick="jumpToSearchResult('campus-connect', '${escapeHTML(item.category)}')">
-            <div class="search-result-main">
-              <div class="search-result-icon">❓</div>
-              <div class="search-result-text">
-                <span class="search-result-title">${escapeHTML(item.question)}</span>
-                <span class="search-result-sub">${escapeHTML(item.category)} • ${(item.answers || []).length} answers</span>
-              </div>
-            </div>
-            <span class="search-result-badge">Q&A →</span>
-          </div>
-        `;
-      });
-    }
-
+    // Render Locations
     if (locMatches.length > 0) {
-      html += `<div class="search-group-header">🧭 Campus Navigator (${locMatches.length})</div>`;
+      html += `<div class="search-group-header">🧭 Campus Navigator Locations (${locMatches.length})</div>`;
       locMatches.forEach(l => {
         html += `
           <div class="search-result-item" onclick="jumpToSearchResult('navigator', '${escapeHTML(l.room)}')">
@@ -3822,14 +4450,15 @@ function initUnifiedSearch() {
                 <span class="search-result-sub">${escapeHTML(l.building)} • Room ${escapeHTML(l.room)} (${escapeHTML(l.floor)})</span>
               </div>
             </div>
-            <span class="search-result-badge">Navigator →</span>
+            <span class="search-result-badge">Room ${escapeHTML(l.room)} →</span>
           </div>
         `;
       });
     }
 
+    // Render Events
     if (eventMatches.length > 0) {
-      html += `<div class="search-group-header">📅 Campus Events (${eventMatches.length})</div>`;
+      html += `<div class="search-group-header">📅 Campus Events &amp; Hackathons (${eventMatches.length})</div>`;
       eventMatches.forEach(e => {
         html += `
           <div class="search-result-item" onclick="jumpToSearchResult('events', '${escapeHTML(e.title)}')">
@@ -3837,15 +4466,16 @@ function initUnifiedSearch() {
               <div class="search-result-icon">🎟️</div>
               <div class="search-result-text">
                 <span class="search-result-title">${escapeHTML(e.title)}</span>
-                <span class="search-result-sub">${e.month} ${e.day} • ${escapeHTML(e.location)}</span>
+                <span class="search-result-sub">${e.month} ${e.day} • ${escapeHTML(e.location)} (${e.category})</span>
               </div>
             </div>
-            <span class="search-result-badge">${e.category} →</span>
+            <span class="search-result-badge">Event →</span>
           </div>
         `;
       });
     }
 
+    // Render Student Collab
     if (teamMatches.length > 0) {
       html += `<div class="search-group-header">👥 Student Collaboration (${teamMatches.length})</div>`;
       teamMatches.forEach(t => {
@@ -3854,7 +4484,7 @@ function initUnifiedSearch() {
             <div class="search-result-main">
               <div class="search-result-icon">👤</div>
               <div class="search-result-text">
-                <span class="search-result-title">${escapeHTML(t.name)} (${escapeHTML(t.department)})</span>
+                <span class="search-result-title">${escapeHTML(t.name)} • ${escapeHTML(t.department)}</span>
                 <span class="search-result-sub">Skills: ${(t.skills || []).slice(0, 3).join(', ')}</span>
               </div>
             </div>
@@ -3864,8 +4494,9 @@ function initUnifiedSearch() {
       });
     }
 
+    // Render Lost & Found
     if (lostMatches.length > 0) {
-      html += `<div class="search-group-header">🔍 Lost & Found Listings (${lostMatches.length})</div>`;
+      html += `<div class="search-group-header">🔍 Lost &amp; Found Listings (${lostMatches.length})</div>`;
       lostMatches.forEach(i => {
         html += `
           <div class="search-result-item" onclick="jumpToSearchResult('lost-found', '${escapeHTML(i.title)}')">
@@ -3876,14 +4507,48 @@ function initUnifiedSearch() {
                 <span class="search-result-sub">${i.type === 'lost' ? 'Lost at' : 'Found at'} ${escapeHTML(i.location)}</span>
               </div>
             </div>
-            <span class="search-result-badge">${i.type} →</span>
+            <span class="search-result-badge">${i.type === 'lost' ? 'Lost' : 'Found'} →</span>
           </div>
         `;
       });
     }
 
+    // Render Campus Help Services & Forms
+    if (formMatches.length > 0 || timingMatches.length > 0) {
+      html += `<div class="search-group-header">📄 Campus Help &amp; Academic Services (${formMatches.length + timingMatches.length})</div>`;
+      formMatches.forEach(f => {
+        html += `
+          <div class="search-result-item" onclick="jumpToSearchResult('campus-help', '${escapeHTML(f.title)}')">
+            <div class="search-result-main">
+              <div class="search-result-icon">📄</div>
+              <div class="search-result-text">
+                <span class="search-result-title">${escapeHTML(f.title)} (${escapeHTML(f.code)})</span>
+                <span class="search-result-sub">Submit at ${escapeHTML(f.office)} • ${escapeHTML(f.time)}</span>
+              </div>
+            </div>
+            <span class="search-result-badge">Form →</span>
+          </div>
+        `;
+      });
+      timingMatches.forEach(t => {
+        html += `
+          <div class="search-result-item" onclick="jumpToSearchResult('campus-help', '${escapeHTML(t.name)}')">
+            <div class="search-result-main">
+              <div class="search-result-icon">⏰</div>
+              <div class="search-result-text">
+                <span class="search-result-title">${escapeHTML(t.name)}</span>
+                <span class="search-result-sub">${escapeHTML(t.hours)} • ${escapeHTML(t.location)}</span>
+              </div>
+            </div>
+            <span class="search-result-badge">Timing →</span>
+          </div>
+        `;
+      });
+    }
+
+    // Render Help Hub
     if (helpMatches.length > 0) {
-      html += `<div class="search-group-header">🆘 Student Help & Notes (${helpMatches.length})</div>`;
+      html += `<div class="search-group-header">🆘 Student Help &amp; Study Notes (${helpMatches.length})</div>`;
       helpMatches.forEach(h => {
         html += `
           <div class="search-result-item" onclick="jumpToSearchResult('help-hub', '${escapeHTML(h.title)}')">
@@ -3900,72 +4565,93 @@ function initUnifiedSearch() {
       });
     }
 
+    // Render Campus Connect Mentors
+    if (mentorMatches.length > 0) {
+      html += `<div class="search-group-header">🎓 Campus Connect Seniors (${mentorMatches.length})</div>`;
+      mentorMatches.forEach(m => {
+        html += `
+          <div class="search-result-item" onclick="jumpToSearchResult('campus-connect', '${escapeHTML(m.name)}')">
+            <div class="search-result-main">
+              <div class="search-result-icon">🎓</div>
+              <div class="search-result-text">
+                <span class="search-result-title">${escapeHTML(m.name)} • ${escapeHTML(m.branch)} (${escapeHTML(m.year)})</span>
+                <span class="search-result-sub">Topics: ${(m.topics || []).slice(0, 3).join(', ')}</span>
+              </div>
+            </div>
+            <span class="search-result-badge">Senior →</span>
+          </div>
+        `;
+      });
+    }
+
     dropdown.innerHTML = html;
     dropdown.classList.add('active');
   }
 
+  // Live input search
   searchInput.addEventListener('input', (e) => {
     runUnifiedSearch(e.target.value);
   });
 
   // Close dropdown on outside click
   document.addEventListener('click', (e) => {
-    if (dropdown && !dropdown.contains(e.target) && e.target !== searchInput) {
+    if (dropdown && !dropdown.contains(e.target) && e.target !== searchInput && e.target !== searchBtn && e.target !== searchIconBtn) {
       dropdown.classList.remove('active');
     }
   });
 
   const performSubmitSearch = () => {
-    const query = searchInput.value.trim().toLowerCase();
+    const query = searchInput.value.trim();
     if (!query) {
-      showToast('Please type a search query (e.g. Lab 304, Hackathon, Bonafide)', 'info');
+      showToast('Please type a search query (e.g. Lab 304, Hackathon, Bonafide, Lost ID)', 'info');
+      searchInput.focus();
       return;
     }
 
-    if (dropdown) dropdown.classList.remove('active');
-
-    if (query.includes('senior') || query.includes('mentor') || query.includes('connect') || query.includes('admission') || query.includes('hostel') || query.includes('placement') || query.includes('advice') || query.includes('experience')) {
-      jumpToSearchResult('campus-connect', query);
-    } else if (query.includes('room') || query.includes('lab') || query.includes('class') || query.includes('hall') || query.includes('block') || query.includes('audi') || query.includes('canteen')) {
-      jumpToSearchResult('navigator', query);
-    } else if (query.includes('lost') || query.includes('found') || query.includes('calculator') || query.includes('wallet') || query.includes('keys')) {
-      jumpToSearchResult('lost-found', query);
-    } else if (query.includes('form') || query.includes('bonafide') || query.includes('concession') || query.includes('timing') || query.includes('portal') || query.includes('hod')) {
-      jumpToSearchResult('campus-help', query);
-    } else if (query.includes('hackathon') || query.includes('workshop') || query.includes('competition') || query.includes('event')) {
-      jumpToSearchResult('events', query);
-    } else if (query.includes('team') || query.includes('partner') || query.includes('developer') || query.includes('designer')) {
-      jumpToSearchResult('teammates', query);
-    } else {
-      jumpToSearchResult('help-hub', query);
-    }
+    // Open and display the matching results or no-results message
+    runUnifiedSearch(query, true);
+    dropdown.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   };
 
   if (searchBtn) searchBtn.addEventListener('click', performSubmitSearch);
+  if (searchIconBtn) searchIconBtn.addEventListener('click', performSubmitSearch);
+
   searchInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') performSubmitSearch();
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      performSubmitSearch();
+    }
   });
 }
 
-window.jumpToSearchResult = function(tabName, query) {
+window.jumpToSearchResult = function(tabName, query, extraAction) {
   const dropdown = document.getElementById('unified-search-dropdown');
   if (dropdown) dropdown.classList.remove('active');
 
-  switchTab(tabName);
+  switchTab(tabName, true);
 
-  if (tabName === 'campus-connect') {
-    const input = document.getElementById('connect-search-input');
-    if (input) {
-      input.value = query;
-      CollabUState.connectFilters.search = query.toLowerCase();
-      renderMentorsList();
-    }
+  if (extraAction === 'find-class' || (query && query.toLowerCase().includes('next class'))) {
+    setTimeout(() => {
+      const widget = document.getElementById('find-class-anchor');
+      if (widget) {
+        widget.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        widget.style.outline = '3px solid var(--secondary)';
+        setTimeout(() => { widget.style.outline = 'none'; }, 2000);
+      }
+    }, 150);
   } else if (tabName === 'navigator') {
     const input = document.getElementById('navigator-search-input');
     if (input) {
       input.value = query;
       CollabUState.navigatorFilters.search = query.toLowerCase();
       renderNavigator();
+    }
+    const matchLoc = CollabUState.locations.find(l => 
+      l.room.toLowerCase() === query.toLowerCase() || 
+      l.name.toLowerCase().includes(query.toLowerCase())
+    );
+    if (matchLoc) {
+      setTimeout(() => highlightLocationInDirectory(matchLoc.id), 250);
     }
   } else if (tabName === 'events') {
     const input = document.getElementById('events-search-input');
@@ -3988,6 +4674,14 @@ window.jumpToSearchResult = function(tabName, query) {
       CollabUState.lostFilters.search = query.toLowerCase();
       renderLostAndFound();
     }
+  } else if (tabName === 'campus-help') {
+    renderCampusHelp();
+    setTimeout(() => {
+      const formsGrid = document.getElementById('forms-grid-container');
+      if (formsGrid) {
+        formsGrid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 150);
   } else if (tabName === 'help-hub') {
     const input = document.getElementById('help-search-input');
     if (input) {
@@ -3995,10 +4689,16 @@ window.jumpToSearchResult = function(tabName, query) {
       CollabUState.helpFilters.search = query.toLowerCase();
       renderHelpHub();
     }
+  } else if (tabName === 'campus-connect') {
+    const input = document.getElementById('connect-search-input');
+    if (input) {
+      input.value = query;
+      CollabUState.connectFilters.search = query.toLowerCase();
+      renderMentorsList();
+    }
   }
 
-  showToast(`Navigated to ${tabName.toUpperCase()} for "${query}"`, 'info');
-  window.scrollTo({ top: 400, behavior: 'smooth' });
+  showToast(`Navigated to ${tabName.toUpperCase().replace('-', ' ')} for "${query}"`, 'info');
 };
 
 // -------------------------------------------------------------
@@ -4112,10 +4812,17 @@ window.handleEventRsvpSubmit = async function(e, evtId) {
   const submitBtn = e.target.querySelector('button[type="submit"]');
   if (submitBtn) {
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Registering...';
+    submitBtn.innerHTML = '<span class="c360-spinner"></span> Registering...';
   }
 
-  await handleEventRegistration(evtId, { name, email, branch });
+  try {
+    await handleEventRegistration(evtId, { name, email, branch });
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Confirm RSVP';
+    }
+  }
 
   const modal = document.getElementById('modal-event-details-dialog');
   if (modal) modal.classList.remove('active');
@@ -4252,6 +4959,7 @@ async function initSupabaseDataSync() {
     return;
   }
 
+  showAsyncLoading();
   updateDatabaseStatusUI();
 
   try {
@@ -4287,6 +4995,8 @@ async function initSupabaseDataSync() {
     updateDatabaseStatusUI();
   } catch (err) {
     console.warn('[Campus 360] Supabase data sync fallback to local storage:', err);
+  } finally {
+    hideAsyncLoading();
   }
 }
 
@@ -4429,16 +5139,36 @@ function showToast(message, type = 'info') {
   }, 3500);
 }
 
+// Global Async Loading Indicators
+window.showAsyncLoading = function() {
+  const bar = document.getElementById('c360-async-loading-bar');
+  if (bar) bar.classList.add('active');
+};
+
+window.hideAsyncLoading = function() {
+  const bar = document.getElementById('c360-async-loading-bar');
+  if (bar) bar.classList.remove('active');
+};
+
 // -------------------------------------------------------------
-// 18. Campus360 Student Session Integration
+// 18. Campus360 Student Session Integration & Account Menu
 // -------------------------------------------------------------
-document.addEventListener('DOMContentLoaded', () => {
+function syncAuthUI() {
   try {
     const activeUser = JSON.parse(localStorage.getItem('smartCampusCurrentUser') || 'null');
+    const authNavGroup = document.getElementById('auth-nav-group');
+    const userChipWrapper = document.getElementById('user-chip-wrapper');
     const profileChip = document.getElementById('user-profile-chip');
+    const userDropdown = document.getElementById('user-dropdown-menu');
+    const mobileAuth = document.getElementById('mobile-nav-auth');
 
-    if (profileChip) {
-      if (activeUser && activeUser.fullName) {
+    if (activeUser && activeUser.fullName) {
+      // Logged in
+      if (authNavGroup) authNavGroup.style.display = 'none';
+      if (userChipWrapper) userChipWrapper.style.display = 'inline-block';
+      if (mobileAuth) mobileAuth.style.display = 'none';
+
+      if (profileChip) {
         const nameEl = profileChip.querySelector('.user-name');
         const roleEl = profileChip.querySelector('.user-role');
         const avatarEl = profileChip.querySelector('.user-avatar span');
@@ -4457,23 +5187,60 @@ document.addEventListener('DOMContentLoaded', () => {
             .toUpperCase();
           avatarEl.textContent = initials;
         }
-        profileChip.title = `Logged in as ${activeUser.fullName} (${activeUser.email}). Click to switch account or log out.`;
+        profileChip.title = `Logged in as ${activeUser.fullName} (${activeUser.email})`;
       }
 
-      profileChip.style.cursor = 'pointer';
-      profileChip.addEventListener('click', (e) => {
-        const confirmLogout = confirm(
-          activeUser 
-            ? `Logged in as ${activeUser.fullName} (${activeUser.email}).\n\nWould you like to switch account or go to the Campus360 Login & Registration portal?`
-            : "Go to Campus360 Login & Registration Portal?"
-        );
-        if (confirmLogout) {
-          window.location.href = 'login.html';
-        }
-      });
+      // Populate dropdown menu
+      const dropName = document.getElementById('dropdown-user-name');
+      const dropEmail = document.getElementById('dropdown-user-email');
+      const dropBadge = document.getElementById('dropdown-user-badge');
+      if (dropName) dropName.textContent = activeUser.fullName;
+      if (dropEmail) dropEmail.textContent = activeUser.email || 'student@campus.edu';
+      if (dropBadge) dropBadge.textContent = `ID: ${activeUser.studentId || 'CAMPUS2026'}`;
+
+    } else {
+      // Logged out
+      if (authNavGroup) authNavGroup.style.display = 'flex';
+      if (userChipWrapper) userChipWrapper.style.display = 'none';
+      if (mobileAuth) mobileAuth.style.display = 'flex';
+      if (userDropdown) userDropdown.classList.remove('open');
     }
   } catch (err) {
     console.error("Campus360 auth integration error:", err);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  syncAuthUI();
+
+  const profileChip = document.getElementById('user-profile-chip');
+  const userDropdown = document.getElementById('user-dropdown-menu');
+  const logoutBtn = document.getElementById('dropdown-btn-logout');
+
+  if (profileChip && userDropdown) {
+    profileChip.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = userDropdown.classList.toggle('open');
+      profileChip.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!userDropdown.contains(e.target) && !profileChip.contains(e.target)) {
+        userDropdown.classList.remove('open');
+        profileChip.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('smartCampusCurrentUser');
+      syncAuthUI();
+      if (typeof showToast === 'function') {
+        showToast('Signed out successfully', 'info');
+      }
+    });
   }
 });
 
@@ -4482,7 +5249,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // =============================================================
 function initTheme() {
   const toggleBtn = document.getElementById('btn-theme-toggle');
-  const savedTheme = localStorage.getItem('dyp_theme') || 'light';
+  const savedTheme = (localStorage.getItem('campus360_theme') || localStorage.getItem('dyp_theme')) || 'light';
 
   const applyTheme = (theme) => {
     if (theme === 'dark') {
@@ -4501,7 +5268,7 @@ function initTheme() {
       const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
       const nextTheme = isDark ? 'light' : 'dark';
       applyTheme(nextTheme);
-      localStorage.setItem('dyp_theme', nextTheme);
+      localStorage.setItem('campus360_theme', nextTheme);
       showToast(`Switched to ${nextTheme.toUpperCase()} theme`, 'info');
     });
   }
@@ -4711,7 +5478,7 @@ function initCampusConnectForms() {
     formAsk.addEventListener('submit', (e) => {
       e.preventDefault();
       const askerName = (document.getElementById('ask-student-name') || document.getElementById('ask-senior-name'))?.value.trim() || 'College Aspirant';
-      const targetBranch = (document.getElementById('ask-target-branch') || document.getElementById('ask-senior-target-branch'))?.value || 'General DYP Campus';
+      const targetBranch = (document.getElementById('ask-target-branch') || document.getElementById('ask-senior-target-branch'))?.value || 'General Campus';
       const category = (document.getElementById('ask-category') || document.getElementById('ask-senior-category'))?.value || 'Admission Guidance';
       const title = (document.getElementById('ask-title') || document.getElementById('ask-senior-question'))?.value.trim() || '';
       const details = (document.getElementById('ask-details') || document.getElementById('ask-senior-question'))?.value.trim() || title;
@@ -4724,8 +5491,9 @@ function initCampusConnectForms() {
       const submitBtn = formAsk.querySelector('button[type="submit"]');
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Posting to Supabase...';
+        submitBtn.innerHTML = '<span class="c360-spinner"></span> Posting to Supabase...';
       }
+      showAsyncLoading();
 
       const newQ = {
         id: 'qa-' + Date.now(),
@@ -4739,40 +5507,43 @@ function initCampusConnectForms() {
       };
 
       const postQuestionAsync = async () => {
-        let savedToCloud = false;
-        if (window.CampusSupabase && window.CampusSupabase.isConfigured()) {
-          try {
-            const dbQ = await window.CampusSupabase.askQuestion(newQ);
-            if (dbQ && dbQ.id) newQ.id = dbQ.id;
-            savedToCloud = true;
-          } catch (err) {
-            console.warn('[Campus 360] Supabase askQuestion failed, saving locally:', err);
+        try {
+          let savedToCloud = false;
+          if (window.CampusSupabase && window.CampusSupabase.isConfigured()) {
+            try {
+              const dbQ = await window.CampusSupabase.askQuestion(newQ);
+              if (dbQ && dbQ.id) newQ.id = dbQ.id;
+              savedToCloud = true;
+            } catch (err) {
+              console.warn('[Campus 360] Supabase askQuestion failed, saving locally:', err);
+            }
           }
+
+          CollabUState.campusQA.unshift(newQ);
+          saveQA(CollabUState.campusQA);
+
+          renderQAQuestions();
+          renderCampusConnectHighlight();
+
+          const modal = document.getElementById('modal-ask-senior');
+          if (modal) modal.classList.remove('active');
+          formAsk.reset();
+
+          if (savedToCloud) {
+            showToast('Question published to Supabase Cloud! Mentors will answer shortly.', 'success');
+          } else {
+            showToast('Your question has been posted! (Saved locally)', 'success');
+          }
+
+          const qaTab = document.getElementById('connect-tab-btn-qa');
+          if (qaTab) qaTab.click();
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Question';
+          }
+          hideAsyncLoading();
         }
-
-        CollabUState.campusQA.unshift(newQ);
-        saveQA(CollabUState.campusQA);
-
-        renderQAQuestions();
-        renderCampusConnectHighlight();
-
-        const modal = document.getElementById('modal-ask-senior');
-        if (modal) modal.classList.remove('active');
-        formAsk.reset();
-
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Submit Question';
-        }
-
-        if (savedToCloud) {
-          showToast('Question published to Supabase Cloud! Mentors will answer shortly.', 'success');
-        } else {
-          showToast('Your question has been posted! (Saved locally)', 'success');
-        }
-
-        const qaTab = document.getElementById('connect-tab-btn-qa');
-        if (qaTab) qaTab.click();
       };
 
       postQuestionAsync();
@@ -4801,8 +5572,9 @@ function initCampusConnectForms() {
       const submitBtn = formAnswer.querySelector('button[type="submit"]');
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Publishing to Supabase...';
+        submitBtn.innerHTML = '<span class="c360-spinner"></span> Publishing to Supabase...';
       }
+      showAsyncLoading();
 
       const newAns = {
         id: 'ans-' + Date.now(),
@@ -4814,42 +5586,45 @@ function initCampusConnectForms() {
       };
 
       const submitAnswerAsync = async () => {
-        let savedToCloud = false;
-        if (window.CampusSupabase && window.CampusSupabase.isConfigured()) {
-          try {
-            await window.CampusSupabase.submitAnswer({
-              questionId: qId,
-              author: seniorName,
-              role: seniorRole,
-              type: classification,
-              text: answerText
-            });
-            savedToCloud = true;
-          } catch (err) {
-            console.warn('[Campus 360] Supabase submitAnswer failed, saving locally:', err);
+        try {
+          let savedToCloud = false;
+          if (window.CampusSupabase && window.CampusSupabase.isConfigured()) {
+            try {
+              await window.CampusSupabase.submitAnswer({
+                questionId: qId,
+                author: seniorName,
+                role: seniorRole,
+                type: classification,
+                text: answerText
+              });
+              savedToCloud = true;
+            } catch (err) {
+              console.warn('[Campus 360] Supabase submitAnswer failed, saving locally:', err);
+            }
           }
-        }
 
-        if (!question.answers) question.answers = [];
-        question.answers.push(newAns);
+          if (!question.answers) question.answers = [];
+          question.answers.push(newAns);
 
-        saveQA(CollabUState.campusQA);
-        renderQAQuestions();
-        renderCampusConnectHighlight();
+          saveQA(CollabUState.campusQA);
+          renderQAQuestions();
+          renderCampusConnectHighlight();
 
-        const modal = document.getElementById('modal-submit-answer');
-        if (modal) modal.classList.remove('active');
-        formAnswer.reset();
+          const modal = document.getElementById('modal-submit-answer');
+          if (modal) modal.classList.remove('active');
+          formAnswer.reset();
 
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Publish Answer';
-        }
-
-        if (savedToCloud) {
-          showToast('Answer published to Supabase Cloud! Thank you for mentoring.', 'success');
-        } else {
-          showToast('Your answer has been published. (Saved locally)', 'success');
+          if (savedToCloud) {
+            showToast('Answer published to Supabase Cloud! Thank you for mentoring.', 'success');
+          } else {
+            showToast('Your answer has been published. (Saved locally)', 'success');
+          }
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Publish Answer';
+          }
+          hideAsyncLoading();
         }
       };
 
@@ -5291,7 +6066,7 @@ function renderConversationRequests() {
       <div style="text-align: center; padding: 2.5rem; background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px dashed var(--border-light);">
         <span style="font-size: 2rem;">💬</span>
         <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-top: 0.5rem;">No conversation requests yet</h4>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">College aspirants can request safe, 1-on-1 guidance chats with DYP student mentors.</p>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">College aspirants can request safe, 1-on-1 guidance chats with campus student mentors.</p>
         <button class="btn btn-teal btn-sm" onclick="document.getElementById('btn-open-request-convo').click()" style="margin-top: 1rem;">Submit a Request</button>
       </div>
     `;

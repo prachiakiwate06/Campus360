@@ -7,46 +7,45 @@
 
 /* --- 1. Variables & Root Design System --- */
 :root {
-  /* Brand Palette - DYP CAMPUS 360 */
-  --primary: #5B3CC4;            /* Deep Purple */
-  --primary-hover: #482EB0;
-  --primary-light: #F0EBFF;
-  --primary-glow: rgba(91, 60, 196, 0.28);
+  /* Brand Palette - Campus 360 (Tropical Teal Theme) */
+  --primary: #0F766E;            /* Crisp Tropical Teal */
+  --primary-hover: #0D9488;
+  --primary-light: #F0FDFA;
+  --primary-glow: rgba(15, 118, 110, 0.20);
   
-  --tropical-teal: #20B8A8;      /* Tropical Teal */
-  --tropical-teal-bright: #2DD4BF;
-  --tropical-teal-cyan: #20B8A8;
-  --forest-green: #20243A;       /* Deep Navy */
-  --emerald-green: #20B8A8;
+  --tropical-teal: #0F766E;
+  --tropical-teal-bright: #14B8A6;
+  --tropical-teal-cyan: #0D9488;
+  --forest-green: #0F172A;
+  --emerald-green: #059669;
 
-  --secondary: #20B8A8;
-  --secondary-glow: rgba(32, 184, 168, 0.25);
-  --accent-amber: #FFD166;       /* Warm Yellow */
+  --secondary: #14B8A6;
+  --secondary-glow: rgba(20, 184, 166, 0.20);
+  --accent-amber: #D97706;
   
-  --success: #20B8A8;
-  --success-bg: #E7FAF8;
-  --success-border: #99F6E4;
+  --success: #059669;
+  --success-bg: #ECFDF5;
+  --success-border: #A7F3D0;
   
   --danger: #EF4444;
   --danger-bg: #FFF1F2;
   --danger-border: #FECDD3;
 
-  --info: #5B3CC4;
-  --info-bg: #F0EBFF;
-  --info-border: #D6CBF9;
+  --info: #0F766E;
+  --info-bg: #F0FDFA;
+  --info-border: #99F6E4;
 
-  --text-dark: #20243A;          /* Deep Navy */
+  --text-dark: #0F172A;
   --text-medium: #334155;
-  --text-muted: #575D7A;
-  --text-light: #8B92AD;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
   --text-white: #FFFFFF;
 
-  /* Soft Lavender Canvas */
-  --bg-page: #F5FAF9;
+  --bg-page: #F8FAFC;
   --bg-form: #FFFFFF;
-  --bg-input: #FCFBFF;
-  --border-input: #E4E0F4;
-  --border-focus: #5B3CC4;
+  --bg-input: #FFFFFF;
+  --border-input: #E2E8F0;
+  --border-focus: #14B8A6;
 
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -66,6 +65,10 @@
 }
 
 /* --- 2. Base Reset --- */
+html {
+  scroll-behavior: smooth;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -92,13 +95,21 @@ button {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 button:hover {
   background-color: #115E59;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px -2px rgba(15, 118, 110, 0.25), 0 2px 4px -1px rgba(32, 36, 58, 0.08);
+}
+
+button:active {
+  transform: translateY(0);
 }
 
 /* --- 3. Split Screen Container --- */
@@ -317,16 +328,17 @@ button:hover {
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease,
-              box-shadow 0.3s ease;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   user-select: none;
   text-decoration: none;
 }
 
 .feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -4px rgba(32, 36, 58, 0.12), 0 4px 8px -2px rgba(32, 36, 58, 0.05);
 }
 
 /* Soft Mint Green Card */
@@ -336,7 +348,7 @@ button:hover {
 }
 .card-mint:hover {
   border-color: #10b981;
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: 0 12px 24px -4px rgba(16, 185, 129, 0.22);
 }
 
@@ -347,7 +359,7 @@ button:hover {
 }
 .card-lavender:hover {
   border-color: #8b5cf6;
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: 0 12px 24px -4px rgba(139, 92, 246, 0.22);
 }
 
@@ -358,7 +370,7 @@ button:hover {
 }
 .card-peach:hover {
   border-color: #f59e0b;
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: 0 12px 24px -4px rgba(245, 158, 11, 0.22);
 }
 
@@ -372,6 +384,11 @@ button:hover {
   justify-content: center;
   font-size: 1.15rem;
   flex-shrink: 0;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.feature-card:hover .card-icon-circle {
+  transform: scale(1.08);
 }
 
 .icon-mint {
@@ -490,11 +507,19 @@ button:hover {
   font-weight: 600;
   color: var(--text-muted);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.24s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tab:hover {
   color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.tab:active {
+  transform: translateY(0);
 }
 
 .tab.active {
@@ -595,13 +620,23 @@ input::placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.24s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .password-box button:hover,
 .toggle-btn:hover {
   background-color: #c7d2fe;
   color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.password-box button:active,
+.toggle-btn:active {
+  transform: translateY(0);
 }
 
 /* Two Column Row */
@@ -684,7 +719,10 @@ input::placeholder {
   justify-content: center;
   gap: 8px;
   box-shadow: 0 4px 15px rgba(13, 148, 136, 0.35);
-  transition: all var(--transition-fast);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .primary-btn:hover {
@@ -754,12 +792,21 @@ input::placeholder {
   padding: 4px 10px;
   border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.24s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .demo-chip:hover {
   background: var(--primary-light);
   border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.demo-chip:active {
+  transform: translateY(0);
 }
 
 /* Message Status Display */
@@ -955,4 +1002,87 @@ form {
     padding: 28px 16px;
   }
 }
+
+/* ================= LOADING INDICATOR & ACCESSIBILITY ================= */
+.c360-async-loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, #0F766E 0%, #20B8A8 50%, #2DD4BF 100%);
+  background-size: 200% 100%;
+  z-index: 99999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.c360-async-loading-bar.active {
+  opacity: 1;
+  animation: c360LoadingSlide 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes c360LoadingSlide {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.c360-spinner {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+  border-right-color: var(--secondary, #20B8A8);
+  border-radius: 50%;
+  animation: c360Spin 0.75s linear infinite;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+@keyframes c360Spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  button:hover,
+  .primary-btn:hover,
+  .toggle-btn:hover,
+  .tab:hover,
+  .demo-chip:hover,
+  .feature-card:hover,
+  .card-mint:hover,
+  .card-lavender:hover,
+  .card-peach:hover {
+    transform: none !important;
+  }
+
+  .feature-card:hover .card-icon-circle {
+    transform: none !important;
+  }
+
+  .c360-async-loading-bar.active {
+    animation: none !important;
+    background: var(--secondary) !important;
+  }
+
+  .c360-spinner {
+    animation: none !important;
+  }
+}
+
 

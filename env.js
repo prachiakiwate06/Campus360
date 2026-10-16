@@ -1,6 +1,6 @@
 /**
  * =================================================================
- * DYP CAMPUS 360 — Environment Variables Configuration
+ * Campus 360 — Environment Variables Configuration
  * =================================================================
  * 
  * In a plain HTML/CSS/JavaScript project running in the browser,
